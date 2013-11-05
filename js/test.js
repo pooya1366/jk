@@ -1,14 +1,9 @@
-carousel = function(btn, e){
+$('.carousel .nav').click(function(e){
     e.preventDefault();
-    if(!$(btn).hasClass('disabled')){
-
-        parent_carousel.children('.nav').unbind();
-
-        var parent_carousel = $(btn).parent('.carousel');
+    if(!$(this).hasClass('disabled')){
+        var parent_carousel = $(this).parent('.carousel');
         var scroll_val = parent_carousel.children('.items-container').width();
-        var margin_right = parseInt(parent_carousel.
-            find('ul.items').
-            css('margin-right'));
+        var margin_right = parseInt(parent_carousel.find('ul.items').css('margin-right'));
         var count_items = parent_carousel.find('li.item').length;
         var item_width = parent_carousel.find('li.item').width();
         var items_in_row = scroll_val / item_width;
@@ -16,10 +11,10 @@ carousel = function(btn, e){
         var min_margin_right = (parseInt((count_items*item_width) / scroll_val)*scroll_val) * -1;
         var max_margin_right = 0;
 
-        if($(btn).hasClass('next')) {
+        if($(this).hasClass('next')) {
             var calculated_margin_right = margin_right - scroll_val;
         }
-        else if($(btn).hasClass('previous')) {
+        else if($(this).hasClass('previous')) {
             var calculated_margin_right = margin_right + scroll_val;
         }
 
@@ -39,13 +34,8 @@ carousel = function(btn, e){
                 parent_carousel.children('.nav.next').removeClass('disabled');
                 parent_carousel.children('.nav.previous').removeClass('disabled');
             }
-            parent_carousel.children('.nav').bind();
         });
     }
-
-}
-$('.carousel .nav').click(function(e){
-    carousel(this, e);
 });
 $(window).resize(function() {
     $('.carousel .items').css('margin-right', 0);
