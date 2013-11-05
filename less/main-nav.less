@@ -1,0 +1,113 @@
+#main-nav {
+  img {
+    /*display: none;*/
+  }
+
+  position: relative;
+  width: @sidebar-width;
+  z-index: 1011;
+
+  > ul {
+    > li {
+      height: 32px !important;
+      line-height: 34px !important;
+      color: @link-color;
+      border-bottom: #d2d2d2 1px dotted;
+
+      .right-nav-title {
+        .clearfix();
+        position: relative;
+        cursor: pointer;
+
+        > div {
+          float: right;
+          width: 221px;
+          padding-right: 5px;
+          font-family: @font-family-koodak;
+          font-size: 16px !important;
+          height: 30px !important;
+          overflow: hidden;
+        }
+
+        i.fa-chevron-left {
+          color: #ccc;
+          z-index: 1013;
+          width: 15px;
+          position: absolute;
+          height: 31px;
+          top: 0;
+          left: -2px;
+          padding-top: 11px;
+          background: none;
+        }
+      }
+
+      .right-nav-box {
+        display: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        .box-shadow(0 2px 20px 0px rgba(0, 0, 0, 0.3));
+        border: 1px solid #ddd;
+        background: #FFF;
+        position: absolute;
+        right: (@sidebar-width + 1);
+        top: -10px;
+        padding: 12px 5px 15px 5px;
+        z-index: 1012;
+        height: 500px;
+
+        .rounded-box-menu-col2 {
+          width: 500px;
+
+        }
+        .rounded-box-menu-col1 {
+          width: 250px;
+        }
+        .box-row {
+          .clearfix();
+
+          .box-column {
+            float: right;
+            width: 250px;
+            a {
+              display: block;
+              padding: 5px 15px 5px 10px;
+              color: #666;
+              line-height: normal;
+              font-weight: normal;
+              font-size: 12px !important;
+              &:hover {
+                color: @link-color;
+              }
+            }
+            .main-category {
+              font-family: @font-family-koodak;
+              color: #333;
+              font-size: 16px !important;
+            }
+
+          }
+
+        }
+      }
+      &:hover {
+        border-bottom: 1px solid #ddd ;
+        background-repeat: repeat;
+        background-position: 0 -62px;
+        color: #333;
+        .box-shadow(-13px 2px 15px 0px rgba(0, 0, 0, 0.3));
+        .right-nav-box {
+          display: block;
+        }
+
+        .right-nav-title {
+          i.fa-chevron-left {
+            color: @link-color;
+            background: white;
+          }
+        }
+      }
+    }
+  }
+}

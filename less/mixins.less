@@ -1,0 +1,14 @@
+html {
+  font-size: 10px;
+}
+.container() {
+  margin-left: auto;
+  margin-right: auto;
+  .clearfix();
+
+  width: @container-desktop;
+
+  @media (min-width: @screen-lg-desktop) {
+    width: @container-lg-desktop;
+  }
+}
