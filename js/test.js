@@ -39,13 +39,13 @@ initialize_carousel = function(carousel) {
     carousel.children('.items-container').children('ul.items').css('margin-right', 0);
     carousel.children('.nav.next').removeClass('disabled');
     carousel.children('.nav.previous').addClass('disabled');
+
     items.removeClass('last');
 
     for(var i=0; i < count_items; i++) {
        if(i%items_in_row == 0){
            items.eq(i).addClass('last');
        }
-
     }
 }
 
