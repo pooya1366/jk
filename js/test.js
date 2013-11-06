@@ -1,6 +1,6 @@
 $('.carousel .nav').click(function(e){
     e.preventDefault();
-    if(!$(this).hasClass('disabled')){
+    if(!$(this).hasClass('disabled') && !$(this).hasClass('processing')){
         var parent_carousel = $(this).parent('.carousel');
         var scroll_val = parent_carousel.children('.items-container').width();
         var margin_right = parseInt(parent_carousel.find('ul.items').css('margin-right'));
@@ -10,6 +10,8 @@ $('.carousel .nav').click(function(e){
         var speed = items_in_row * 100;
         var min_margin_right = (parseInt((count_items*item_width) / scroll_val)*scroll_val) * -1;
         var max_margin_right = 0;
+
+        parent_carousel.children('.nav').addClass('processing');
 
         if($(this).hasClass('next')) {
             var calculated_margin_right = margin_right - scroll_val;
@@ -34,6 +36,7 @@ $('.carousel .nav').click(function(e){
                 parent_carousel.children('.nav.next').removeClass('disabled');
                 parent_carousel.children('.nav.previous').removeClass('disabled');
             }
+            parent_carousel.children('.nav').removeClass('processing');
         });
     }
 });
