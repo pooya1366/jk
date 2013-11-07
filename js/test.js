@@ -51,6 +51,10 @@ initialize_carousel = function(carousel) {
            items.eq(i).addClass('last');
        }
     }
+
+    if(items.length <= items_in_row ) {
+        carousel.children('.nav.next').addClass('disabled');
+    }
 }
 
 $('.carousel .nav').click(function(e){
