@@ -168,9 +168,7 @@
           width: 197px;
           height: 54px;
           margin: auto;
-          background: url('../images/jetkharid-logo.svg') 0 0 no-repeat;
-
-
+          background: url('../images/jetkharid-logo.svg') 0 -55px no-repeat;
         }
         i.fa-chevron-down {
           position: absolute;
@@ -180,27 +178,52 @@
           font-weight: bold;
           font-size: @font-size-small;
           color: #7ecaff;
-          display: none;
         }
+        &.active {
+          background: white;
+          .logo {
+            background-position: 0 0;
+          }
+          i.fa-chevron-down {
+            visibility: hidden;
+          }
+        }
+        .logo-link {
+          padding-top: 4px;
+        }
+
+        #main-nav {
+          position: absolute;
+          visibility: hidden;
+          .box-shadow(0 2px 20px 0px rgba(0, 0, 0, 0.3));
+          .border-top-radius(0);
+          .border-bottom-radius(5px);
+          ul.nav {
+            > li {
+              > .right-nav-title {
+                > div {
+                  padding-right: 10px;
+                }
+              }
+            }
+          }
+        }
+
         &:hover {
           .logo {
             background-position: 0 -55px;
           }
           i.fa-chevron-down {
-            display: inline-block;
+            visibility: visible;
+          }
+          #main-nav {
+            visibility: visible;
           }
         }
 
-        .logo-link {
-          padding-top: 4px;
-          /*min-height: @header_ribbon_height - 4;*/
-        }
 
       }//End of .jk-header .ribbon .nav > #jk-main-logo
 
-      > #jk-main-logo.active {
-        background: white;
-      }
       &.shortcuts-nav {
         border-right: 1px solid #2a77bf;
       }
@@ -316,18 +339,17 @@
               text-overflow: clip;
             }
             .jquery-selectbox-currentItem {
-              text-overflow: ellipsis;
               position: absolute;
               width: 92px;
               right: 0;
               padding: 0 11px 0 0;
               white-space: nowrap;
-              overflow: hidden;
               margin: 9px 0;
               color: #000;
               line-height: 20px;
               z-index: 9;
               font-size: 12px;
+              .text-overflow();
             }
             &.default.selecthover .jquery-selectbox-moreButton {
               background-position: -139px -1514px !important;

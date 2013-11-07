@@ -2,17 +2,20 @@
   img {
     /*display: none;*/
   }
+  background-color: white;
 
   position: relative;
-  width: @sidebar-width;
+  width: @sidebar-width !important;
   z-index: 1011;
 
   > ul {
     > li {
       height: 32px !important;
+      min-height: 32px !important;
       line-height: 34px !important;
       color: @link-color;
       border-bottom: #d2d2d2 1px dotted;
+      width: @sidebar-width !important;
 
       .right-nav-title {
         .clearfix();
@@ -21,9 +24,10 @@
 
         > div {
           float: right;
-          width: 221px;
-          padding-right: 5px;
+          width: 221px !important;
+          padding-right: 5px !importnat;
           font-family: @font-family-koodak;
+          font-weight: normal !important;
           font-size: 16px !important;
           height: 30px !important;
           overflow: hidden;
@@ -32,12 +36,12 @@
         i.fa-chevron-left {
           color: #ccc;
           z-index: 1013;
-          width: 15px;
+          width: 15px !important;
           position: absolute;
-          height: 31px;
+          height: 31px !important;
           top: 0;
-          left: -2px;
-          padding-top: 11px;
+          left: -2px !important;
+          padding-top: 11px !important;
           background: none;
         }
       }
@@ -51,25 +55,25 @@
         border: 1px solid #ddd;
         background: #FFF;
         position: absolute;
-        right: (@sidebar-width + 1);
+        right: (@sidebar-width);
         top: -10px;
         padding: 12px 5px 15px 5px;
         z-index: 1012;
         height: 500px;
 
         .rounded-box-menu-col2 {
-          width: 500px;
+          width: 500px !important;
 
         }
         .rounded-box-menu-col1 {
-          width: 250px;
+          width: 250px !important;
         }
         .box-row {
           .clearfix();
 
           .box-column {
             float: right;
-            width: 250px;
+            width: 250px !important;
             a {
               display: block;
               padding: 5px 15px 5px 10px;
