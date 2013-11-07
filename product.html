@@ -561,10 +561,10 @@
                 </article>
             </section>
             <hr />
-            <section class="product-page-nav" role="nav">
+            <nav id="product-page-nav" class="product-page-nav" role="navigation">
                 <ul class="nav">
-                    <li>
-                        <a href="#product-common-info" class="active">اطلاعات کلی، وضعیت موجودی و خرید</a>
+                    <li class="active">
+                        <a href="#product-common-info">اطلاعات کلی، وضعیت موجودی و خرید</a>
                     </li>
                     <li>
                         <a href="#product-descriptions">توضیحات محصول</a>
@@ -579,7 +579,7 @@
                         <a href="#product-related">محصولات مرتبط</a>
                     </li>
                 </ul>
-            </section>
+            </nav>
         </section>
     </aside>
     <section class="product-details">
@@ -656,4 +656,32 @@
 <script src="js/response.min.js"></script>
 <script src="js/test.js"></script>
 <script src="js/category-test.js"></script>
+<script src="../../js/affix.js"></script>
+<script src="../../js/scrollspy.js"></script>
+<script>
+    $('#prodcut-aside-fix').affix({
+        offset: {
+            top: function() { return ($('#jk-header').height()+$('ol.breadcrumb').height() + 45); },
+        }
+    });
+
+    $('body').scrollspy({
+        target: '#product-page-nav'
+    });
+
+    $("nav#product-page-nav ul li a[href^='#']").on('click', function(e) {
+
+        var target = this.hash;
+
+        e.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $(this.hash).offset().top
+
+        }, 400, function(e){
+            window.location.hash = target;
+        });
+
+    });
+</script>
 </body>
