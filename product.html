@@ -673,7 +673,6 @@
 
         var target = this;
         $('#product-page-nav').removeClass('spy-active');
-        $('#product-page-nav ul li').removeClass('active');
 
         e.preventDefault();
 
@@ -682,8 +681,9 @@
 
         }, 400, function(e){
             window.location.hash = target.hash;
-            $('#product-page-nav').addClass('spy-active');
+            $('#product-page-nav ul li').removeClass('active');
             $(target).parent('li').addClass('active');
+            $('#product-page-nav').addClass('spy-active');
         });
 
     });
