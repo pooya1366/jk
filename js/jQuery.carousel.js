@@ -3,9 +3,9 @@
         var $node = $(this),
         //width of main div of carousel, how much should be scrolled
         carouselWidth = $node.find('.items-container').width(),
-        items = $node.find('li.item'),
-        itemsCount = items.length,
-        itemWidth = items.width(),
+        $items = $node.find('li.item'),
+        itemsCount = $items.length,
+        itemWidth = $items.width(),
         itemsPerRow = carouselWidth / itemWidth,
         speed = itemsPerRow * 80,
         pagesCount = Math.ceil( (itemsCount * itemWidth) / carouselWidth),
@@ -14,7 +14,7 @@
 
         var updateOptions = function () {
             carouselWidth = $node.find('.items-container').width();
-            itemWidth = items.width();
+            itemWidth = $items.width();
             itemsPerRow = carouselWidth / itemWidth;
             speed = itemsPerRow * 80;
             pagesCount = Math.ceil( (itemsCount * itemWidth) / carouselWidth);
@@ -32,6 +32,18 @@
             return nextMargin;
         };
 
+        var updateBorderClasses = function () {
+            $items.removeClass('first');
+            for (var i=0; i < itemsCount; i++) {
+                if ( i % itemsPerRow == 0 ){
+                    $items.eq(i).addClass('first');
+                }
+                else if( (i + 1) % itemsPerRow == 0 ) {
+                    $items.eq(i).addClass('last');
+                }
+            }
+        };
+
         var updateNavClasses = function (margin) {
             if (margin == max_margin_right) {
                 $node.find('.nav[data-direction=previous]').addClass('disabled');
@@ -45,14 +57,7 @@
                 $node.find('.nav[data-direction=next]').removeClass('disabled');
                 $node.find('.nav[data-direction=previous]').removeClass('disabled');
             }
-            for (var i=0; i < itemsCount; i++) {
-                if ( i % itemsPerRow == 0 ){
-                    items.eq(i).addClass('first');
-                }
-                else if( (i + 1) % itemsPerRow == 0 ) {
-                    items.eq(i).addClass('last');
-                }
-            }
+            updateBorderClasses();
         };
 
         $node.find('.nav').click(function(e){
@@ -86,5 +91,6 @@
                 resized = false;
             }
         }, 250);
+        updateBorderClasses();
     }
 })(jQuery);
