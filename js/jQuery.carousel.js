@@ -12,9 +12,21 @@
         min_margin_right = (pagesCount - 1) * carouselWidth * -1,
         max_margin_right = 0;
 
-        //finds the first item in the carousel
+
+        //Initialize Carousel
+        $node.find('ul.items').css('margin-right', 0);
+        $node.find('.nav.next').removeClass('disabled');
+        $node.find('.nav.previous').addClass('disabled');
+        if(pagesCount == 1) {
+            $node.find('.nav.next').addClass('disabled');
+        }
+
+        //finds the first and item in the carousel
         for (var i = 0; i < itemsCount; i++) {
             if (i % itemsPerRow == 0 ) {
+                items.eq(i).addClass('first');
+            }
+            else if((i+1) % itemsPerRow == 0) {
                 items.eq(i).addClass('last');
             }
         }
