@@ -47,12 +47,20 @@ initialize_carousel = function(carousel) {
     carousel.children('.nav.next').removeClass('disabled');
     carousel.children('.nav.previous').addClass('disabled');
 
+    items.removeClass('first');
     items.removeClass('last');
 
     for(var i=0; i < count_items; i++) {
        if(i%items_in_row == 0){
+           items.eq(i).addClass('first');
+       }
+       else if( (i+1)%items_in_row == 0 ) {
            items.eq(i).addClass('last');
        }
+    }
+
+    if(items.length <= items_in_row ) {
+        carousel.children('.nav.next').addClass('disabled');
     }
 }
 

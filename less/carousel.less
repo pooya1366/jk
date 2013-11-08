@@ -1,17 +1,25 @@
 @car-nav-width: 15px;
+
+.carousel-title {
+  font-weight: normal;
+  font-size: 20px;
+  margin: @grid-gutter-width*2 0 0 0;
+}
+
 .carousel {
   position: relative;
 
   .nav {
-    .size(@car-nav-width, 45px);
+    .size(@car-nav-width, 44px);
     display: block;
     line-height: 1;
     vertical-align: baseline;
-    color: lighten(@link-color, 10%);
+    color: lighten(@link-color, 20%);
     font-size: 40px;
     cursor: pointer;
     position: absolute;
-    top: 93px;
+    top: 50%;
+    margin-top: -22px;
 
     &:hover {
       color: @link-color;
@@ -22,8 +30,9 @@
     &.next {
       left: 0;
     }
-    &.disabled, &.disabled:hover {
-      color: lighten(@link-color, 40%);
+    &.disabled,
+    &.disabled:hover {
+      color: #eee;
       cursor: default;
       //visibility: hidden;
     }
@@ -52,7 +61,7 @@
 
         .item-inner {
           height: inherit;
-          padding: @grid-gutter-width (@grid-gutter-width / 2);
+          padding: (@grid-gutter-width / 2);
           text-align: center;
           position: relative;
           &:after {
@@ -75,7 +84,7 @@
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
           }
         }
-        &.last {
+        &.first {
           .item-inner:after {
             width: 0;
           }
