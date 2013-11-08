@@ -8,7 +8,7 @@ $('.subcategories-panel .box .caption-header').click(function(){
     var caption_header = caption_box.children('.caption-header');
     var caption_list = caption_box.children('.caption-list');
 
-    caption_list.slideToggle(100);
+    caption_list.slideToggle(150);
     caption_header.toggleClass('open');
     caption_list.find('.shop-all').fadeToggle(80);
 });
