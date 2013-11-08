@@ -654,8 +654,8 @@
     });
 </script>
 <script src="js/response.min.js"></script>
-<script src="js/test.js"></script>
-<script src="js/category-test.js"></script>
+<script src="js/jQuery.carousel.js"></script>
+<script src="js/jQuery.carousel.installer.js"></script>
 <script src="../../js/affix.js"></script>
 <script src="../../js/scrollspy.js"></script>
 <script>
@@ -673,6 +673,8 @@
 
         var target = this;
         $('#product-page-nav').removeClass('spy-active');
+        $('#product-page-nav ul li').removeClass('active');
+        $(target).parent('li').addClass('active');
 
         e.preventDefault();
 
@@ -681,8 +683,7 @@
 
         }, 400, function(e){
             window.location.hash = target.hash;
-            $('#product-page-nav ul li').removeClass('active');
-            $(target).parent('li').addClass('active');
+
             $('#product-page-nav').addClass('spy-active');
         });
 
