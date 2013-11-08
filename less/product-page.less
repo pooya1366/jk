@@ -44,16 +44,16 @@
 
     .carousel {
       .items-container {
-        width: @product-details-width - 2*@car-nav-width;
+        width: @product-details-width - 2*@car-nav-width + 2;
         @media (min-width: @screen-lg) {
           width: @product-details-lg-width - 2*@car-nav-width;
         }
 
         .items {
           .item {
-            width: (@product-details-width - 2*@car-nav-width) / 3;
+            width: (@product-details-width - 2*@car-nav-width) / 4;
             @media (min-width: @screen-lg) {
-              width: (@product-details-lg-width - 2*@car-nav-width) / 4;
+              width: (@product-details-lg-width - 2*@car-nav-width) / 5;
             }
           }
         }
