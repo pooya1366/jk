@@ -56,7 +56,3 @@
          });
     }
 })(jQuery);
-
-(function() {
-    $('#c').jkCarousel();
-})();
