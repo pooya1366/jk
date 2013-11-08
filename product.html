@@ -561,7 +561,7 @@
                 </article>
             </section>
             <hr />
-            <nav id="product-page-nav" class="product-page-nav" role="navigation">
+            <nav id="product-page-nav" class="product-page-nav spy-active" role="navigation">
                 <ul class="nav">
                     <li class="active">
                         <a href="#product-common-info">اطلاعات کلی، وضعیت موجودی و خرید</a>
@@ -666,12 +666,14 @@
     });
 
     $('body').scrollspy({
-        target: '#product-page-nav'
+        target: '.spy-active'
     });
 
-    $("nav#product-page-nav ul li a[href^='#']").on('click', function(e) {
+    $('#product-page-nav ul li a[href^=\'#\']').on('click', function(e) {
 
-        var target = this.hash;
+        var target = this;
+        $('#product-page-nav').removeClass('spy-active');
+        $('#product-page-nav ul li').removeClass('active');
 
         e.preventDefault();
 
@@ -679,7 +681,9 @@
             scrollTop: $(this.hash).offset().top
 
         }, 400, function(e){
-            window.location.hash = target;
+            window.location.hash = target.hash;
+            $('#product-page-nav').addClass('spy-active');
+            $(target).parent('li').addClass('active');
         });
 
     });
