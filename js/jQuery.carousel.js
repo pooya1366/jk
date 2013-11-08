@@ -8,7 +8,7 @@
         itemWidth = items.width(),
         itemsPerRow = carouselWidth / itemWidth,
         speed = itemsPerRow * 80,
-        pagesCount = Math.ceil( (itemsCount * itemWidth) / carouselWidth),
+        pagesCount = Math.ceil( itemsCount / itemsPerRow ),
         min_margin_right = (pagesCount - 1) * carouselWidth * -1,
         max_margin_right = 0;
 
