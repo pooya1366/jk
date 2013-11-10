@@ -554,16 +554,46 @@
     </aside>
 
     <section class="content-wrapper">
-        <div class="products-search-toolbar clearfix">
-            <div class="pull-left clearfix">
-                <div class="view-toggle pull-left clearfix">
-                    <div class="btn-group">
-                        <button type="button" id="GridView" class="btn btn-default btn-sm active"><i class="fa fa-th"></i></button>
-                        <button type="button" id="ListView" class="btn btn-default btn-sm"><i class="fa fa-align-justify"></i></button>
+        <div class="products-search-toolbar">
+            <div class="clearfix">
+                <div class="sort-by-container pull-left">
+                    <div class="pull-right">
+                        <div class="pull-right sort-by-title">مرتب کردن بر اساس: </div>
+                        <div class="dropdown pull-right">
+                            <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                                جدیدترین <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="#">قیمت</a></li>
+                                <li><a href="#">نام</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown pull-right sort-dir">
+                            <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                                صعودی <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="#">نزولی</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dropdown pull-right items-per-page">
+                        <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                            12 مورد در صغحه <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="#">24 مورد در صفحه</a></li>
+                            <li><a href="#">48 مورد در صفحه</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <ul class="pagination">
+            </div>
+            <div class="clearfix">
+                <div class="pull-right products-count-container">
+                    مورد <strong>1</strong> - <strong>12</strong> از <strong>36</strong> محصول
+                </div>
+                <div class="pull-left">
+                    <ul class="pagination pagination-sm pull-right">
                         <li class="disabled"><a href="#">«</a></li>
                         <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">2</a></li>
@@ -572,8 +602,16 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">»</a></li>
                     </ul>
+                    <div class="view-toggle pull-right">
+                        <div class="btn-group">
+                            <button type="button" id="GridView" class="btn btn-default btn-sm active"><i class="fa fa-th"></i></button>
+                            <button type="button" id="ListView" class="btn btn-default btn-sm"><i class="fa fa-align-justify"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
         <article class="products-list clearfix">
             <ol class="item-list clearfix GridView">
@@ -584,12 +622,29 @@
                 <li class="item"></li>
                 <li class="item"></li>
                 <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
             </ol>
+            <div class="clearfix bottom-pagination-container">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+            </div>
         </article>
     </section>
 </section>
 <script src="../../assets/js/jquery.js"></script>
 <script src="js/jquery.selectbox.js"></script>
+<script src="../../js/dropdown.js"></script>
 <script>
     $('#search-form-category').selectbox({
         animationSpeed: "fast"

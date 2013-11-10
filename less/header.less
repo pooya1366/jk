@@ -32,11 +32,24 @@
 
     .dropdown-menu{
       border-radius: 0 0 5px 5px;
-      @shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.3);
-      .box-shadow(@shadow);
+      //@shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.3);
+      //.box-shadow(@shadow);
       border: 1px solid #ccc;
       border-top: 0;
       min-width: 220px;
+      > li {
+        > a {
+          color: @link-color;
+          padding: 0;
+          display: inline;
+
+          &:hover,
+          &:focus {
+            background: none;
+            text-decoration: underline;
+          }
+        }
+      }
     }
 
     .nav  {
@@ -383,7 +396,7 @@
             border : 1px solid #ccc;
             /*border-top: 0;*/
             padding: 5px 10px;
-            .box-shadow(0 2px 20px 0px rgba(0, 0, 0, 0.3));
+            .box-shadow(0 6px 12px rgba(0, 0, 0, 0.175));
           }
 
           .jquery-selectbox-moreButton {
