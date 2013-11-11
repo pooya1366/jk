@@ -35,6 +35,8 @@
                 }
             }
         };
+        //initializing
+        updateBorderClasses();
 
         var updateNavClasses = function (margin) {
             if (margin == max_margin_right) {
