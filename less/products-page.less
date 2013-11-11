@@ -246,6 +246,9 @@
           .btn {
             .text {
               display: none;
+              @media (min-width: @screen-lg) {
+                display: block;
+              }
             }
           }
         }
@@ -271,8 +274,9 @@
         .compare {
           //visibility: hidden;
           position: absolute;
-          right: 63px;
-          bottom: 18px;
+          left: 10px;
+          top: 10px;
+          font-size: 10px;
           .text {
             display: none;
             @media (min-width: @screen-lg) {
