@@ -113,12 +113,20 @@
           font-family: @font-family-koodak;
           font-size: 16px;
           color: @red;
+          max-width: 145px;
 
           .old-price {
             font-size: 14px;
             text-decoration: line-through;
             margin-bottom: -7px;
             color: #999;
+          }
+
+          .price-desc{
+            font-family: @font-family-sans-serif;
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 2px;
           }
 
         }
@@ -177,10 +185,10 @@
       margin-top: -1px;
       position: relative;
 
-      .size(242px, 335px);
+      .size(242px, 345px);
 
       @media (min-width: @screen-lg) {
-        .size(325px, 335px);
+        .size(325px, 345px);
       }
 
       &:hover:after,
@@ -233,12 +241,6 @@
           margin-top: -3px;
         }
 
-        .buy-desc {
-          font-size: 11px;
-          color: #777;
-          margin: 5px 0;
-        }
-
         .buy-options {
           position: absolute;
           right: @grid-gutter-width;
@@ -274,8 +276,8 @@
         .compare {
           //visibility: hidden;
           position: absolute;
-          left: 10px;
-          top: 10px;
+          right: 20px;
+          bottom: 55px;
           font-size: 10px;
           .text {
             display: none;
@@ -342,10 +344,7 @@
           margin-top: 10px;
 
         }
-        .buy-desc {
-          margin-right: 200px;
-          padding-left: 180px;
-        }
+
         .item-price {
           position: absolute;
           bottom: @grid-gutter-width * 3;
