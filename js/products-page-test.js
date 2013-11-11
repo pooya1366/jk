@@ -18,5 +18,4 @@ $('.view-toggle button').click(function(e){
         });
     }
 
-
 });

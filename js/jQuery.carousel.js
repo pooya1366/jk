@@ -35,21 +35,25 @@
                 }
             }
         };
-        //initializing
-        updateBorderClasses();
 
         var updateNavClasses = function (margin) {
             if (margin == max_margin_right) {
-                $node.find('.nav[data-direction=previous]').addClass('disabled');
-                $node.find('.nav[data-direction=next]').removeClass('disabled');
+                $node.find('.nav[data-direction=previous]').
+                        addClass('disabled');
+                $node.find('.nav[data-direction=next]').
+                        removeClass('disabled');
             }
             else if(margin == min_margin_right()) {
-                $node.find('.nav[data-direction=next]').addClass('disabled');
-                $node.find('.nav[data-direction=previous]').removeClass('disabled');
+                $node.find('.nav[data-direction=next]').
+                        addClass('disabled');
+                $node.find('.nav[data-direction=previous]').
+                        removeClass('disabled');
             }
             else {
-                $node.find('.nav[data-direction=next]').removeClass('disabled');
-                $node.find('.nav[data-direction=previous]').removeClass('disabled');
+                $node.find('.nav[data-direction=next]').
+                        removeClass('disabled');
+                $node.find('.nav[data-direction=previous]').
+                        removeClass('disabled');
             }
         };
 
@@ -68,6 +72,18 @@
                 });
             }
         });
+
+        var init = function(){
+            //initializing
+            updateBorderClasses();
+            if (pagesCount() == 1) {
+                $node.find('.nav[data-direction=next]').
+                        addClass('disabled');
+                $node.find('.nav[data-direction=previous]').
+                        addClass('disabled');
+            }
+        };
+        init();
 
         var resized = false;
         $(window).resize(function() {

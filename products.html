@@ -554,16 +554,47 @@
     </aside>
 
     <section class="content-wrapper">
-        <div class="products-search-toolbar clearfix">
-            <div class="pull-left clearfix">
-                <div class="view-toggle pull-left clearfix">
-                    <div class="btn-group">
-                        <button type="button" id="GridView" class="btn btn-default btn-sm active"><i class="fa fa-th"></i></button>
-                        <button type="button" id="ListView" class="btn btn-default btn-sm"><i class="fa fa-align-justify"></i></button>
+        <div class="products-search-toolbar">
+            <div class="clearfix">
+                <div class="pull-left products-count-container">
+                    مورد <strong>1</strong> - <strong>12</strong> از <strong>36</strong> محصول
+                </div>
+
+            </div>
+            <div class="clearfix">
+                <div class="sort-by-container pull-right">
+                    <div class="pull-right">
+                        <div class="pull-right sort-by-title">مرتب کردن بر اساس: </div>
+                        <div class="dropdown pull-right">
+                            <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                                جدیدترین <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="#">قیمت</a></li>
+                                <li><a href="#">نام</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown pull-right sort-dir">
+                            <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                                صعودی <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="#">نزولی</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dropdown pull-right items-per-page">
+                        <button id="dLabel" class="btn btn-default btn-sm" role="button" data-toggle="dropdown" data-target="#">
+                            12 مورد در صغحه <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="#">24 مورد در صفحه</a></li>
+                            <li><a href="#">48 مورد در صفحه</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <ul class="pagination">
+                <div class="pull-left">
+                    <ul class="pagination pagination-sm pull-right">
                         <li class="disabled"><a href="#">«</a></li>
                         <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">2</a></li>
@@ -572,24 +603,154 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">»</a></li>
                     </ul>
+                    <div class="view-toggle pull-right">
+                        <div class="btn-group">
+                            <button type="button" id="GridView" class="btn btn-default btn-sm active"><i class="fa fa-th"></i></button>
+                            <button type="button" id="ListView" class="btn btn-default btn-sm"><i class="fa fa-align-justify"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
         <article class="products-list clearfix">
             <ol class="item-list clearfix GridView">
-                <li class="item"></li>
-                <li class="item"></li>
-                <li class="item"></li>
-                <li class="item"></li>
-                <li class="item"></li>
-                <li class="item"></li>
-                <li class="item"></li>
+                <li class="item">
+                    <div class="item-content">
+                        <button class="btn btn-default btn-sm btn-quickview"><i class="fa fa-search"></i> مشاهده سریع</button>
+                        <a href="#">
+                            <div class="image">
+                                <img src="images/product_images/thumbnails/2013-iphone5s-gray.png" />
+                            </div>
+                        </a>
+                        <h3 class="item-title">
+                            <a href="#">
+                            تلفن همراه اپل خاکستری iPhone 5S - 32GB
+                            </a>
+                        </h3>
+                        <p class="rating" data-rating="3.0"></p>
+                        <div class="item-descs">
+                            مشخصات کلی : یک سیم کارته - وزن : 112 گرم مناسب برای عکاسی -
+                            پردازنده : Apple A7 & M7 Motion Chipset 64bit Architecture CPU
+                            صفحه نمایش : صفحه نمایش رنگی لمسی LED-backlit IPS LCD با دقت رتینا و لمسی خازنی (Capacitive Touchscreen) - سایز صفحه نمایش : 4.0 اینچ - دارای رزولوشن 1136 × 640 - تراکم پیکسلی : 326 پیکسل بر اینچ - قابلیت نمایش 16 میلیون رنگ
+                            حافظه : حافظه داخلی 16384 مگابایت
+                            شبکه های ارتباطی : 3G - 4G - GPRS - قابلیت اتصال به اینترنت از طریق وای فای - GPS - بلوتوث
+                            دوربین : 8.0 مگاپیکسل - دوربین مکالمه ویدئویی - فوکوس اتوماتیک - فلاش
+                            صدا : فیش 3.5 میلیمتری هدفون
+                            امکانات نرم افزاری : سیستم عامل Apple iOS 7 - نمایش فایلهای PDF
+                            سایر مشخصات : قطب نما
+                        </div>
+                        <p class="buy-desc">قیمت مربوط به یک کارتن می‌باشد</p>
+                        <div class="item-price">
+                            <div class="old-price">
+                                ۳,۲۵۰,۰۰۰ تومان
+                            </div>
+                            ۳,۱۵۰,۰۰۰ تومان
+                        </div>
+                        <div class="buy-options">
+                            <button class="btn btn-info add-to-cart-btn" title="افزودن به سبد خرید">
+                                <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
+                                <div class="text pull-right">افزودن به سبد خرید</div>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <button class="btn btn-default btn-sm btn-quickview"><i class="fa fa-search"></i> مشاهده سریع</button>
+                        <a href="#">
+                            <div class="image">
+                                <img src="images/product_images/thumbnails/2013-iphone5s-gold.png" />
+                            </div>
+                        </a>
+                        <h3 class="item-title">
+                            <a href="#">
+                                تلفن همراه اپل طلائی iPhone 5S - 64GB
+                            </a>
+                        </h3>
+                        <p class="rating" data-rating="3.0"></p>
+                        <div class="item-price">
+                            ۳,۱۵۰,۰۰۰ تومان
+                        </div>
+                        <div class="buy-options">
+                            <button class="btn btn-info add-to-cart-btn" title="افزودن به سبد خرید">
+                                <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
+                                <div class="text pull-right">افزودن به سبد خرید</div>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <button class="btn btn-default btn-sm btn-quickview"><i class="fa fa-search"></i> مشاهده سریع</button>
+                        <a href="#">
+                            <div class="image">
+                                <img src="images/product_images/thumbnails/2013-iphone5s-gold.png" />
+                            </div>
+                        </a>
+                        <h3 class="item-title">
+                            <a href="#">
+                                تلفن همراه اپل طلائی iPhone 5S - 64GB
+                            </a>
+                        </h3>
+                        <p class="rating" data-rating="3.0"></p>
+                        <div class="item-price">
+                            ۳,۱۵۰,۰۰۰ تومان
+                        </div>
+                        <div class="buy-options">
+                            <button class="btn btn-info add-to-cart-btn" title="افزودن به سبد خرید">
+                                <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
+                                <div class="text pull-right">افزودن به سبد خرید</div>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <button class="btn btn-default btn-sm btn-quickview"><i class="fa fa-search"></i> مشاهده سریع</button>
+                        <a href="#">
+                            <div class="image">
+                                <img src="images/product_images/thumbnails/2013-iphone5s-gold.png" />
+                            </div>
+                        </a>
+                        <h3 class="item-title">
+                            <a href="#">
+                                تلفن همراه اپل طلائی iPhone 5S - 64GB
+                            </a>
+                        </h3>
+                        <p class="rating" data-rating="3.0"></p>
+                        <div class="item-price">
+                            ۳,۱۵۰,۰۰۰ تومان
+                        </div>
+                        <div class="buy-options">
+                            <button class="btn btn-info add-to-cart-btn" title="افزودن به سبد خرید">
+                                <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
+                                <div class="text pull-right">افزودن به سبد خرید</div>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+
             </ol>
+            <div class="clearfix bottom-pagination-container">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+            </div>
         </article>
     </section>
 </section>
 <script src="../../assets/js/jquery.js"></script>
 <script src="js/jquery.selectbox.js"></script>
+<script src="../../js/dropdown.js"></script>
 <script>
     $('#search-form-category').selectbox({
         animationSpeed: "fast"
