@@ -8,13 +8,13 @@ $('.view-toggle button').click(function(e){
         $('.view-toggle button').removeClass('active');
         $(this).addClass('active');
 
-        $('.products-list ol.item-list').fadeOut('fast', function() {
+        $('.products-list ol.item-list').fadeOut(20, function() {
 
             $('.products-list ol.item-list').removeClass('GridView ListView');
 
             $('.products-list ol.item-list').addClass(id);
 
-            $('.products-list ol.item-list').fadeIn('fast');
+            $('.products-list ol.item-list').fadeIn(200);
         });
     }
 
