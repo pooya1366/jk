@@ -19,10 +19,7 @@
     article {
       margin-bottom: 0;
     }
-    hr {
-      margin: @grid-gutter-width/2 0;
-    }
-
+    
     .product-page-nav {
       .nav {
         font-family: @font-family-koodak;
@@ -104,17 +101,15 @@
       position: relative;
       border-bottom: 1px solid #eee;
       padding-bottom: @grid-gutter-width / 2;
+      padding-top: @grid-gutter-width / 2;
+      margin-top: @grid-gutter-width / -2;
       margin-bottom: @grid-gutter-width;
 
       h1.product-title {
         font-family: @font-family-koodak;
         font-size: 22px;
         margin: 0;
-        max-width: 530px;
-
-        @media (min-width: @screen-lg) {
-          max-width: 780px;
-        }
+        padding-left: 120px;
       }
 
       .product-logo {
@@ -126,9 +121,9 @@
     }
 
     .product-data-box {
-      min-height: 500px;
-      padding-bottom: @grid-gutter-width;
-      padding-top: @grid-gutter-width / 4;
+      //min-height: 500px;
+      padding-bottom: @grid-gutter-width * 2;
+      padding-top: @grid-gutter-width / 2;
       &.first {
         padding-top: 0;
       }
@@ -177,6 +172,7 @@
 
 #product-common-info {
   #info {
+    position: relative;
     padding-left: @grid-gutter-width + 245;
 
     .price-box {
@@ -211,8 +207,9 @@
       }
     }
 
-    .buy-form {
-      margin-bottom: @grid-gutter-width - 5;
-    }
   }
+}
+
+.tour-btn-container {
+  margin-top: (@grid-gutter-width - 5);
 }
