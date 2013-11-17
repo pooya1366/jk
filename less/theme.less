@@ -1,3 +1,4 @@
+@import "../fonts/font-koodak/less/font-koodak";
 body {
   direction: rtl;
 }
@@ -101,6 +102,7 @@ ol {
   float: right;
 }
 
+
 hr {
   background-color: transparent;
   display: block;
@@ -109,7 +111,7 @@ hr {
   border-top: 1px solid #e7e7e7;
   line-height: 19px;
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 }
 
 hr.bucketDivider {
@@ -139,5 +141,29 @@ hr.bucketDivider {
     filter: none;
     z-index: 1;
     content: "";
+  }
+}
+hr.spacing-base {
+  margin-bottom: 15px!important;
+}
+
+.btn-buy {
+  //.button-variant(#111, #f0c14b, #bf942a);
+  padding: 4px 5px 4px 9px;
+  line-height: 1;
+  .btn-inner {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  i {
+    font-size: 22px;
+  }
+  .text {
+    display: block;
+    font-family: @font-family-koodak;
+    font-size: 14px;
+    margin-right: 8px;
+    padding-top: 6px;
   }
 }

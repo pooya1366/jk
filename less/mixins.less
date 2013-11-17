@@ -16,8 +16,7 @@ html {
 .button-variant(@color; @background; @border) {
   color: @color;
   background: @background;
-  #gradient.vertical(lighten(@background, 8%), @background);
-  //.box-shadow(0 1px 0 rgba(255,255,255,0.2) inset);
+  #gradient.vertical(lighten(@background, 10%), @background);
   border-color: @border;
   border-top-color: lighten(@border, 8%);
   &:hover,
@@ -27,8 +26,9 @@ html {
   .open .dropdown-toggle& {
     color: @color;
     border-color: @border;
+    border-top-color: lighten(@border, 8%);
     background: darken(@background, 4%);
-    #gradient.vertical(lighten(@background, 4%), darken(@background, 4%));
+    #gradient.vertical(lighten(@background, 6%), darken(@background, 4%));
   }
   &:active,
   &.active,

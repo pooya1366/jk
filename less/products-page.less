@@ -94,39 +94,25 @@
           background-position: 0 -79px;
         }
 
-        .buy-options {
-          .btn {
-            padding: 4px 5px 4px 9px;
-            line-height: 1;
-            i {
-              font-size: 22px;
-            }
-            .text {
-              font-family: @font-family-koodak;
-              font-size: 14px;
-              margin-right: 4px;
-              padding-top: 6px;
-            }
-          }
-        }
-        .item-price {
-          font-family: @font-family-koodak;
-          font-size: 16px;
-          color: @red;
+
+        .price-box {
+
           max-width: 145px;
+          p {
+            margin: 0;
+          }
+          .price-label {
+            display: none;
+          }
 
           .old-price {
-            font-size: 14px;
-            text-decoration: line-through;
             margin-bottom: -7px;
-            color: #999;
           }
 
           .price-desc{
-            font-family: @font-family-sans-serif;
+            margin: 0;
+            margin-top: -5px;
             font-size: 10px;
-            color: #888;
-            margin-bottom: 2px;
           }
 
         }
@@ -267,10 +253,10 @@
           }
         }
 
-        .item-price {
+        .price-box {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: 11px;
+          bottom: 15px;
           text-align: left;
         }
 
@@ -357,7 +343,7 @@
 
         }
 
-        .item-price {
+        .price-box {
           position: absolute;
           bottom: @grid-gutter-width * 3;
           left: @grid-gutter-width;

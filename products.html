@@ -649,15 +649,19 @@
                     امکانات نرم افزاری : سیستم عامل Apple iOS 7 - نمایش فایلهای PDF
                     سایر مشخصات : قطب نما
                 </div>
-                <div class="item-price">
-                    <p class="price-desc">قیمت مربوط به یک کارتن می‌باشد</p>
-                    <div class="old-price">
-                        ۳,۲۵۰,۰۰۰ تومان
-                    </div>
-                    ۳,۱۵۰,۰۰۰ تومان
+                <div class="price-box">
+                    <p class="old-price">
+                        <span class="price-label">قیمت:</span>
+                        <span class="price" id="old-price-1">1,200,000 تومان</span>
+                    </p>
+                    <p class="special-price">
+                        <span class="price-label">فروش ویژه:</span>
+                        <span class="price" id="product-price-1">1,000,000 تومان</span>
+                    </p>
+                    <p class="price-desc">قیمت برای یک کارتن می‌باشد</p>
                 </div>
                 <div class="buy-options">
-                    <button class="btn btn-primary add-to-cart-btn" title="افزودن به سبد خرید">
+                    <button class="btn btn-primary btn-buy" title="افزودن به سبد خرید">
                         <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
                         <div class="text pull-right">افزودن به سبد خرید</div>
                     </button>
@@ -685,12 +689,13 @@
                     </a>
                 </h3>
                 <p class="rating" data-rating="3.0"></p>
-                <div class="item-price">
-                    <p class="price-desc">قیمت برای یک کارتن می‌باشد</p>
-                    ۱۸,۰۰۰,۰۰۰ تومان
+                <div class="price-box">
+                    <span class="regular-price" id="product-price-1">
+                        <span class="price">1,200,000 تومان</span>
+                    </span>
                 </div>
                 <div class="buy-options">
-                    <button class="btn btn-primary add-to-cart-btn" title="افزودن به سبد خرید">
+                    <button class="btn btn-primary btn-buy" title="افزودن به سبد خرید">
                         <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
                         <div class="text pull-right">افزودن به سبد خرید</div>
                     </button>
@@ -718,11 +723,13 @@
                     </a>
                 </h3>
                 <p class="rating" data-rating="3.0"></p>
-                <div class="item-price">
-                    ۳,۱۵۰,۰۰۰ تومان
+                <div class="price-box">
+                    <span class="regular-price" id="product-price-1">
+                        <span class="price">1,200,000 تومان</span>
+                    </span>
                 </div>
                 <div class="buy-options">
-                    <button class="btn btn-primary add-to-cart-btn" title="افزودن به سبد خرید">
+                    <button class="btn btn-primary btn-buy" title="افزودن به سبد خرید">
                         <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
                         <div class="text pull-right">افزودن به سبد خرید</div>
                     </button>
@@ -750,11 +757,13 @@
                     </a>
                 </h3>
                 <p class="rating" data-rating="3.0"></p>
-                <div class="item-price">
-                    ۸۷,۰۰۰ تومان
+                <div class="price-box">
+                    <span class="regular-price" id="product-price-1">
+                        <span class="price">1,200,000 تومان</span>
+                    </span>
                 </div>
                 <div class="buy-options">
-                    <button class="btn btn-primary add-to-cart-btn" title="افزودن به سبد خرید">
+                    <button class="btn btn-primary btn-buy" title="افزودن به سبد خرید">
                         <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
                         <div class="text pull-right">افزودن به سبد خرید</div>
                     </button>
@@ -782,7 +791,7 @@
 <script src="js/jquery.selectbox.js"></script>
 <script src="../../js/dropdown.js"></script>
 <script>
-    $('#search-form-category').selectbox({
+     تومان('#search-form-category').selectbox({
         animationSpeed: "fast"
     });
 </script>

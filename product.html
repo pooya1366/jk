@@ -593,11 +593,41 @@
             </div>
             <div class="inner">
                 <div id="info">
-                    salam
+                    <div class="price-box">
+                        <p class="old-price">
+                            <span class="price-label">قیمت:</span>
+                            <span class="price" id="old-price-1">1,200,000 تومان</span>
+                        </p>
+                        <p class="special-price">
+                            <span class="price-label">فروش ویژه:</span>
+                            <span class="price" id="product-price-1">1,000,000 تومان</span>
+                        </p>
+                        <p class="price-desc">قیمت برای یک کارتن می‌باشد</p>
+                    </div>
                 </div>
                 <div id="buy-box" class="panel panel-default">
                     <div class="panel-body">
-                        buy
+                        <div class="buy-form">
+                            <div id="select-quantity">
+                                <label for="quantity" class="a-native-dropdown">تعداد:</label>
+                                <select name="quantity" autocomplete="off" id="quantity" class="a-native-dropdown">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-buy btn-block" title="افزودن به سبد خرید">
+                                <div class="btn-inner">
+                                    <div class="icon pull-right"><i class="fa fa-shopping-cart fa-flip-horizontal"></i></div>
+                                    <div class="text pull-right">افزودن به سبد خرید</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <hr class="spacing-base">
+                        <div class="additional-actions">
+                            <button class="btn btn-default btn-sm btn-block">افزودن به علاقه مندی ها</button>
+                        </div>
                     </div>
                 </div>
             </div>

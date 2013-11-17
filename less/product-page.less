@@ -178,11 +178,35 @@
 #product-common-info {
   #info {
     padding-left: @grid-gutter-width + 245;
+
+    .price-box {
+      p {
+        margin: 0;
+      }
+      .price-desc {
+        font-size: 11px;
+      }
+    }
+
   }
+
   #buy-box {
+
     width: 245px;
     position: absolute;
     left: 0;
     top: 0;
+    text-align: center;
+
+    #select-quantity {
+      margin-bottom: @grid-gutter-width / 2;
+      label {
+        margin-left: @grid-gutter-width / 4;
+      }
+    }
+
+    .buy-form {
+      margin-bottom: @grid-gutter-width - 5;
+    }
   }
 }
