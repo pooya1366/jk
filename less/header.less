@@ -31,10 +31,10 @@
     }
 
     .dropdown-menu{
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
       //@shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.3);
       //.box-shadow(@shadow);
-      border: 1px solid #ccc;
+      //border: 1px solid #ccc;
       border-top: 0;
       min-width: 220px;
       > li {
@@ -208,15 +208,24 @@
         #main-nav {
           position: absolute;
           visibility: hidden;
-          .box-shadow(0 2px 20px 0px rgba(0, 0, 0, 0.3));
+          .box-shadow(@dropdown-shadow);
           .border-top-radius(0);
-          .border-bottom-radius(5px);
+          .border-bottom-radius(@border-radius-base);
           ul.nav {
             > li {
+              border-right: 1px solid @dropdown-border;
+              border-left: 1px solid @dropdown-border;
               > .right-nav-title {
                 > div {
                   padding-right: 10px;
                 }
+              }
+              > .right-nav-box {
+                margin-right: -1px;
+              }
+              &.lastparent {
+                border-bottom: 1px solid @dropdown-border;
+                .border-bottom-radius(@border-radius-base);
               }
             }
           }
@@ -389,14 +398,14 @@
             overflow-x: hidden;
             overflow-y: auto;
             z-index: 1030;
-            border-radius: 5px 0 5px 5px;
-            -webkit-border-radius: 5px 0 5px 5px;
-            -moz-border-radius: 5px 0 5px 5px;
-            -ms-border-radius: 5px 0 5px 5px;
-            border : 1px solid #ccc;
-            /*border-top: 0;*/
+            border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
+            -webkit-border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
+            -moz-border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
+            -ms-border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
+            border : 1px solid @dropdown-border;
+            //border-top: 0;
             padding: 5px 10px;
-            .box-shadow(0 6px 12px rgba(0, 0, 0, 0.175));
+            .box-shadow(@dropdown-shadow);
           }
 
           .jquery-selectbox-moreButton {

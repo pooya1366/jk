@@ -132,22 +132,30 @@
         }
         .compare {
           font-size: 10px;
-          padding: 2px 8px;
-          background-color: @btn-info-bg;
-          border: 1px solid @btn-info-border;
-          color: white;
-          border-radius: @border-radius-base;
+          padding: 0;
+          cursor: pointer;
+          //background-color: @btn-info-bg;
+          //border: 1px solid @btn-info-border;
+          //color: white;
+          //border-radius: @border-radius-base;
           cursor: default;
           &:hover {
-            background-color: darken(@btn-info-bg, 8%);
-            border-color: darken(@btn-info-border, 12%);
+            //background-color: darken(@btn-info-bg, 8%);
+            //border-color: darken(@btn-info-border, 12%);
           }
           &.in-compare {
             visibility: visible !important;
           }
+          input {
+            width: 20px;
+            cursor: pointer;
+          }
           label {
             font-weight: normal;
             margin: 0;
+            padding: 2px 0px 2px 8px;
+            margin-right: -2px;
+            cursor: pointer;
           }
         }
         .offer-img {
