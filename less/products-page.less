@@ -187,10 +187,10 @@
       margin-top: -1px;
       position: relative;
 
-      .size(242px, 345px);
+      .size(242px, 340px);
 
       @media (min-width: @screen-lg) {
-        .size(325px, 345px);
+        .size(325px, 340px);
       }
 
       &:hover:after,
@@ -257,14 +257,7 @@
             }
           }
 
-          .btn-buy {
-            i {
-              margin-right: -2px;
-              @media (min-width: @screen-lg) {
-                margin-right: 0;
-              }
-            }
-          }
+
 
         }
 
@@ -296,7 +289,7 @@
           //visibility: hidden;
           position: absolute;
           right: 20px;
-          bottom: 55px;
+          bottom: 50px;
           font-size: 10px;
           .text {
             display: none;
@@ -366,7 +359,7 @@
 
         .price-box {
           position: absolute;
-          bottom: @grid-gutter-width * 3;
+          bottom: @grid-gutter-width * 3 - 5;
           left: @grid-gutter-width;
           min-width: 135px;
           text-align: left;
@@ -374,7 +367,7 @@
         .stock-status {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: @grid-gutter-width * 3;
+          bottom: @grid-gutter-width * 3 - 5;
           text-align: left;
         }
         .buy-options {
