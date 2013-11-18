@@ -1,6 +1,7 @@
+@import "../../../less/mixins";
+@import "../../../less/variables";
 @import "variables";
 @import "carousel";
-@import "../../../less/mixins";
 @import "../fonts/font-koodak/less/font-koodak";
 
 @product-sidebar-width:                     300px;
@@ -231,7 +232,6 @@
   }
 
   #buy-box {
-
     width: 245px;
     position: absolute;
     left: 0;
@@ -244,6 +244,19 @@
         margin-left: @grid-gutter-width / 4;
       }
     }
+
+    .btn-buy {
+      height: 38px;
+      padding: 5px 10px;
+      i {
+        font-size: 23px;
+      }
+      .text {
+        font-size: 16px;
+      }
+    }
+
+
 
   }
 }

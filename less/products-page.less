@@ -247,6 +247,7 @@
           position: absolute;
           right: @grid-gutter-width;
           bottom: @grid-gutter-width - 5;
+
           .btn {
             .text {
               display: none;
@@ -255,6 +256,16 @@
               }
             }
           }
+
+          .btn-buy {
+            i {
+              margin-right: -2px;
+              @media (min-width: @screen-lg) {
+                margin-right: 0;
+              }
+            }
+          }
+
         }
 
         .price-box {

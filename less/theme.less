@@ -159,24 +159,76 @@ hr.spacing-base {
   text-align: center;
 }
 
-.btn-buy {
-  .button-block-center();
-}
+.btn-jk-bold {
+  padding: 4px 9px;
+  line-height: 1;
+  height: 32px;
 
-.btn-tour {
-  .button-block-center();
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45AAD6',endColorstr='#2386C0');BACKGROUND:#45AAD6;COLOR:#fff;TEXT-DECORATION:none;text-shadow:0 1px 0 rgba(0,0,0,0.3)";
+
+  .btn-inner {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  i {
+    font-size: 22px;
+
+  }
+
+  .text {
+    display: block;
+    font-family: @font-family-koodak;
+    font-size: 14px;
+    padding-top: 6px;
+    margin-right: 6px;
+  }
+
+  &.btn-sm {
+    height: 28px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    i {
+      font-size: 16px;
+      margin-top: 3px;
+    }
+
+    .text {
+      padding-top: 5px;
+    }
+  }
 
 }
 
 .btn-more-info {
-  .button-block-center();
   i {
     font-size: 18px;
     margin-top: 2px;
-    margin-right: 2px;
+    //margin-right: 2px;
   }
 }
 
 .btn-dark {
   .button-variant(#fff, #666, #555);
+}
+
+.btn-default {
+  #gradient > .vertical(@btn-default-bg, darken(@btn-default-bg, 8%));
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    #gradient > .vertical(@btn-default-bg, darken(@btn-default-bg, 12%));
+  }
+
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
 }
