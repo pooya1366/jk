@@ -240,3 +240,22 @@ select {
   padding: 3px;
   border: 1px #ddd solid;
 }
+
+.btn,
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+
+  -webkit-transition-property: background,border;
+  -moz-transition-property: background,border;
+  -ms-transition-property: background,border;
+  -o-transition-property: background,border;
+  transition-property: background,border;
+}
