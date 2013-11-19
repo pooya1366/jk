@@ -1,0 +1,11 @@
+{
+    "name": "JetKharid",
+    "version": "1.0.0",
+    "author": "Iman Mohamadi",
+    "dependencies": {
+        "requirejs": "",
+        "jquery": "",
+        "modernizer": "",
+        "bootstrap": ""
+    }
+}

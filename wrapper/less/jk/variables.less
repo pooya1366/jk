@@ -1,0 +1,93 @@
+// ----------------------------------------------------- Overrides -----------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Brand colors
+// -------------------------
+@brand-primary:         #1a75d0;
+
+
+// Links
+// -------------------------
+@link-color:            #1a75d0;
+@link-hover-color:      #1a75d0;
+@link-hover-sc-color:   #f63;
+
+@btn-default-bg:        #e7e9ec;
+@btn-info-bg:           #45aad6;
+@btn-info-border:       lighten(#2c95c2, 3%);
+//@btn-primary-bg:        #0079bc;
+@btn-success-bg:        darken(#5cb85c, 3%);
+@btn-success-border:    darken(#4cae4c, 3%);
+
+
+@dropdown-border:       #bbb;
+@dropdown-shadow:       0 2px 4px 0 rgba(0,0,0,0.13);
+
+
+
+// Typography
+// -------------------------
+@font-family-sans-serif:    "lucida grande",tahoma,verdana,arial,sans-serif;
+@font-size-base:            12px;
+
+@line-height-base:        1.66; // 20/14
+
+
+// Iconography
+// -------------------------
+@fa-font-path:              "../fonts/font-awesome/fonts";
+@yekan-font-path:           "../fonts/font-yekan/fonts";
+@koodak-font-path:           "../fonts/font-koodak/fonts";
+
+// Grid system
+// --------------------------------------------------
+@grid-gutter-width:       20px;
+@sidebar-width:           230px;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Medium screen / desktop
+@container-desktop:           980px;
+
+// Large screen / wide desktop
+@container-lg-desktop:        1230px;
+
+
+// Media queries breakpoints
+// --------------------------------------------------
+@screen-md:         (@container-desktop + (@grid-gutter-width));
+@screen-lg:         (@container-lg-desktop + (@grid-gutter-width));
+
+
+
+// ------------------------------------------------ Jetkharid Variables ------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Colors
+// --------------------------------------------------
+
+@light_blue:           #6cabe7;
+@red:                 #C00;
+@green:               #090;
+
+// Header
+// --------------------------------------------------
+
+@header_ribbon_bg:           #0b5ead;
+@header_ribbon_height:       62px;
+@header_top_main_nav_height: 43px;
+@header_nav_item_padding:    15px;
+
+// Grids
+// --------------------------------------------------
+
+@content-wrapper-with-one-sidebar-width:    (@container-desktop - @sidebar-width - @grid-gutter-width);
+@content-wrapper-with-one-sidebar-width-lg: (@container-lg-desktop - @sidebar-width - @grid-gutter-width);
+
+@content-wrapper-with-two-sidebar-width:    (@container-desktop - 2 * @sidebar-width - 2 * @grid-gutter-width);
+@content-wrapper-with-two-sidebar-width-lg: (@container-lg-desktop - 2 * @sidebar-width - 2 * @grid-gutter-width);
+
+@slide_show_height:               280px;
+@category_page_slide_show_height: @slide_show_height;
