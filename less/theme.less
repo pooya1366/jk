@@ -251,3 +251,24 @@ select {
   padding: 3px;
   border: 1px #ddd solid;
 }
+
+.btn-gold {
+  .box-shadow(0 1px 0 rgba(255,255,255,0.4) inset);
+  border-color: #cba957 #bf942a #aa8326;
+  color: #333 !important;
+  text-shadow: none;
+  background: #f3d078;
+
+  #gradient > .vertical(#f7dfa5, #f0c14b);
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active, {
+    border-color: #cba957 #bf942a #aa8326;
+    color: #333 !important;
+    background: #f1c860;
+    #gradient > .vertical(#f5d78e, #eeb933);
+  }
+
+}
