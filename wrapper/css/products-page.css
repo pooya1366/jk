@@ -1,0 +1,339 @@
+@font-face {
+  font-family: 'jk-Koodak';
+  src: url('../fonts/font-koodak/fonts/Koodak.eot?#') format('eot'), url('../fonts/font-koodak/fonts/Koodak.woff') format('woff'), url('../fonts/font-koodak/fonts/Koodak.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.page-title {
+  display: none;
+}
+.products-page-container .content-wrapper {
+  padding-left: 2px;
+}
+.products-search-toolbar {
+  margin-bottom: 20px;
+}
+.products-search-toolbar .pagination {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.products-search-toolbar .view-toggle {
+  margin-top: 1px;
+  margin-right: 20px;
+}
+.products-search-toolbar ul.dropdown-menu {
+  min-width: 100px;
+}
+.products-search-toolbar ul.dropdown-menu > li > a {
+  font-size: 11px;
+}
+.products-search-toolbar .sort-by-title {
+  padding-top: 5px;
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.products-search-toolbar .sort-dir {
+  margin-right: 5px;
+}
+.products-search-toolbar .dropdown.items-per-page {
+  margin-right: 20px;
+}
+.products-search-toolbar .products-count-container {
+  margin-bottom: 10px;
+}
+.products-list .item-list {
+  position: relative;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+.products-list .item-list > .item {
+  list-style: none;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.products-list .item-list > .item > .item-content .item-title {
+  font-size: 15px;
+}
+.products-list .item-list > .item > .item-content .item-title > a {
+  color: #333333;
+}
+.products-list .item-list > .item > .item-content .item-title > a:hover {
+  color: #1a75d0;
+  text-decoration: none;
+}
+.products-list .item-list > .item > .item-content .rating {
+  background: url(../../images/star-ratings@2x.png) no-repeat top left;
+  background-size: 61px 148px;
+  height: 12px;
+  width: 61px;
+  margin: 0;
+  padding: 0;
+  background-position: 0 -79px;
+}
+.products-list .item-list > .item > .item-content .price-box {
+  max-width: 145px;
+}
+.products-list .item-list > .item > .item-content .price-box p {
+  margin: 0;
+}
+.products-list .item-list > .item > .item-content .price-box .price-label {
+  display: none;
+}
+.products-list .item-list > .item > .item-content .price-box .old-price {
+  margin-bottom: -7px;
+}
+.products-list .item-list > .item > .item-content .price-box .price-desc {
+  margin: 0;
+  margin-top: -5px;
+  font-size: 10px;
+}
+.products-list .item-list > .item > .item-content .stock-status {
+  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+.products-list .item-list > .item > .item-content .compare {
+  font-size: 10px;
+  padding: 0;
+  cursor: pointer;
+  cursor: default;
+}
+.products-list .item-list > .item > .item-content .compare.in-compare {
+  visibility: visible !important;
+}
+.products-list .item-list > .item > .item-content .compare input {
+  width: 20px;
+  cursor: pointer;
+}
+.products-list .item-list > .item > .item-content .compare label {
+  font-weight: normal;
+  margin: 0;
+  padding: 2px 0px 2px 8px;
+  margin-right: -2px;
+  cursor: pointer;
+}
+.products-list .item-list > .item > .item-content .offer-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 90px;
+  height: 90px;
+  background-size: 90px 90px;
+  background-repeat: no-repeat;
+}
+.products-list .item-list > .item > .item-content .offer-badge {
+  background-image: url("../images/offer-badge.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .products-list .item-list > .item > .item-content .offer-badge {
+    background-image: url("../images/offer-badge-retina.png");
+    background-size: 90px 90px;
+  }
+}
+.products-list .item-list > .item .btn-quickview {
+  visibility: hidden;
+}
+.products-list .item-list > .item:hover .btn-quickview {
+  visibility: visible;
+}
+.products-list .GridView {
+  margin-top: 1px;
+  border-right: 1px solid #dddddd;
+}
+.products-list .GridView > .item {
+  border: 1px solid #dddddd;
+  border-right: 0;
+  float: right;
+  margin-top: -1px;
+  position: relative;
+  width: 242px;
+  height: 340px;
+}
+@media (min-width: 1250px) {
+  .products-list .GridView > .item {
+    width: 325px;
+    height: 340px;
+  }
+}
+.products-list .GridView > .item:hover:after,
+.products-list .GridView > .item:focus:after {
+  -webkit-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
+  content: "";
+  height: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: box-shadow 0.5s ease-out;
+  -moz-transition: box-shadow 0.5s ease-out;
+  transition: box-shadow 0.5s ease-out;
+  width: 100%;
+}
+.products-list .GridView > .item > .item-content {
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+.products-list .GridView > .item > .item-content .image {
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+  padding-bottom: 5px;
+  height: 175px;
+}
+.products-list .GridView > .item > .item-content .image > img {
+  max-width: 100%;
+  max-height: 165px;
+}
+.products-list .GridView > .item > .item-content .item-title {
+  margin: 15px 0 10px 0;
+}
+.products-list .GridView > .item > .item-content .item-title > a {
+  display: block;
+  width: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.products-list .GridView > .item > .item-content .rating {
+  margin-top: -4px;
+}
+.products-list .GridView > .item > .item-content .buy-options {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+}
+.products-list .GridView > .item > .item-content .buy-options .btn .text {
+  display: none;
+}
+@media (min-width: 1250px) {
+  .products-list .GridView > .item > .item-content .buy-options .btn .text {
+    display: block;
+  }
+}
+.products-list .GridView > .item > .item-content .price-box {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  text-align: left;
+}
+.products-list .GridView > .item > .item-content .stock-status {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  text-align: left;
+}
+.products-list .GridView > .item > .item-content .item-descs {
+  display: none;
+}
+.products-list .GridView > .item > .item-content .btn-quickview {
+  position: absolute;
+  right: 50%;
+  margin-right: -52px;
+  top: 82px;
+}
+.products-list .GridView > .item > .item-content .compare {
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+  font-size: 10px;
+}
+.products-list .GridView > .item > .item-content .compare .text {
+  display: none;
+}
+@media (min-width: 1250px) {
+  .products-list .GridView > .item > .item-content .compare .text {
+    display: inline;
+  }
+}
+.products-list .GridView > .item:hover .compare {
+  visibility: visible;
+}
+.products-list .ListView > .item {
+  border: 1px solid #dddddd;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.products-list .ListView > .item > .item-content {
+  padding: 20px 0;
+  position: relative;
+  min-height: 170px;
+  height: 100%;
+}
+.products-list .ListView > .item > .item-content .btn-quickview {
+  position: absolute;
+  right: 48px;
+  top: 70px;
+}
+.products-list .ListView > .item > .item-content .item-title {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  margin-right: 200px;
+  padding-left: 180px;
+}
+.products-list .ListView > .item > .item-content .image {
+  float: right;
+  width: 200px;
+  text-align: center;
+}
+.products-list .ListView > .item > .item-content .image > img {
+  max-width: 160px;
+  max-height: 160px;
+}
+.products-list .ListView > .item > .item-content .rating {
+  margin-right: 200px;
+}
+.products-list .ListView > .item > .item-content .item-descs {
+  margin-right: 200px;
+  padding-left: 180px;
+  text-align: justify;
+  margin-top: 10px;
+}
+.products-list .ListView > .item > .item-content .price-box {
+  position: absolute;
+  bottom: 55px;
+  left: 20px;
+  min-width: 135px;
+  text-align: left;
+}
+.products-list .ListView > .item > .item-content .stock-status {
+  position: absolute;
+  left: 20px;
+  bottom: 55px;
+  text-align: left;
+}
+.products-list .ListView > .item > .item-content .buy-options {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+.products-list .ListView > .item > .item-content .compare {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+.products-list .ListView > .item.last {
+  margin-bottom: 0;
+}
+.products-list .ListView > .item:hover {
+  border-color: #d0d0d0;
+  -webkit-box-shadow: 0 1px 1px #e7e7e7;
+  box-shadow: 0 1px 1px #e7e7e7;
+}
+.products-list .ListView > .item:hover .compare {
+  visibility: visible;
+}
+.bottom-pagination-container {
+  text-align: center;
+}
+.bottom-pagination-container .pagination {
+  margin-bottom: 0;
+  font-weight: bold;
+}

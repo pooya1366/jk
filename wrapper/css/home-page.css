@@ -1,0 +1,21 @@
+.hp-container .home-page-nav {
+  /*height: 512px;*/
+}
+.hp-container .hp-slider {
+  height: 280px;
+}
+.hp-container .hp-adv-boxes .adv-box {
+  margin-right: 20px;
+  width: 230px;
+  height: 180px;
+}
+.hp-container .hp-adv-boxes .adv-box.first {
+  margin-right: 0;
+}
+.hp-container #hp-contents {
+  width: 720px;
+}
+.hp-container #hp-ads-lg {
+  width: 200px;
+  margin-right: 20px;
+}
