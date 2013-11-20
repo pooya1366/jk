@@ -7,10 +7,17 @@ module.exports = function (grunt) {
             options: {
                 separator: ';'
             },
-            commonVents: {
-                src: ['js/src/handlers/*.common.js',
-                      'js/src/events/*.common.js'],
-                dest: 'js/dist/vents/commonEvents.js'
+            vents: {
+                files : [
+                    {
+                        src: ['js/src/handlers/*.common.js', 'js/src/events/*.common.js'],
+                        dest: 'js/dist/vents/commonVents.js'
+                    },
+                    {
+                        src: ['js/src/handlers/compare.js', 'js/src/events/compare.js'],
+                        dest: 'js/dist/vents/compare.js'
+                    }
+                ]
             },
             plugins: {
                 src: ['js/src/plugins/*.common.js'],
@@ -23,9 +30,21 @@ module.exports = function (grunt) {
                 options : {
                     cleancss: true
                 },
-                files: {
-                    'css/style.css' : 'less/jk/jk.less'
-                }
+                files: [
+                    { expand: true, cwd: 'less/jk', src: '**/*-page.less', dest: 'css/', ext: '.css' },
+                    {src: 'less/jk/jk.less', dest: 'css/jk.css'}
+                ]
+            }
+        },
+
+        watch: {
+            themes: {
+                files: ['less/**/*.less'],
+                tasks: ['less:production']
+            },
+            vents: {
+                files: ['js/src/events/*.js', 'js/src/handlers/*.js'],
+                tasks: ['concat:vents']
             }
         }
 
@@ -33,10 +52,14 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
 	//task registration
-  	grunt.registerTask('default', ['concat:commonVents']);
-  	grunt.registerTask('join', ['concat:commonVents', 'concat:plugins']);
+  	grunt.registerTask('default', ['concat:vents']);
+  	grunt.registerTask('join', ['concat:vents', 'concat:plugins']);
   	grunt.registerTask('makeTheme', ['less:production']);
+  	grunt.registerTask('watchTheme', ['watch:themes']);
+  	grunt.registerTask('watchVents', ['watch:vents']);
 
 }
