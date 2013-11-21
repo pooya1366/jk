@@ -1,11 +1,17 @@
-(function () {
-    console.log('handling carousel');
-})();
-;(function () {
+if ( typeof jk === 'undefined' ) {
+    window.jk = {};
+    window.jk.handlers = {};
+}
+
+jk.handlers.initCarousels = function () {
+    $('.carousel').each(function () {
+        $(this).jkCarousel();
+    });
+};(function () {
     console.log('handling styles');
 })();
-;(function(){
-    console.log('registering events related to carousel component.');
-})();;(function () {
+;$(document).ready(function () {
+    jk.handlers.initCarousels();
+});;(function () {
     console.log('style related events');
 })();
