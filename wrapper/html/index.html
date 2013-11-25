@@ -8,8 +8,15 @@
     <title>Theme Template for Jetkharid</title>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../js/libs/html5shiv/dist/html5shiv.js"></script>
+    <script src="../js/libs/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <link rel="stylesheet" type="text/css" href="../css/jk.css" />
     <link rel="stylesheet" type="text/css" href="../css/home-page.css" />
+
 </head>
 <body>
     <header id="jk-header" class="header">
@@ -33,7 +40,7 @@
                 <section class="search-container">
                     <div style="padding: 12px 15px 0 0;">
                     <form mthos="post" class="search-box" id="search-box" name="search-box" role="form">
-                        <select id="search-form-category" class="search-category-select pull-right">
+                        <select id="search-form-category" class="search-category-select pull-right selectbox">
                             <option value="0">همه‌ی دسته‌ها</option>
                             <option value="5438">Apparel</option>
                             <option value="91083">Auto &amp; Tires</option>
@@ -609,13 +616,4 @@
     </section>
 
 <script data-main="../js/src/pages/index.js" type="text/javascript" src="../js/libs/requirejs/require.js"></script>
-<!--<script src="../../assets/js/jquery.js"></script>-->
-<!--<script src="js/jquery.selectbox.js"></script>-->
-<!--<script src="js/jQuery.carousel.js"></script>-->
-<!--<script src="js/jQuery.carousel.installer.js"></script>-->
-<!--<script>-->
-    <!--$('#search-form-category').selectbox({-->
-        <!--animationSpeed: "fast"-->
-    <!--});-->
-<!--</script>-->
 </body>

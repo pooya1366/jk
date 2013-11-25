@@ -5,8 +5,13 @@ require.config({
         jquery: 'js/libs/jquery/jquery.min',
         commonPlugins: 'js/dist/plugins/commonPlugins',
         commonVents: 'js/dist/vents/commonVents',
+        affix: 'js/libs/bootstrap/js/affix',
+        affixEvent: 'js/src/events/affixEvent',
+        affixHandler: 'js/src/handlers/affixHandler',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
-        respond: 'js/libs/respond/respond.min'
+        respond: 'js/libs/respond/respond.min',
+        navScroller: 'js/src/events/navScroller',
+        scrollSpy: 'js/libs/bootstrap/js/scrollspy'
     }
 
     /*
@@ -23,14 +28,28 @@ require.config({
         },
         commonPlugins: {
             deps: ['jquery']
+        },
+        affixHandler: {
+            deps: ['jquery', 'scrollSpy', 'affix']
+        },
+        affixEvent: {
+            deps: ['jquery', 'affixHandler']
+        },
+        affix: {
+            deps: ['jquery', 'scrollSpy']
+        },
+        scrollSpy: {
+            deps: ['jquery']
         }
     }
 });
 
 require(['jquery',
-        'commonPlugins',
-        'commonVents',
-        'respond',
-        'html5shiv'
-        ], function () {
+    'commonPlugins',
+    'commonVents',
+    'affixEvent',
+    'compare',
+    'navScroller'
+], function () {
+
 });

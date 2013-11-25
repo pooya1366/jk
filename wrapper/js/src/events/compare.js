@@ -1,3 +1,3 @@
-(function () {
-    console.log('compare events');
-})();
+$(document).ready(function () {
+    console.log('testing compare event');
+});
