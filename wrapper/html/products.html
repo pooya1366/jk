@@ -12,9 +12,9 @@
     <script src="../../assets/js/html5shiv.js"></script>
     <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet/less" type="text/css" href="less/jk.less" />
-    <link rel="stylesheet/less" type="text/css" href="less/products-page.less" />
-    <script src="../../assets/js/less.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/jk.css" />
+    <link rel="stylesheet" type="text/css" href="../css/products-page.css" />
 </head>
 <body>
 <header id="jk-header" class="header">
@@ -444,7 +444,7 @@
 <section class="search-container">
     <div style="padding: 12px 15px 0 0;">
         <form mthos="post" class="search-box" id="search-box" name="search-box" role="form">
-            <select id="search-form-category" class="search-category-select pull-right">
+            <select id="search-form-category" class="search-category-select pull-right selectbox">
                 <option value="0">همه‌ی دسته‌ها</option>
                 <option value="5438">Apparel</option>
                 <option value="91083">Auto &amp; Tires</option>
@@ -796,13 +796,8 @@
 </article>
 </section>
 </section>
-<script src="../../assets/js/jquery.js"></script>
-<script src="js/jquery.selectbox.js"></script>
-<script src="../../js/dropdown.js"></script>
-<script>
-    $('#search-form-category').selectbox({
-        animationSpeed: "fast"
-    });
-</script>
-<script src="js/products-page-test.js"></script>
+
+<script type="text/javascript" data-main="../js/src/pages/products.js" src="../js/libs/requirejs/require.js"></script>
+<!--<script src="../../js/dropdown.js"></script>-->
+<!--<script src="js/products-page-test.js"></script>-->
 </body>
