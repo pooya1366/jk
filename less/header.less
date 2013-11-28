@@ -205,30 +205,13 @@
           padding-top: 4px;
         }
 
-        #main-nav {
+        #nav-browse-flyout {
           position: absolute;
           visibility: hidden;
           .box-shadow(@dropdown-shadow);
           .border-top-radius(0);
           .border-bottom-radius(@border-radius-base);
-          ul.nav {
-            > li {
-              border-right: 1px solid @dropdown-border;
-              border-left: 1px solid @dropdown-border;
-              > .right-nav-title {
-                > div {
-                  padding-right: 10px;
-                }
-              }
-              > .right-nav-box {
-                margin-right: -1px;
-              }
-              &.lastparent {
-                border-bottom: 1px solid @dropdown-border;
-                .border-bottom-radius(@border-radius-base);
-              }
-            }
-          }
+
         }
 
         &:hover {
@@ -238,7 +221,7 @@
           i.fa-chevron-down {
             visibility: visible;
           }
-          #main-nav {
+          #nav-browse-flyout {
             visibility: visible;
           }
         }
