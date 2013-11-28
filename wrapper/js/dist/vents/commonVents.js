@@ -30,7 +30,7 @@ jk.handlers.initCarousels = function () {
 
 jk.handlers.selectboxInstaller = function () {
     $('.selectbox').each(function () {
-        $(this).selectBox();
+        $(this).selectBox({animationSpeed: 'fast'});
     });
 };;(function () {
     console.log('handling styles');
@@ -41,6 +41,14 @@ jk.handlers.selectboxInstaller = function () {
     jk.handlers.initCarousels();
 });;$(document).ready(function () {
     jk.handlers.selectboxInstaller();
+});
+
+jk.handlers.selectboxInstaller();
+$('#search-form-category').on('DOMNodeInsertedIntoDocument', function() {
+    alert('myClass was inserted into the DOM');
 });;(function () {
+    console.log('style related events');
+})();
+;(function () {
     console.log('style related events');
 })();

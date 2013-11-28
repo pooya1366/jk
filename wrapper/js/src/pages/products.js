@@ -7,7 +7,9 @@ require.config({
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
-        dropDown: 'js/libs/bootstrap/js/dropdown'
+        dropDown: 'js/libs/bootstrap/js/dropdown',
+        ViewToggleHandler: 'js/src/handlers/categoryViewToggle',
+        ViewToggleEvent: 'js/src/events/categoryViewToggle'
     }
 
     /*
@@ -24,14 +26,18 @@ require.config({
         },
         commonPlugins: {
             deps: ['jquery']
+        },
+        dropDown: {
+            deps: ['jquery']
         }
     }
 });
 
 require(['jquery',
-    'commonVents',
-    'commonPlugins',
-    'dropDown'
+         'commonVents',
+         'commonPlugins',
+         'dropDown',
+         'ViewToggleHandler',
+         'ViewToggleEvent'
 ], function () {
-
 });

@@ -5,6 +5,6 @@ if ( typeof jk === 'undefined' ) {
 
 jk.handlers.selectboxInstaller = function () {
     $('.selectbox').each(function () {
-        $(this).selectBox();
+        $(this).selectBox({animationSpeed: 'fast'});
     });
 };

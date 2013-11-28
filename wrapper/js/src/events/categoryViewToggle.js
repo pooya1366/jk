@@ -1,8 +1,5 @@
-define(['jquery', 'js/handlers/categoryViewToggle'], function() {
-    return (function () {
-        $(document).ready(function () {
-            jk.handlers.categoryViewToggleInstaller();
-        });
-    })();
-
+define(['jquery', 'ViewToggleHandler'], function() {
+    $('body').delegate('.view-toggle button', 'click', function () {
+        jk.handlers.categoryViewToggle(this);
+    });
 });
