@@ -10,26 +10,28 @@
 .subcategories-panel .panel-body {
   padding: 0;
   padding-right: 20px;
+  padding-bottom: 20px;
 }
 .subcategories-panel .box {
   width: 236px;
-  height: 236px;
+  height: 221px;
   float: right;
   padding: 20px;
   padding-right: 0;
+  padding-bottom: 0;
   position: relative;
 }
 @media (min-width: 1250px) {
   .subcategories-panel .box {
     width: 239px;
-    height: 239px;
+    height: 224px;
   }
 }
 .subcategories-panel .box .caption-box {
   height: auto;
   width: 216px;
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   z-index: 667;
 }
 @media (min-width: 1250px) {
@@ -81,14 +83,14 @@
 }
 .subcategories-panel .box .caption-box .caption-list {
   background-color: #f5f7fa;
-  height: 166px;
+  height: 171px;
   width: 216px;
   display: none;
 }
 @media (min-width: 1250px) {
   .subcategories-panel .box .caption-box .caption-list {
     width: 219px;
-    height: 169px;
+    height: 174px;
   }
 }
 .subcategories-panel .box .caption-box .caption-list ul {
@@ -120,12 +122,12 @@
 }
 .subcategories-panel .box .content-image .img-container {
   width: inherit;
-  height: 166px;
+  height: 171px;
   border-bottom: 1px solid #eef2f7;
 }
 @media (min-width: 1250px) {
   .subcategories-panel .box .content-image .img-container {
-    height: 169px;
+    height: 174px;
   }
 }
 .cat-slider {

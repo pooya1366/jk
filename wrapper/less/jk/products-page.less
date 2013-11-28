@@ -74,7 +74,7 @@
       > .item-content {
 
         .item-title {
-          font-size: 15px;
+          font-size: 14px;
           > a {
             color: @text-color;
             &:hover {
@@ -85,10 +85,10 @@
         }
 
         .rating {
-          background: url(../../images/star-ratings@2x.png) no-repeat top left;
-          background-size: 61px 148px;
-          height: 12px;
-          width: 61px;
+          background: url(../images/star-ratings@2x.png) no-repeat 0 0;
+          background-size: 68px 117px;
+          height: 11px;
+          width: 68px;
           margin: 0;
           padding: 0;
           background-position: 0 -79px;
@@ -120,10 +120,11 @@
           font-family: @font-family-koodak;
           font-size: 15px;
         }
-        .compare {
+        .btn-compare {
           font-size: 10px;
           padding: 0;
           cursor: pointer;
+          background: white;
           //background-color: @btn-info-bg;
           //border: 1px solid @btn-info-border;
           //color: white;
@@ -153,17 +154,24 @@
           top: 0;
           right: 0;
           z-index: 2;
-          .square(90px);
-          background-size: 90px 90px;
+          .square(72px);
+          background-size: 72px 72px;
           background-repeat: no-repeat;
         }
         .offer-badge {
-          .img-retina('../images/offer-badge.png', '../images/offer-badge-retina.png', 90px, 90px);
+          .img-retina('../images/offer-badge.png', '../images/offer-badge-retina.png', 72px, 72px);
         }
       }
 
       .btn-quickview {
         visibility: hidden;
+        background: white;
+        color: @link-color;
+        font-weight: bold;
+        &:hover,
+        &:focus {
+          color: @link-hover-sc-color;
+        }
       }
 
       &:hover {
@@ -187,10 +195,10 @@
       margin-top: -1px;
       position: relative;
 
-      .size(242px, 340px);
+      .size(242px, 320px);
 
       @media (min-width: @screen-lg) {
-        .size(325px, 340px);
+        .size(244px, 320px);
       }
 
       &:hover:after,
@@ -220,11 +228,10 @@
         .image {
           border-bottom: 1px solid @_border_color;
           text-align: center;
-          padding-bottom: 5px;
-          height: 175px;
+          height: 165px;
           > img {
             max-width: 100%;
-            max-height: 165px;
+            max-height: 150px;
           }
         }
 
@@ -233,9 +240,9 @@
           > a {
             display: block;
             width: inherit;
-            white-space: nowrap;
+            /*white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            text-overflow: ellipsis;*/
           }
         }
 
@@ -252,7 +259,7 @@
             .text {
               display: none;
               @media (min-width: @screen-lg) {
-                display: block;
+                //display: block;
               }
             }
           }
@@ -281,27 +288,40 @@
         .btn-quickview {
           position: absolute;
           right: 50%;
-          margin-right: -52px;
-          top: 82px;
+          margin-right: -57px;
+          top: 80px;
         }
 
-        .compare {
+        .btn-compare {
           //visibility: hidden;
           position: absolute;
-          right: 20px;
-          bottom: 50px;
+          left: 10px;
+          top: 10px;
           font-size: 10px;
+          width: 39px;
+          overflow: hidden;
+          transition: width 0.2s;
           .text {
-            display: none;
+            //display: none;
+            //color: transparent;
+            margin-right: 3px;
             @media (min-width: @screen-lg) {
-              display: inline;
+              //display: none;
             }
           }
+
+          &:hover {
+            width: 79px;
+            .text {
+
+            }
+          }
+
         }
 
       }
       &:hover {
-        .compare {
+        .btn-compare {
           visibility: visible;
         }
       }
@@ -324,8 +344,8 @@
 
         .btn-quickview {
           position: absolute;
-          right: 48px;
-          top: 70px;
+          right: 43px;
+          top: 68px;
         }
 
         .item-title {
@@ -376,7 +396,7 @@
           bottom: @grid-gutter-width;
         }
 
-        .compare {
+        .btn-compare {
           position: absolute;
           left: @grid-gutter-width;
           top: @grid-gutter-width;
@@ -391,7 +411,7 @@
       &:hover {
         border-color: darken(@_border_color, 5%);
         .box-shadow(0 1px 1px darken(#f4f4f4, 5%));
-        .compare {
+        .btn-compare {
           visibility: visible;
         }
       }
