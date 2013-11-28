@@ -4,7 +4,7 @@ $('#nav-browse-flyout').hover(function() {
 
     clearTimeout($nav_subcats_wrap.t);
     $nav_subcats_wrap.t = setTimeout((function() {
-        $nav_subcats_wrap.stop().animate({width: 525}, {queue: false, duration: 150});
+        $nav_subcats_wrap.stop().animate({width: 250}, {queue: false, duration: 100});
     }), 50);
 
 }, function() {
