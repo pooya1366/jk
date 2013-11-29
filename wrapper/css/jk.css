@@ -5132,6 +5132,8 @@ hr {
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row {
   padding-top: 10px;
+  position: relative;
+  z-index: 2;
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row:before,
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row:after {
