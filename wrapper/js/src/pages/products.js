@@ -9,7 +9,8 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         dropDown: 'js/libs/bootstrap/js/dropdown',
         ViewToggleHandler: 'js/src/handlers/categoryViewToggle',
-        ViewToggleEvent: 'js/src/events/categoryViewToggle'
+        ViewToggleEvent: 'js/src/events/categoryViewToggle',
+        mainNav: 'js/src/plugins/mainNav.common'
     }
 
     /*
@@ -29,7 +30,11 @@ require.config({
         },
         dropDown: {
             deps: ['jquery']
+        },
+        mainNav: {
+            deps: ['jquery']
         }
+
     }
 });
 
@@ -38,6 +43,8 @@ require(['jquery',
          'commonPlugins',
          'dropDown',
          'ViewToggleHandler',
-         'ViewToggleEvent'
+         'ViewToggleEvent',
+         'mainNav'
+
 ], function () {
 });

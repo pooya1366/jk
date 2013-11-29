@@ -6,7 +6,8 @@ require.config({
         commonPlugins: 'js/dist/plugins/commonPlugins',
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
-        respond: 'js/libs/respond/respond.min'
+        respond: 'js/libs/respond/respond.min',
+        mainNav: 'js/src/plugins/mainNav.common'
     }
 
     /*
@@ -23,6 +24,9 @@ require.config({
         },
         commonPlugins: {
             deps: ['jquery']
+        },
+        mainNav: {
+            deps: ['jquery']
         }
     }
 });
@@ -31,6 +35,7 @@ require(['jquery',
         'commonPlugins',
         'commonVents',
         'respond',
-        'html5shiv'
+        'html5shiv',
+        'mainNav'
         ], function () {
 });

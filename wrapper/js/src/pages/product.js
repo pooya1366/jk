@@ -11,7 +11,8 @@ require.config({
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
-        scrollSpy: 'js/libs/bootstrap/js/scrollspy'
+        scrollSpy: 'js/libs/bootstrap/js/scrollspy',
+        mainNav: 'js/src/plugins/mainNav.common'
     }
 
     /*
@@ -40,7 +41,11 @@ require.config({
         },
         scrollSpy: {
             deps: ['jquery']
+        },
+        mainNav: {
+            deps: ['jquery']
         }
+
     }
 });
 
@@ -49,7 +54,9 @@ require(['jquery',
     'commonVents',
     'affixEvent',
     'compare',
-    'navScroller'
+    'navScroller',
+    'mainNav'
+
 ], function () {
 
 });

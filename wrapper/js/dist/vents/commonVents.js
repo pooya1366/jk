@@ -39,16 +39,10 @@ jk.handlers.selectboxInstaller = function () {
     jk.handlers.initCaptionHeader();
 });;$(document).ready(function () {
     jk.handlers.initCarousels();
-});;$(document).ready(function () {
-    jk.handlers.selectboxInstaller();
-});
-
-jk.handlers.selectboxInstaller();
-$('#search-form-category').on('DOMNodeInsertedIntoDocument', function() {
-    alert('myClass was inserted into the DOM');
-});;(function () {
-    console.log('style related events');
-})();
-;(function () {
-    console.log('style related events');
-})();
+});;jk.handlers.selectboxInstaller();
+;//(function () {
+//    console.log('style related events');
+//})();
+;//(function () {
+//    console.log('style related events');
+//})();

@@ -1,3 +1,3 @@
-(function () {
-    console.log('style related events');
-})();
+//(function () {
+//    console.log('style related events');
+//})();
