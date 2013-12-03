@@ -5113,13 +5113,13 @@ hr {
   position: absolute;
   right: 229px;
   top: -10px;
-  height: 525px;
+  height: 520px;
   width: 0px;
   overflow: visible;
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats {
   height: 500px;
-  width: 250px;
+  width: 500px;
   display: none;
   position: relative;
   -webkit-border-radius: 4px;
@@ -5132,6 +5132,8 @@ hr {
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row {
   padding-top: 10px;
+  position: relative;
+  z-index: 2;
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row:before,
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-subcats-browse-row:after {

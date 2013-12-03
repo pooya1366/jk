@@ -4,7 +4,7 @@ $('#nav-browse-flyout').hover(function() {
 
     clearTimeout($nav_subcats_wrap.t);
     $nav_subcats_wrap.t = setTimeout((function() {
-        $nav_subcats_wrap.stop().animate({width: 250}, {queue: false, duration: 100});
+        $nav_subcats_wrap.stop().animate({width: 520}, {queue: false, duration: 100});
     }), 50);
 
 }, function() {
@@ -14,7 +14,7 @@ $('#nav-browse-flyout').hover(function() {
         $nav_subcats_wrap.stop().animate({width: 0}, {queue: false, duration: 0});
         $($nav_pop_li).removeClass('nav-active');
         $('.nav-subcats').css('display', 'none');
-    }), 200);
+    }), 100);
 
 });
 
