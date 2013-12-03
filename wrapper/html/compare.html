@@ -57,9 +57,6 @@
             background-color: #F4EC92;
             width: 180px;
         }
-        #properties tbody div, #properties tbody td {
-            height: 25px;
-        }
         #grid {
             position: fixed;
             top: 80px;
@@ -74,10 +71,12 @@
             padding-top: 30px;
             text-align: center;
         }
+        #grid td {
+            vertical-align: top;           /* pushes content of shorter cols to the top */
+        }
         #grid div {
             width: 180px;
             text-align: center;
-            height: 25px;               /* should be dynamically set based on property row*/
         }
         .heading div {
             background: url("../images/header-arrow.png") center left no-repeat;
@@ -112,15 +111,27 @@
                 }
             }, 30);
 
+            //set tr rows in properties table
+            var $propertyRows = $('#properties tr');
+            $('#grid tr').each(function (index) {
+                $propertyRows.eq(index).
+                        css('height', $(this).css('height'))
+            });
+
+
             $('#properties').delegate('.heading div ', 'click', function () {
-                var index = $(this).parents('tbody').index();
+                var index = $(this).parents('tbody').
+                            index();
 
-                $(this).parents('tbody')
-                        .children('tr')
-                        .not('.heading')
-                        .slideToggle(1);
+                $(this).parents('tbody').
+                        children('tr').
+                        not('.heading').
+                        slideToggle(1);
 
-                $('#grid tbody').eq(index).children('tr').not('.space').slideToggle(1);
+                $('#grid tbody').eq(index).
+                        children('tr').
+                        not('.space').
+                        slideToggle(1);
             })
         });
     </script>
@@ -208,7 +219,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>2</div>
                 </td>
             </tr>
             <tr>
@@ -224,7 +235,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>3</div>
                 </td>
             </tr>
             <tr>
@@ -240,7 +251,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>4</div>
                 </td>
             </tr>
             <tr>
@@ -256,7 +267,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>5</div>
                 </td>
             </tr>
             <tr>
@@ -272,7 +283,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>6</div>
                 </td>
             </tr>
             <tr>
@@ -288,7 +299,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>7</div>
                 </td>
             </tr>
             <tr>
@@ -304,7 +315,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>8</div>
                 </td>
             </tr>
             <tr>
@@ -320,7 +331,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>9</div>
                 </td>
             </tr>
             <tr>
@@ -336,7 +347,7 @@
         <tbody>
             <tr class="heading">
                 <td>
-                    <div>1</div>
+                    <div>10</div>
                 </td>
             </tr>
             <tr>
@@ -523,7 +534,15 @@
             </tr>
             <tr>
                 <td>
-                    <div>v3</div>
+                    <div>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
                 </td>
                 <td>
                     <div>v3</div>
