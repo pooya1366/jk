@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#corner {
+  padding-top: 30px;
+  text-align: center;
+  height: 50px;
+  width: 180px;
+  background-color: #fbfbfb;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#products {
+  position: fixed;
+  right: 0;
+  left: 180px;
+  top: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+#products td .product-ico {
+  width: 180px;
+  height: 80px;
+}
+
+#products table {
+  border-collapse: collapse;
+}
+
+#properties {
+  position: fixed;
+  left: 0;
+  top: 80px;
+  bottom: 0;
+  text-align: center;
+  overflow: hidden;
+  background-color: #E0F5FF;
+}
+
+#properties table {
+  border-collapse: collapse;
+}
+
+#properties td .property-ico {
+  padding-top: 30px;
+  width: 180px;
+  height: 70px;
+}
+
+#properties tbody {
+  background-color: #bbb;
+}
+
+#properties tbody .heading td {
+  background-color: #F4EC92;
+  width: 180px;
+}
+
+#grid {
+  position: fixed;
+  top: 80px;
+  left: 180px;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+
+#grid .grid-ico {
+  width: 180px;
+  height: 70px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+#grid td {
+  vertical-align: top; /* pushes content of shorter cols to the top */
+}
+
+#grid div {
+  width: 180px;
+  text-align: center;
+}
+
+.heading div {
+  background: url("../images/header-arrow.png") center left no-repeat;
+  cursor: pointer;
+}
+
+.heading div:hover {
+  background-color: #aaa;
+}
