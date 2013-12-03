@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+html, body, #products, #properties {
+  background: url("../images/patterns/asfalt.png");
+}
+
+body {
+  direction: ltr;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -12,7 +20,7 @@ table {
   text-align: center;
   height: 50px;
   width: 180px;
-  background-color: #fbfbfb;
+//  background-color: #fbfbfb;
   position: absolute;
   top: 0;
   left: 0;
@@ -41,28 +49,32 @@ table {
   left: 0;
   top: 80px;
   bottom: 0;
-  text-align: center;
+  text-align: right;
   overflow: hidden;
-  background-color: #E0F5FF;
+  border-top: 1px solid red;
+  font-family: "jk-Koodak";
 }
 
 #properties table {
   border-collapse: collapse;
 }
 
-#properties td .property-ico {
-  padding-top: 30px;
-  width: 180px;
-  height: 70px;
+#properties tr {
+//  padding: 5px;
 }
 
-#properties tbody {
-  background-color: #bbb;
+#properties td {
+  border-bottom: 1px solid #444;
+  border-right: 1px solid #444;
+}
+
+#properties td div {
+  padding: 7px 15px 7px 5px;
 }
 
 #properties tbody .heading td {
-  background-color: #F4EC92;
   width: 180px;
+  color: #FC0;
 }
 
 #grid {
@@ -72,6 +84,16 @@ table {
   right: 0;
   bottom: 0;
   overflow: scroll;
+  border-top: 1px solid red;
+}
+
+#grid td {
+  border-bottom: 1px solid #444;
+  vertical-align: top; /* pushes content of shorter cols to the top */
+}
+
+#grid td div {
+  padding: 7px;
 }
 
 #grid .grid-ico {
@@ -81,13 +103,14 @@ table {
   text-align: center;
 }
 
-#grid td {
-  vertical-align: top; /* pushes content of shorter cols to the top */
-}
-
 #grid div {
   width: 180px;
   text-align: center;
+}
+
+#grid .space {
+  height: 40px;
+  content: normal;
 }
 
 .heading div {
