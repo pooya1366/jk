@@ -53,14 +53,11 @@ table {
   overflow: hidden;
   border-top: 1px solid red;
   font-family: "jk-Koodak";
+  color: #888;
 }
 
 #properties table {
   border-collapse: collapse;
-}
-
-#properties tr {
-//  padding: 5px;
 }
 
 #properties td {
@@ -75,6 +72,11 @@ table {
 #properties tbody .heading td {
   width: 180px;
   color: #FC0;
+}
+
+#properties .heading div {
+  background: url("../images/header-arrow.png") center left no-repeat;
+  cursor: pointer;
 }
 
 #grid {
@@ -111,13 +113,4 @@ table {
 #grid .space {
   height: 40px;
   content: normal;
-}
-
-.heading div {
-  background: url("../images/header-arrow.png") center left no-repeat;
-  cursor: pointer;
-}
-
-.heading div:hover {
-  background-color: #aaa;
 }

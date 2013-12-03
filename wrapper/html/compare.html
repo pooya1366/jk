@@ -28,7 +28,7 @@
                     changeBarMargins();
                     scrolled = false;
                 }
-            }, 10);
+            }, 30);
 
             $(document).ready(function () {
                 //set tr rows in properties table
@@ -56,7 +56,24 @@
                         children('tr').
                         not('.space').
                         slideToggle(1);
-            })
+            });
+
+            $('#properties').delegate('tr', 'mouseover mouseout', function (e) {
+                var $el = $(e.target).parents('tr'),
+                    index = $el.index('#properties tr');
+
+                if ($el.hasClass('heading')) {
+                    return;
+                }
+
+                if (e.type == 'mouseover') {
+                    $el.css('background-color', '#222');
+                    $('#grid tr').eq(index).css('background-color', '#222');
+                } else {
+                    $el.css('background-color', 'transparent');
+                    $('#grid tr').eq(index).css('background-color', 'transparent');
+                }
+            });
         });
     </script>
 </head>
