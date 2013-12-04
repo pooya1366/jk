@@ -45,12 +45,23 @@
 
             $('#properties').delegate('.heading div ', 'click', function () {
                 var index = $(this).parents('tbody').
-                            index();
+                            index(),
+                    $icon = $(this).find('.state');
 
                 $(this).parents('tbody').
                         children('tr').
                         not('.heading').
                         slideToggle(1);
+
+                if ( $icon.hasClass('open') ) {
+                    $icon.
+                        removeClass('open fa-caret-down').
+                        addClass('close fa-caret-left');
+                } else {
+                    $icon.
+                            removeClass('close fa-caret-left').
+                            addClass('open fa-caret-down');
+                }
 
                 $('#grid tbody').eq(index).
                         children('tr').
@@ -123,7 +134,7 @@
         <tbody>
         <tr class="heading">
             <td>
-                <div>گروه</div>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
             </td>
         </tr>
         <tr>
@@ -145,7 +156,7 @@
         <tbody>
         <tr class="heading">
             <td>
-                <div>گروه</div>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
             </td>
         </tr>
         <tr>
@@ -167,7 +178,7 @@
         <tbody>
         <tr class="heading">
             <td>
-                <div>گروه</div>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
             </td>
         </tr>
         <tr>
