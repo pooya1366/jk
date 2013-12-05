@@ -159,17 +159,6 @@
                 $el.parents('td').
                         column().
                         remove();
-//                $('#grid td').each(function (i) {
-//                    if ( $(this).index() == index ) {
-//                        trash[i] = this;
-//                    }
-//                });
-                //hide the product td itself
-//                trash.push($el.parents('td'));
-
-//                for(var i = 0; i < trash.length; i++) {
-//                    $(trash[i]).remove();
-//                }
                 updateControlView();
             });
 
@@ -179,52 +168,59 @@
                 $('.move-right:last').hide();
             };
 
-            //move effetc
+            //initialize
             $(document).ready(function () {
                 updateControlView();
             });
+
+            var moveColumn = function ($col, index, side) {
+                var $head = $(),
+                    $tail = $(),
+                    $gridTarget = $('#grid td').filter(function () {
+                        return $(this).index() == index;
+                    });
+
+                //some validation
+                if ( side != 'right' && side != 'left') {
+                    throw new Error('side paramete can only ber left or right');
+                }
+
+                //find head, and tail
+                $col.each(function () {
+                    if( $(this).find('div').hasClass('product-ico') ) {
+                        $head = $(this);
+                    } else {
+                        $tail = $tail.add(this)
+                    }
+                });
+
+                if (side == 'right') {
+                    //move head
+                    $head.insertAfter($('#products td').eq(index));
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertAfter($gridTarget.eq(i));
+                    }
+                } else if (side == 'left') {
+                    //move head
+                    $head.insertBefore($('#products td').eq(index))
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertBefore($gridTarget.eq(i));
+                    }
+                }
+            };
 
             $('#products').delegate('.move-right,.move-left', 'click', function (e) {
                 var $el = $(e.target),
                     index = $el.
                             parents('td').
                             index();
-                
+
                 if ($el.hasClass('move-right')) {
-                    /**
-                     *  we need a move function
-                     */
-                    //move the product
-                    $el.parents('td').insertAfter($('#products td').eq(index + 1));
-
-                    //move the grid
-                    var col = [];
-                    $('#grid td').each(function () {
-                        if ( $(this).index() == index ) {
-                            col.push(this);
-                        }
-                    });
-                    for (var i = 0; i < col.length; i++) {
-                        $(col[i]).insertAfter( $(col[i]).next() );
-                    }
-
+                    moveColumn($el.parents('td').column(), index + 1, 'right');
                 } else {
-                    /**
-                     *  we need a move function
-                     */
-                    //move the product
-                    $el.parents('td').insertBefore($('#products td').eq(index - 1));
-
-                    //move the grid
-                    var col = [];
-                    $('#grid td').each(function () {
-                        if ( $(this).index() == index ) {
-                            col.push(this);
-                        }
-                    });
-                    for (var i = 0; i < col.length; i++) {
-                        $(col[i]).insertBefore( $(col[i]).prev() );   //bugs when moving second td to left
-                    }
+                    moveColumn($el.parents('td').column(), index - 1, 'left');
                 }
                 updateControlView();
             });
