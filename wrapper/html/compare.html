@@ -35,6 +35,40 @@
              * jQuery selector for selecting a column of products
              * or a row of properties
              */
+
+
+            /**
+             * Takes a single td element wrapped by jQuery object and
+             * returns the whole column with it's product head.
+             *
+             * Warning!
+             * This selector is made only for this page, and any
+             * changes to the html of tables might brake the code.
+             */
+            (function($) {
+                $.fn.column = function () {
+                    var col = $(),
+                        index;
+
+                    if (this.parents('#properties').length) {
+                        return $();
+                    } else if (this.parents('#products').length) {
+                        index = this.index();
+                        col = col.add(this);
+                        col = col.add( $('#grid td').filter(function () {
+                            return $(this).index() == index;
+                        }) );
+                    } else {
+                        //find index
+                        //return nodes
+                        throw new Error('This part of the selector is not developed, ' +
+                                'because it wasn\'t nedded at the time');
+                    }
+
+                    return this.pushStack(col);
+                };
+            }) (jQuery);
+
             //sizing effect
             $(document).ready(function () {
                 //set tr rows in properties table
@@ -100,13 +134,13 @@
                     index = $el.parent('td').index();
 
                 if (e.type == 'mouseover') {
-                    $('#grid td').filter(function(){
-                        return $(this).index() == index;
-                    }).addClass('highlight');
+                    $el.parent('td').
+                            column().
+                            addClass('highlight');
                 } else {
-                    $('#grid td').filter(function(){
-                        return $(this).index() == index;
-                    }).removeClass('highlight');
+                    $el.parent('td').
+                            column().
+                            removeClass('highlight');
                 }
 
             });
@@ -642,22 +676,22 @@
         </tr>
         <tr>
             <td>
-                <div>v3</div>
+                <div>FF FF FF</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>SS</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>v2</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>EE</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>XXXXX</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>Sira Nevada</div>
             </td>
             <td>
                 <div>v3</div>
