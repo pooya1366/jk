@@ -58,11 +58,13 @@
                         col = col.add( $('#grid td').filter(function () {
                             return $(this).index() == index;
                         }) );
-                    } else {
+                    } else if (this.parents('#grid').length) {
                         //find index
                         //return nodes
                         throw new Error('This part of the selector is not developed, ' +
                                 'because it wasn\'t nedded at the time');
+                    } else {
+                        return $();
                     }
 
                     return this.pushStack(col);
@@ -154,17 +156,20 @@
 
                 var trash = [];
                 //find related tds in grid and hide them
-                $('#grid td').each(function (i) {
-                    if ( $(this).index() == index ) {
-                        trash[i] = this;
-                    }
-                });
+                $el.parents('td').
+                        column().
+                        remove();
+//                $('#grid td').each(function (i) {
+//                    if ( $(this).index() == index ) {
+//                        trash[i] = this;
+//                    }
+//                });
                 //hide the product td itself
-                trash.push($el.parents('td'));
+//                trash.push($el.parents('td'));
 
-                for(var i = 0; i < trash.length; i++) {
-                    $(trash[i]).remove();
-                }
+//                for(var i = 0; i < trash.length; i++) {
+//                    $(trash[i]).remove();
+//                }
                 updateControlView();
             });
 
@@ -550,7 +555,15 @@
                 <div>v2</div>
             </td>
             <td>
-                <div>v2</div>
+                <div>
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                </div>
             </td>
             <td>
                 <div>v2</div>
