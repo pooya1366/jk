@@ -75,23 +75,42 @@
                         slideToggle(1);
             });
 
-            //highlight effect
-            $('#properties').delegate('tr', 'mouseover mouseout', function (e) {
+            //horizontal highlight effect
+            $('#properties, #grid').delegate('tr', 'mouseover mouseout', function (e) {
                 var $el = $(e.target).parents('tr'),
+                    index;
+                if ($el.parents('#properties').length) {
                     index = $el.index('#properties tr');
-
-                if ($el.hasClass('heading')) {
-                    return;
+                } else {
+                    index = $el.index('#grid tr');
                 }
 
                 if (e.type == 'mouseover') {
-                    $el.css('background-color', '#222');
-                    $('#grid tr').eq(index).css('background-color', '#222');
+                    $('#grid tr').eq(index).addClass('highlight');
+                    $('#properties tr').eq(index).addClass('highlight');
                 } else {
-                    $el.css('background-color', 'transparent');
-                    $('#grid tr').eq(index).css('background-color', 'transparent');
+                    $('#grid tr').eq(index).removeClass('highlight');
+                    $('#properties tr').eq(index).removeClass('highlight');
                 }
             });
+
+            //vertical highlight effect
+            $('#products').delegate('td', 'mouseover mouseout', function (e) {
+                var $el = $(e.target),
+                    index = $el.parent('td').index();
+
+                if (e.type == 'mouseover') {
+                    $('#grid td').filter(function(){
+                        return $(this).index() == index;
+                    }).addClass('highlight');
+                } else {
+                    $('#grid td').filter(function(){
+                        return $(this).index() == index;
+                    }).removeClass('highlight');
+                }
+
+            });
+
 
             //remove effect
             $('#products').delegate('td .remove', 'click', function (e) {
@@ -385,7 +404,7 @@
         </tr>
         <tr>
             <td>
-                <div>v2</div>
+                <div>FF FF FF</div>
             </td>
             <td>
                 <div>v2</div>
@@ -411,7 +430,7 @@
         </tr>
         <tr>
             <td>
-                <div>v3</div>
+                <div>FF FF FF</div>
             </td>
             <td>
                 <div>v3</div>
