@@ -30,6 +30,11 @@
                 }
             }, 30);
 
+            /**
+             * That would be awesome if we could write a custom
+             * jQuery selector for selecting a column of products
+             * or a row of properties
+             */
             //sizing effect
             $(document).ready(function () {
                 //set tr rows in properties table
@@ -94,16 +99,76 @@
                 var index = $el.parents('td').index();
                 var removeCollection = [];
 
+                var trash = [];
                 //find related tds in grid and hide them
-                $('#grid td').each(function () {
+                $('#grid td').each(function (i) {
                     if ( $(this).index() == index ) {
-                        $(this).hide();
+                        trash[i] = this;
                     }
                 });
                 //hide the product td itself
-                $el.parents('td').hide();
+                trash.push($el.parents('td'));
 
-                console.log(index);
+                for(var i = 0; i < trash.length; i++) {
+                    $(trash[i]).remove();
+                }
+                updateControlView();
+            });
+
+            var updateControlView = function () {
+                $('.move-left,.move-right').show();
+                $('.move-left:first').hide();
+                $('.move-right:last').hide();
+            };
+
+            //move effetc
+            $(document).ready(function () {
+                updateControlView();
+            });
+
+            $('#products').delegate('.move-right,.move-left', 'click', function (e) {
+                var $el = $(e.target),
+                    index = $el.
+                            parents('td').
+                            index();
+                
+                if ($el.hasClass('move-right')) {
+                    /**
+                     *  we need a move function
+                     */
+                    //move the product
+                    $el.parents('td').insertAfter($('#products td').eq(index + 1));
+
+                    //move the grid
+                    var col = [];
+                    $('#grid td').each(function () {
+                        if ( $(this).index() == index ) {
+                            col.push(this);
+                        }
+                    });
+                    for (var i = 0; i < col.length; i++) {
+                        $(col[i]).insertAfter( $(col[i]).next() );
+                    }
+
+                } else {
+                    /**
+                     *  we need a move function
+                     */
+                    //move the product
+                    $el.parents('td').insertBefore($('#products td').eq(index - 1));
+
+                    //move the grid
+                    var col = [];
+                    $('#grid td').each(function () {
+                        if ( $(this).index() == index ) {
+                            col.push(this);
+                        }
+                    });
+                    for (var i = 0; i < col.length; i++) {
+                        $(col[i]).insertBefore( $(col[i]).prev() );   //bugs when moving second td to left
+                    }
+                }
+                updateControlView();
             });
 
         });
@@ -124,28 +189,60 @@
         <tbody>
         <tr>
             <td>
-                <div class="product-ico">1<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">1
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">2<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">2
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">3<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">3
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">4<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">4
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">5<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">5
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">6<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">6
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">7<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">7
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
             <td>
-                <div class="product-ico">8<i class="fa fa-trash-o remove"></i></div>
+                <div class="product-ico">8
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
             </td>
         </tr>
         </tbody>
@@ -294,7 +391,7 @@
                 <div>v2</div>
             </td>
             <td>
-                <div>v2</div>
+                <div>SS</div>
             </td>
             <td>
                 <div>v2</div>
@@ -320,7 +417,7 @@
                 <div>v3</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>SS</div>
             </td>
             <td>
                 <div>v3</div>

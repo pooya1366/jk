@@ -44,15 +44,36 @@ table {
   position: relative;
 }
 
+#products .control {
+  color: #bbb;
+  cursor: pointer;
+}
+
+#products .control.move-left,
+#products .control.move-right {
+  color: #555;
+}
+
+#products .control:hover {
+  color: #fff;
+}
+
 #products td .remove {
   position: absolute;
   right: 10px;
   top: 7px;
-  color: #bbb;
-  cursor: pointer;
 }
-#products td .remove:hover {
-  color: #fff;
+
+#products td .move-right {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+}
+
+#products td .move-left {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
 }
 
 #products table {
