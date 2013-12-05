@@ -71,6 +71,37 @@
                 };
             }) (jQuery);
 
+            /**
+             * Takes a single td element wrapped by jQuery object and
+             * returns the whole row with it's property head.
+             *
+             * Warning!
+             * This selector is made only for this page, and any
+             * changes to the html of tables might brake the code.
+             */
+            (function($) {
+                $.fn.row = function () {
+                    var row = $(),
+                        index;
+
+                    if (this.parents('#product').length) {
+                        return $();
+                    } else if (this.parents('#properties').length) {
+                        index = this.index();
+                        row = row.add(this);
+                        row = row.add( $('#grid tr').eq(index));
+                    } else if (this.parents('#grid').length) {
+                        index = this.index();
+                        row = row.add('#properties tr').eq(index);
+                        row = row.add(this);
+                    } else {
+                        return $();
+                    }
+
+                    return this.pushStack(row);
+                };
+            }) (jQuery);
+
             //sizing effect
             $(document).ready(function () {
                 //set tr rows in properties table
@@ -211,6 +242,7 @@
                 }
             };
 
+            //move effect
             $('#products').delegate('.move-right,.move-left', 'click', function (e) {
                 var $el = $(e.target),
                     index = $el.
