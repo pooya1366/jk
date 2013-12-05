@@ -31,13 +31,6 @@
             }, 30);
 
             /**
-             * That would be awesome if we could write a custom
-             * jQuery selector for selecting a column of products
-             * or a row of properties
-             */
-
-
-            /**
              * Takes a single td element wrapped by jQuery object and
              * returns the whole column with it's product head.
              *
@@ -91,7 +84,7 @@
                         row = row.add(this);
                         row = row.add( $('#grid tr').eq(index));
                     } else if (this.parents('#grid').length) {
-                        index = this.index();
+                        index = this.index('#grid tr');
                         row = row.add('#properties tr').eq(index);
                         row = row.add(this);
                     } else {
@@ -153,11 +146,9 @@
                 }
 
                 if (e.type == 'mouseover') {
-                    $('#grid tr').eq(index).addClass('highlight');
-                    $('#properties tr').eq(index).addClass('highlight');
+                    $el.row().addClass('highlight');
                 } else {
-                    $('#grid tr').eq(index).removeClass('highlight');
-                    $('#properties tr').eq(index).removeClass('highlight');
+                    $el.row().removeClass('highlight');
                 }
             });
 
@@ -204,6 +195,16 @@
                 updateControlView();
             });
 
+            /**
+             * Move Function
+             * @param $col
+             * A single td inside column wrapped by a jQuery object
+             * @param index
+             * The index you want to move the column to
+             * @param side
+             * Whether you want to move the column to the right
+             * or to the left of index
+             */
             var moveColumn = function ($col, index, side) {
                 var $head = $(),
                     $tail = $(),
