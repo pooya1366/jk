@@ -30,6 +30,7 @@
                 }
             }, 30);
 
+            //sizing effect
             $(document).ready(function () {
                 //set tr rows in properties table
                 var $propertyRows = $('#properties tr');
@@ -42,7 +43,7 @@
                 });
             });
 
-
+            //toggle effect
             $('#properties').delegate('.heading div ', 'click', function () {
                 var index = $(this).parents('tbody').
                             index(),
@@ -69,6 +70,7 @@
                         slideToggle(1);
             });
 
+            //highlight effect
             $('#properties').delegate('tr', 'mouseover mouseout', function (e) {
                 var $el = $(e.target).parents('tr'),
                     index = $el.index('#properties tr');
@@ -85,6 +87,25 @@
                     $('#grid tr').eq(index).css('background-color', 'transparent');
                 }
             });
+
+            //remove effect
+            $('#products').delegate('td .remove', 'click', function (e) {
+                var $el = $(e.target);
+                var index = $el.parents('td').index();
+                var removeCollection = [];
+
+                //find related tds in grid and hide them
+                $('#grid td').each(function () {
+                    if ( $(this).index() == index ) {
+                        $(this).hide();
+                    }
+                });
+                //hide the product td itself
+                $el.parents('td').hide();
+
+                console.log(index);
+            });
+
         });
     </script>
 </head>
@@ -93,7 +114,9 @@
 <div id="compare-wrapper">
 
 <div id="corner">
-    <a href="#">More...</a>
+    <div>
+        <a href="#">More...</a>
+    </div>
 </div>
 
 <div id="products">
@@ -101,28 +124,28 @@
         <tbody>
         <tr>
             <td>
-                <div class="product-ico">1</div>
+                <div class="product-ico">1<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">2</div>
+                <div class="product-ico">2<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">3</div>
+                <div class="product-ico">3<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">4</div>
+                <div class="product-ico">4<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">5</div>
+                <div class="product-ico">5<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">6</div>
+                <div class="product-ico">6<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">7</div>
+                <div class="product-ico">7<i class="fa fa-trash-o remove"></i></div>
             </td>
             <td>
-                <div class="product-ico">8</div>
+                <div class="product-ico">8<i class="fa fa-trash-o remove"></i></div>
             </td>
         </tr>
         </tbody>
