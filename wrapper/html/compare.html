@@ -80,7 +80,7 @@
                     if (this.parents('#product').length) {
                         return $();
                     } else if (this.parents('#properties').length) {
-                        index = this.index();
+                        index = this.index('#properties tr');
                         row = row.add(this);
                         row = row.add( $('#grid tr').eq(index));
                     } else if (this.parents('#grid').length) {
@@ -242,6 +242,17 @@
                     }
                 }
             };
+
+            //add column
+            /**
+             *
+             * @param index of where you want your col to be inserted
+             * @param col html column with product head and grid tail
+             */
+            var addColumn = function (index, col) {
+                console.log($('#products td:eq(' + index + ')').column());
+            };
+            addColumn(1);
 
             //move effect
             $('#products').delegate('.move-right,.move-left', 'click', function (e) {
