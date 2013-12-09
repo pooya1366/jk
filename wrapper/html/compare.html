@@ -65,7 +65,7 @@
             }) (jQuery);
 
             /**
-             * Takes a single td element wrapped by jQuery object and
+             * Takes a single tr element wrapped by jQuery object and
              * returns the whole row with it's property head.
              *
              * Warning!
@@ -249,10 +249,56 @@
              * @param index of where you want your col to be inserted
              * @param col html column with product head and grid tail
              */
-            var addColumn = function (index, col) {
-                console.log($('#products td:eq(' + index + ')').column());
+            var addColumn = function (index, col, side) {
+                var $head = col.eq(0),
+                    $tail = col.not(':eq(0)'),
+                    $gridTarget = $('#grid td').filter(function () {
+                        return $(this).index() == index;
+                    });
+                side = side || 'right';
+
+                if (side == 'right') {
+                    //move head
+                    $head.insertAfter('#products td:eq(' + index + ')');
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertAfter($gridTarget.eq(i));
+                    }
+                } else if (side == 'left') {
+                    //move head
+                    $head.insertBefore($('#products td').eq(index))
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertBefore($gridTarget.eq(i));
+                    }
+                } else {
+                    throw new Error('side paramete can only ber left or right');
+                }
             };
-            addColumn(1);
+
+            /**
+             * A TEMPORARY FUNCTION
+             */
+            // Returns a random integer between min and max
+            // Using Math.round() will give you a non-uniform distribution!
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            var randomColumn = function () {
+                var index = getRandomInt(0, 7),
+                    col = $('#products td:eq(' + index + ')').
+                        column().
+                        clone();
+                col.eq(getRandomInt(2, 4)).
+                    find('div').
+                    text(getRandomInt(1,100));
+                return col;
+            };
+
+            $('#corner').delegate('a', 'click', function () {
+                addColumn(0, randomColumn(), 'left');
+                return false;
+            });
 
             //move effect
             $('#products').delegate('.move-right,.move-left', 'click', function (e) {
