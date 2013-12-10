@@ -294,11 +294,14 @@
                     text(getRandomInt(1,100));
                 return col;
             };
-
             $('#corner').delegate('a', 'click', function () {
                 addColumn(0, randomColumn(), 'left');
                 return false;
             });
+
+            /**
+             * END OF TEMPORARY FUNCTIONS
+             */
 
             //move effect
             $('#products').delegate('.move-right,.move-left', 'click', function (e) {
