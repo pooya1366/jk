@@ -227,7 +227,9 @@
             var moveColumn = function ($col, index, side) {
                 var $head = $(),
                     $tail = $(),
-                    $gridTarget = $('#grid td').filter(function () {
+                    category = $col.parents('table').attr('data-product-id'),
+                    categoryTable = 'table[data-product-id=' + category + ']',
+                    $gridTarget = $('#grid ' + categoryTable + ' td').filter(function () {
                         return $(this).index() == index;
                     });
 
@@ -247,14 +249,14 @@
 
                 if (side == 'right') {
                     //move head
-                    $head.insertAfter($('#products td').eq(index));
+                    $head.insertAfter($('#products ' + categoryTable + ' td').eq(index));
                     //move tail
                     for (var i = 0; i < $tail.length; i++) {
                         $tail.eq(i).insertAfter($gridTarget.eq(i));
                     }
                 } else if (side == 'left') {
                     //move head
-                    $head.insertBefore($('#products td').eq(index))
+                    $head.insertBefore($('#products ' + categoryTable + ' td').eq(index))
                     //move tail
                     for (var i = 0; i < $tail.length; i++) {
                         $tail.eq(i).insertBefore($gridTarget.eq(i));
@@ -364,8 +366,6 @@
                 updateControlView();
                 syncRowsHeight();
             });
-
-
         });
     </script>
 </head>
@@ -526,13 +526,6 @@
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
-            <td>
-                <div class="product-ico">TV 8
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
         </tr>
         </tbody>
     </table>
@@ -612,11 +605,6 @@
         <tr class="heading">
             <td>
                 <div><i class="state fa open fa-caret-down"></i>گروه</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
             </td>
         </tr>
         <tr>
@@ -1038,9 +1026,6 @@
             <td>
                 <div></div>
             </td>
-            <td>
-                <div></div>
-            </td>
         </tr>
         <tr>
             <td>
@@ -1055,7 +1040,7 @@
                 </div>
             </td>
             <td>
-                <div>2</div>
+                <div>TV 2</div>
             </td>
             <td>
                 <div>3</div>
@@ -1064,7 +1049,7 @@
                 <div>4</div>
             </td>
             <td>
-                <div>5</div>
+                <div>TV 5</div>
             </td>
             <td>
                 <div>6</div>
@@ -1072,35 +1057,6 @@
             <td>
                 <div>7</div>
             </td>
-            <td>
-                <div>8</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>FF FF FF</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>SS</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
         </tr>
         <tr>
             <td>
@@ -1110,22 +1066,19 @@
                 <div>v3</div>
             </td>
             <td>
-                <div>SS</div>
+                <div>TV SS</div>
             </td>
             <td>
                 <div>v3</div>
             </td>
             <td>
-                <div>v3</div>
+                <div>TV v3</div>
             </td>
             <td>
                 <div>v3</div>
             </td>
             <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
+                <div>TV v3</div>
             </td>
         </tr>
         </tbody>
@@ -1152,16 +1105,13 @@
             <td>
                 <div></div>
             </td>
-            <td>
-                <div></div>
-            </td>
         </tr>
         <tr>
             <td>
                 <div>v1</div>
             </td>
             <td>
-                <div>v1</div>
+                <div>TV v1</div>
             </td>
             <td>
                 <div>v1</div>
@@ -1170,10 +1120,7 @@
                 <div>v1</div>
             </td>
             <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
+                <div>TV v1</div>
             </td>
             <td>
                 <div>v1</div>
@@ -1187,7 +1134,7 @@
                 <div>v2</div>
             </td>
             <td>
-                <div>v2</div>
+                <div>TV v2</div>
             </td>
             <td>
                 <div>
@@ -1212,14 +1159,8 @@
             <td>
                 <div>v2</div>
             </td>
-            <td>
-                <div>v2</div>
-            </td>
         </tr>
         <tr>
-            <td>
-                <div>v3</div>
-            </td>
             <td>
                 <div>v3</div>
             </td>
@@ -1266,9 +1207,6 @@
             <td>
                 <div></div>
             </td>
-            <td>
-                <div></div>
-            </td>
         </tr>
         <tr>
             <td>
@@ -1292,14 +1230,8 @@
             <td>
                 <div>v1</div>
             </td>
-            <td>
-                <div>v1</div>
-            </td>
         </tr>
         <tr>
-            <td>
-                <div>v2</div>
-            </td>
             <td>
                 <div>v2</div>
             </td>
@@ -1340,9 +1272,6 @@
             </td>
             <td>
                 <div>Sira Nevada</div>
-            </td>
-            <td>
-                <div>v3</div>
             </td>
             <td>
                 <div>v3</div>
