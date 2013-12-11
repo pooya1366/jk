@@ -25,6 +25,61 @@ table {
   left: 0;
 }
 
+#corner #queues {
+  height: 80px;
+  float: right;
+  border-left: 1px solid #333;
+  width: 50%;
+  display: block;
+  cursor: pointer;
+  background-color: #000000;
+
+}
+
+#corner #queues>a {
+  color: #555;
+  line-height: 70px;
+}
+
+#corner #queues:hover>a {
+  color: #ffffff;
+}
+
+#corner #queue-categories {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background-color: #000;
+  z-index: 10000;
+  list-style: none;
+  display: none;
+  border-right: 1px solid #222;
+  border-left: 1px solid #222;
+}
+
+#queue-categories div {
+  width: 180px;
+  height: 30px;
+  border-bottom: 1px solid #222;
+}
+#queue-categories li:last-child div {
+  border-bottom: none;
+}
+#queue-categories div:hover {
+  background-color: #333;
+}
+#queue-categories div a {
+  line-height: 30px;
+  color: #bbb;
+}
+#queue-categories a span {
+  font-size: 10px;
+  color: #666666;
+}
+#corner #queue-categories {
+  color: red;
+}
+
 #products {
   position: fixed;
   right: 0;
@@ -172,4 +227,10 @@ table {
 
 #grid .space, #properties .heading {
   background-color: #070707;
+}
+
+#products table,
+#properties table,
+#grid table {
+  display: none;
 }
