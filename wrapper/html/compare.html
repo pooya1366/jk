@@ -43,7 +43,7 @@
                     var col = $(),
                         category = $(this).
                                 parents('table').
-                                attr('data-product-id'),
+                                attr('data-category-id'),
                         index;
 
                     if (this.parents('#properties').length) {
@@ -51,7 +51,7 @@
                     } else if (this.parents('#products').length) {
                         index = this.index();
                         col = col.add(this);
-                        col = col.add( $('#grid table[data-product-id=' + category + '] td').
+                        col = col.add( $('#grid table[data-category-id=' + category + '] td').
                                 filter(function () {
                             return $(this).index() == index;
                         }) );
@@ -81,8 +81,8 @@
                     var row = $(),
                         category = $(this).
                                 parents('table').
-                                attr('data-product-id'),
-                        categoryTable = 'table[data-product-id=' + category + ']',
+                                attr('data-category-id'),
+                        categoryTable = 'table[data-category-id=' + category + ']',
                         index;
 
                     if (this.parents('#product').length) {
@@ -188,11 +188,11 @@
 
             var showCategory = function (category) {
                 category = category || $('#queue-categories li:first').
-                        attr('data-product-id');
+                        attr('data-category-id');
                 $('#products table, #properties table, #grid table').hide();
-                $('#products table[data-product-id=' + category + ']').show();
-                $('#properties table[data-product-id=' + category + ']').show();
-                $('#grid table[data-product-id=' + category + ']').show();
+                $('#products table[data-category-id=' + category + ']').show();
+                $('#properties table[data-category-id=' + category + ']').show();
+                $('#grid table[data-category-id=' + category + ']').show();
             };
 
             var syncRowsHeight = function () {
@@ -227,8 +227,8 @@
             var moveColumn = function ($col, index, side) {
                 var $head = $(),
                     $tail = $(),
-                    category = $col.parents('table').attr('data-product-id'),
-                    categoryTable = 'table[data-product-id=' + category + ']',
+                    category = $col.parents('table').attr('data-category-id'),
+                    categoryTable = 'table[data-category-id=' + category + ']',
                     $gridTarget = $('#grid ' + categoryTable + ' td').filter(function () {
                         return $(this).index() == index;
                     });
@@ -361,7 +361,7 @@
                 }
             });
             $('#corner').delegate('#queue-categories li', 'click', function (e) {
-                var categoryId = $(e.target).parents('li').attr('data-product-id');
+                var categoryId = $(e.target).parents('li').attr('data-category-id');
                 showCategory(categoryId);
                 updateControlView();
                 syncRowsHeight();
@@ -379,28 +379,28 @@
             <i class="fa fa-chevron-down"></i>
         </a>
         <ul id="queue-categories">
-            <li data-product-id="tv">
+            <li data-category-id="tv">
                 <div>
                     <a href="#">TV <span>(5)</span></a>
                 </div>
             </li>
-            <li data-product-id="mobile">
+            <li data-category-id="mobile">
                 <div>
                     <a href="#">Mobile <span>(12)</span></a>
                 </div>
             </li>
             <li>
-                <div data-product-id="tablet">
+                <div data-category-id="tablet">
                     <a href="#">Tablet <span>(3)</span></a>
                 </div>
             </li>
             <li>
-                <div data-product-id="crystal">
+                <div data-category-id="crystal">
                     <a href="#">Crystal <span>(15)</span></a>
                 </div>
             </li>
             <li>
-                <div data-product-id="pen">
+                <div data-category-id="pen">
                     <a href="#">Pen <span>(2)</span></a>
                 </div>
             </li>
@@ -412,7 +412,7 @@
 </div>
 
 <div id="products">
-    <table data-product-id="mobile">
+    <table data-category-id="mobile">
         <tbody>
         <tr>
             <td>
@@ -474,7 +474,7 @@
         </tr>
         </tbody>
     </table>
-    <table data-product-id="tv">
+    <table data-category-id="tv">
         <tbody>
         <tr>
             <td>
@@ -532,7 +532,7 @@
 </div>
 
 <div id="properties">
-    <table data-product-id="mobile">
+    <table data-category-id="mobile">
         <tbody>
         <tr class="heading">
             <td>
@@ -600,7 +600,7 @@
         </tr>
         </tbody>
     </table>
-    <table data-product-id="tv">
+    <table data-category-id="tv">
         <tbody>
         <tr class="heading">
             <td>
@@ -666,7 +666,7 @@
 </div>
 
 <div id="grid">
-    <table data-product-id="mobile">
+    <table data-category-id="mobile">
         <tbody>
         <tr class="space">
             <td>
@@ -1002,7 +1002,7 @@
         </tr>
         </tbody>
     </table>
-    <table data-product-id="tv">
+    <table data-category-id="tv">
         <tbody>
         <tr class="space">
             <td>
