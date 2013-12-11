@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="../js/libs/jquery/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="../js/libs/jquery-ui/jquery-ui.min.js"></script>-->
+    <script type="text/javascript" src="../js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/jk.css" />
+    <link rel="stylesheet" type="text/css" href="../css/home-page.css" />
+
+    <style type="text/css">
+        .ui-state-focus {
+            background-color: red;
+        }
+    </style>
+    <title>testing auto complete</title>
+</head>
+<body>
+<br/><label for="auto">UI auto complete: </label><input type="text" id="auto" /><br/>
+<div id="results"></div>
+
+<script type="text/javascript">
+/*
+    $('#auto').autocomplete({
+        appendTo: '#results',
+        delay: 200,
+        auto: true,
+        source: [
+            {label: "book", value: "book"},
+            {label: "booking", value: "booking"},
+            {label: "boo", value: "boo"},
+            {label: "bo", value: "bo"},
+            {label: "bonsai", value: "bonsai"},
+            {label: "boolean", value: "boolean"},
+            {label: "bones", value: "bones"},
+            {label: "bored", value: "bored"},
+            {label: "bought", value: "bought"}
+        ]
+    });
+*/
+
+    $('#auto').typeahead();
+
+</script>
+</body>
+</html>
