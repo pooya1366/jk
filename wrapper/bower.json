@@ -8,6 +8,7 @@
         "modernizr": "",
         "bootstrap": "",
         "respond": "",
-        "html5shiv": ""
+        "html5shiv": "",
+        "uri.js": "https://github.com/medialize/URI.js.git"
     }
 }
