@@ -1,8 +1,33 @@
+/*@screen-md:         (@container-desktop + (2*@grid-gutter-width));
+@screen-lg:         (@container-lg-desktop + (2*@grid-gutter-width));*/
+.hp-container {
+  position: relative;
+}
+@media (min-width: 1270px) {
+  .hp-container .content-wrapper {
+    padding-left: 320px;
+  }
+}
 .hp-container .home-page-nav {
   /*height: 512px;*/
 }
 .hp-container .hp-slider {
-  height: 280px;
+  width: 660px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 230px;
+}
+.hp-container .hp-left-side {
+  width: 300px;
+  position: absolute;
+  left: 20px;
+  top: 0;
+  display: none;
+}
+@media (min-width: 1270px) {
+  .hp-container .hp-left-side {
+    display: block;
+  }
 }
 .hp-container .hp-adv-boxes .adv-box {
   margin-right: 20px;

@@ -1,12 +1,33 @@
 @import "variables";
 .hp-container{
+  position: relative;
+
+
+  .content-wrapper {
+    @media (min-width: @screen-lg) {
+      padding-left: 320px;
+    }
+  }
 
   .home-page-nav {
     /*height: 512px;*/
   }
 
   .hp-slider {
-    height: @slide_show_height;
+    width: 660px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 230px;
+  }
+  .hp-left-side {
+    width: 300px;
+    position: absolute;
+    left: @grid-gutter-width;
+    top: 0;
+    display: none;
+    @media (min-width: @screen-lg) {
+      display: block;
+    }
   }
   .hp-adv-boxes {
 

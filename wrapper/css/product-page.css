@@ -1,3 +1,5 @@
+/*@screen-md:         (@container-desktop + (2*@grid-gutter-width));
+@screen-lg:         (@container-lg-desktop + (2*@grid-gutter-width));*/
 @font-face {
   font-family: 'jk-Koodak';
   src: url('../fonts/font-koodak/fonts/Koodak.eot?#') format('eot'), url('../fonts/font-koodak/fonts/Koodak.woff') format('woff'), url('../fonts/font-koodak/fonts/Koodak.ttf') format('truetype');
@@ -113,13 +115,9 @@
 .product-page-container .product-details {
   position: absolute;
   float: right;
-  left: 0;
-  width: 640px;
-}
-@media (min-width: 1250px) {
-  .product-page-container .product-details {
-    width: 890px;
-  }
+  left: 20px;
+  width: 100%;
+  padding-right: 390px;
 }
 .product-page-container .product-details .header {
   position: relative;
@@ -163,7 +161,7 @@
 .product-page-container .product-details .carousel .items-container {
   width: 612px;
 }
-@media (min-width: 1250px) {
+@media (min-width: 1270px) {
   .product-page-container .product-details .carousel .items-container {
     width: 860px;
   }
@@ -171,7 +169,7 @@
 .product-page-container .product-details .carousel .items-container .items .item {
   width: 152.5px;
 }
-@media (min-width: 1250px) {
+@media (min-width: 1270px) {
   .product-page-container .product-details .carousel .items-container .items .item {
     width: 172px;
   }

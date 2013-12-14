@@ -8,14 +8,13 @@
 .page-title {
   display: none;
 }
-.products-page-container{
-  .content-wrapper {
-    padding-left: 2px;
-  }
-}
 
 .products-search-toolbar {
-
+  .clearfix {
+    &:after {
+      clear: left;
+    }
+  }
   margin-bottom: @grid-gutter-width;
 
   .pagination {
@@ -53,6 +52,7 @@
   }
 
   .products-count-container {
+    text-align: left;
     margin-bottom: @grid-gutter-width / 2;
   }
 }
@@ -217,10 +217,13 @@
       margin-top: -1px;
       position: relative;
 
-      .size(242px, 320px);
+      .size(33.33%, 320px);
 
       @media (min-width: @screen-lg) {
-        .size(244px, 320px);
+        width: 25%;
+      }
+      @media (min-width: @screen-xlg) {
+        width: 20%;
       }
 
       &:hover:after,
@@ -273,7 +276,9 @@
         }
 
         .rating {
-          margin-top: -4px;
+          position: absolute;
+          bottom: 57px;
+          right: 20px;
         }
 
         .buy-options {
@@ -384,7 +389,7 @@
           margin-top: 0;
           margin-bottom: 5px;
           margin-right: 200px;
-          padding-left: 180px;
+          padding-left: 190px;
         }
         .image {
           float: right;
@@ -402,7 +407,7 @@
         }
         .item-descs {
           margin-right: 200px;
-          padding-left: 180px;
+          padding-left: 190px;
           text-align: justify;
           margin-top: 10px;
 
