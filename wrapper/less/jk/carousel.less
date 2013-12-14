@@ -20,6 +20,7 @@
     position: absolute;
     top: 50%;
     margin-top: -22px;
+    z-index: 2;
 
     &:hover {
       color: @link-color;
@@ -38,12 +39,15 @@
     }
   }
   .items-container {
-    .size(@container-desktop - 2 * @car-nav-width, 230px);
+    //.size(@container-desktop - 2 * @car-nav-width, 230px);
+    .size(100%, 230px);
+    padding-left: @car-nav-width;
+    padding-right: @car-nav-width;
     margin: 0 auto;
     overflow: hidden;
-    @media (min-width: @screen-lg) {
+    /*@media (min-width: @screen-lg) {
       width: @container-lg-desktop - 2 * @car-nav-width;
-    }
+    }*/
     .items {
       .clearfix();
       margin: 0;
