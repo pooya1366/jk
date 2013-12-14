@@ -176,6 +176,8 @@
       > #jk-main-logo {
         width: @sidebar-width;
         height: @header_ribbon_height;
+        position: absolute;
+        z-index: 1000;
 
         .logo {
           width: 197px;
@@ -251,12 +253,17 @@
 
     .search-container {
       position: absolute;
-      width: 428px;
-      right: @sidebar-width;
-      @media (min-width: @screen-lg-desktop) {
-        width: 680px;
-      }
+      right: 0;
+      width: 100%;
+      padding-left: 340px;
+      padding-right: 270px;
+      padding-top: 12px;
 
+      > form {
+        position: relative;
+        padding-right: 110px;
+        padding-left: 46px;
+      }
       .search-box {
         .clearfix();
 
@@ -270,11 +277,8 @@
           padding: 10px;
           border: 0;
           height: 39px !important;
-          margin-left: 2px;
-          width: 256px;
-          @media (min-width: @screen-lg-desktop) {
-            width: 508px;
-          }
+          width: 100%;
+
         }
         .btn-search {
           #gradient.vertical(#fdda93, #edb53a);
@@ -292,6 +296,9 @@
           padding-bottom: 10px;
           padding-left: 15px;
           height: 39px !important;
+          position: absolute;
+          left: 0;
+          top: 0;
         }
 
         .search-category-select {
@@ -314,6 +321,9 @@
           border-left: 1px solid #ccc;
           height: 39px !important;
           text-overflow: ellipsis;
+          position: absolute;
+          right: 0;
+          top: 0;
 
           &:hover {
             #gradient.vertical(#fff, darken(#dfdfdf, 5%));
@@ -321,8 +331,9 @@
         }
 
         .jquery-selectbox {
-          position: relative;
-          float: right;
+          position: absolute;
+          right: 0;
+          top: 0;
           height: 39px !important;
           border-left: 1px solid #ccc;
           width: 110px !important;

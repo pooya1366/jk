@@ -1,3 +1,5 @@
+/*@screen-md:         (@container-desktop + (2*@grid-gutter-width));
+@screen-lg:         (@container-lg-desktop + (2*@grid-gutter-width));*/
 @font-face {
   font-family: 'jk-Koodak';
   src: url('../fonts/font-koodak/fonts/Koodak.eot?#') format('eot'), url('../fonts/font-koodak/fonts/Koodak.woff') format('woff'), url('../fonts/font-koodak/fonts/Koodak.ttf') format('truetype');
@@ -7,11 +9,11 @@
 .page-title {
   display: none;
 }
-.products-page-container .content-wrapper {
-  padding-left: 2px;
-}
 .products-search-toolbar {
   margin-bottom: 20px;
+}
+.products-search-toolbar .clearfix:after {
+  clear: left;
 }
 .products-search-toolbar .pagination {
   margin-top: 0;
@@ -41,6 +43,7 @@
   margin-right: 20px;
 }
 .products-search-toolbar .products-count-container {
+  text-align: left;
   margin-bottom: 10px;
 }
 .products-list .item-list {
@@ -176,13 +179,17 @@
   float: right;
   margin-top: -1px;
   position: relative;
-  width: 242px;
+  width: 33.33%;
   height: 320px;
 }
-@media (min-width: 1250px) {
+@media (min-width: 1270px) {
   .products-list .GridView > .item {
-    width: 244px;
-    height: 320px;
+    width: 25%;
+  }
+}
+@media (min-width: 1560px) {
+  .products-list .GridView > .item {
+    width: 20%;
   }
 }
 .products-list .GridView > .item:hover:after,
@@ -228,7 +235,9 @@
             text-overflow: ellipsis;*/
 }
 .products-list .GridView > .item > .item-content .rating {
-  margin-top: -4px;
+  position: absolute;
+  bottom: 57px;
+  right: 20px;
 }
 .products-list .GridView > .item > .item-content .buy-options {
   position: absolute;
@@ -303,7 +312,7 @@
   margin-top: 0;
   margin-bottom: 5px;
   margin-right: 200px;
-  padding-left: 180px;
+  padding-left: 190px;
 }
 .products-list .ListView > .item > .item-content .image {
   float: right;
@@ -319,7 +328,7 @@
 }
 .products-list .ListView > .item > .item-content .item-descs {
   margin-right: 200px;
-  padding-left: 180px;
+  padding-left: 190px;
   text-align: justify;
   margin-top: 10px;
 }
