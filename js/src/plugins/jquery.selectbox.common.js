@@ -129,6 +129,8 @@ jQuery.fn.selectBox = function(options){
 		if(thisListBoxSize == 0)
 			thisListBoxSize = 1;
 		var thisListBoxWidth = Math.round(_this.width() + 5);
+        jQuery.browser = jQuery.browser || {};
+        jQuery.browser.safari = jQuery.browser.safari || {};
 		if(jQuery.browser.safari)
 			thisListBoxWidth = thisListBoxWidth * 0.94;
 		replacement.css('width', thisListBoxWidth + 'px');
