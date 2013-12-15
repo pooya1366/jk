@@ -116,7 +116,7 @@ define(['jqueryCookie'], function () {
          *    items in the view first
          */
 
-        $('.item-list .item[data-role=product]').each(function () {
+        $('.item[data-role=product]').each(function () {
             var id = $(this).attr('data-product-id');
             var product = jk.compare.findProduct(id);
             //product is in the compare queue
