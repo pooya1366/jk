@@ -24,29 +24,6 @@ jk.handlers.initCarousels = function () {
         $(this).jkCarousel();
     });
 };if ( typeof jk === 'undefined' ) {
-    window.jk = {
-        handlers : {}
-    };
-}
-
-jk.handlers.addToCompare = function (target) {
-    var $product = $(target).parents('.item');
-    var productId = $product.attr('data-product-id');
-    var productCat = $product.attr('data-attribute-set');
-
-    //extract the cookie to a temporary obj
-    //push the current product into it's cat queue
-    //overwrite the new object on cookie
-
-    console.log(productId + ' ' + productCat);
-};
-
-jk.handlers.toggleCompareInput = function (target) {
-    var checkBox = $(target).
-            parents('.btn-compare').
-            find('input[type=checkbox]');
-    checkBox.attr('checked', !checkBox.attr('checked'));
-};;if ( typeof jk === 'undefined' ) {
     window.jk = {};
     window.jk.handlers = {};
 }
@@ -62,15 +39,7 @@ jk.handlers.selectboxInstaller = function () {
     jk.handlers.initCaptionHeader();
 });;$(document).ready(function () {
     jk.handlers.initCarousels();
-});;$('.products-list .item').delegate('div.btn-compare', 'click', function (e) {
-    //add to compare queue
-    jk.handlers.addToCompare(e.target);
-    //toggle the checkbox inside this button
-    jk.handlers.toggleCompareInput(e.target);
-
-    e.preventDefault();
-});
-;jk.handlers.selectboxInstaller();
+});;jk.handlers.selectboxInstaller();
 ;//(function () {
 //    console.log('style related events');
 //})();

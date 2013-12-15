@@ -9,8 +9,11 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         dropDown: 'js/libs/bootstrap/js/dropdown',
         ViewToggleHandler: 'js/src/handlers/categoryViewToggle',
+        compareButtonHandler: 'js/src/handlers/compareButton',
         ViewToggleEvent: 'js/src/events/categoryViewToggle',
-        mainNav: 'js/src/plugins/mainNav.common'
+        compareButtonEvent: 'js/src/events/compareButton',
+        mainNav: 'js/src/plugins/mainNav.common',
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie'
     }
 
     /*
@@ -44,7 +47,10 @@ require(['jquery',
          'dropDown',
          'ViewToggleHandler',
          'ViewToggleEvent',
-         'mainNav'
+         'mainNav',
+         'compareButtonEvent',
+         'compareButtonHandler',
+         'jqueryCookie'
 
 ], function () {
 });
