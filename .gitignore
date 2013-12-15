@@ -1,2 +1,3 @@
 .idea/
-wrapper2/
+.DS_Store
+node_modules/

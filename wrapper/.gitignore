@@ -1,7 +1,0 @@
-node_modules/
-.DS_Store
-../.idea/
-js/dist/
-js/libs/*
-!js/libs/jquery-ui
-css/
