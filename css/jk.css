@@ -4486,9 +4486,6 @@ hr {
   padding: 10px 20px;
   min-width: 170px;
 }
-.header .list-dropdown:hover .dropdown-menu {
-  display: block;
-}
 .header .ribbon {
   background: #0b5ead;
   height: 62px;
