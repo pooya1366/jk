@@ -348,7 +348,7 @@
              *
              * Category switcher events
              */
-            window.jkTimeOuts = {};
+            window.jkTimeOuts = window.jkTimeOuts || {};
             $('#corner').delegate('#queues', 'mouseover', function () {
                 $('#queue-categories').fadeIn(100);
             });
