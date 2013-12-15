@@ -108,12 +108,15 @@
             $('#properties').delegate('.heading div ', 'click', function () {
                 var index = $(this).parents('tbody').
                             index(),
-                    $icon = $(this).find('.state');
+                    $icon = $(this).find('.state'),
+                    category = $(this).parents('table').attr('data-category-id'),
+                    categoryTable = 'table[data-category-id=' + category + ']';
+
 
                 $(this).parents('tbody').
-                        children('tr').
-                        not('.heading').
-                        slideToggle(1);
+                children('tr').
+                not('.heading').
+                slideToggle(1);
 
                 if ( $icon.hasClass('open') ) {
                     $icon.
@@ -125,7 +128,7 @@
                             addClass('open fa-caret-down');
                 }
 
-                $('#grid tbody').eq(index).
+                $('#grid ' + categoryTable + ' tbody').eq(index).
                         children('tr').
                         not('.space').
                         slideToggle(1);
