@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare Page</title>
+    <link rel="stylesheet" href="../css/jk.css"/>
+    <link rel="stylesheet" href="../css/compare-page.css"/>
+    <script src="../js/libs/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../js/libs/uri.js/src/URI.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var $grid = $('#grid'),
+                $propertiesTable = $('#properties table'),
+                $productTable    = $('#products table');
+
+            function changeBarMargins () {
+                var vertical = $grid.scrollTop();
+                var horizontal = $grid.scrollLeft();
+                $propertiesTable.css('margin-top', -vertical);
+                $productTable.css('margin-left', -horizontal);
+            }
+
+            var scrolled = false;
+            $grid.scroll(function() {
+                scrolled = true;
+            });
+            setInterval(function() {
+                if (scrolled) {
+                    changeBarMargins();
+                    scrolled = false;
+                }
+            }, 30);
+
+            /**
+             * Takes a single td element wrapped by jQuery object and
+             * returns the whole column with it's product head.
+             *
+             * Warning!
+             * This selector is made only for this page, and any
+             * changes to the html of tables might brake the code.
+             */
+            (function($) {
+                $.fn.column = function () {
+                    var col = $(),
+                        category = $(this).
+                                parents('table').
+                                attr('data-category-id'),
+                        index;
+
+                    if (this.parents('#properties').length) {
+                        return $();
+                    } else if (this.parents('#products').length) {
+                        index = this.index();
+                        col = col.add(this);
+                        col = col.add( $('#grid table[data-category-id=' + category + '] td').
+                                filter(function () {
+                            return $(this).index() == index;
+                        }) );
+                    } else if (this.parents('#grid').length) {
+                        //find index
+                        //return nodes
+                        throw new Error('This part of the selector is not developed, ' +
+                                'because it wasn\'t nedded at the time');
+                    } else {
+                        return $();
+                    }
+
+                    return this.pushStack(col);
+                };
+            }) (jQuery);
+
+            /**
+             * Takes a single tr element wrapped by jQuery object and
+             * returns the whole row with it's property head.
+             *
+             * Warning!
+             * This selector is made only for this page, and any
+             * changes to the html of tables might brake the code.
+             */
+            (function($) {
+                $.fn.row = function () {
+                    var row = $(),
+                        category = $(this).
+                                parents('table').
+                                attr('data-category-id'),
+                        categoryTable = 'table[data-category-id=' + category + ']',
+                        index;
+
+                    if (this.parents('#product').length) {
+                        return $();
+                    } else if (this.parents('#properties').length) {
+                        index = this.index('#properties ' + categoryTable + ' tr');
+                        row = row.add(this);
+                        row = row.add( $('#grid ' + categoryTable + ' tr').eq(index));
+                    } else if (this.parents('#grid').length) {
+                        index = this.index('#grid ' + categoryTable + ' tr');
+                        row = row.add('#properties ' + categoryTable + ' tr').eq(index);
+                        row = row.add(this);
+                    } else {
+                        return $();
+                    }
+
+                    return this.pushStack(row);
+                };
+            }) (jQuery);
+
+            //toggle effect
+            $('#properties').delegate('.heading div ', 'click', function () {
+                var index = $(this).parents('tbody').
+                            index(),
+                    $icon = $(this).find('.state'),
+                    category = $(this).parents('table').attr('data-category-id'),
+                    categoryTable = 'table[data-category-id=' + category + ']';
+
+
+                $(this).parents('tbody').
+                children('tr').
+                not('.heading').
+                slideToggle(1);
+
+                if ( $icon.hasClass('open') ) {
+                    $icon.
+                        removeClass('open fa-caret-down').
+                        addClass('close fa-caret-left');
+                } else {
+                    $icon.
+                            removeClass('close fa-caret-left').
+                            addClass('open fa-caret-down');
+                }
+
+                $('#grid ' + categoryTable + ' tbody').eq(index).
+                        children('tr').
+                        not('.space').
+                        slideToggle(1);
+            });
+
+            //horizontal highlight effect
+            $('#properties, #grid').delegate('tr', 'mouseover mouseout', function (e) {
+                var $el = $(e.target).parents('tr'),
+                    index;
+                if ($el.parents('#properties').length) {
+                    index = $el.index('#properties tr');
+                } else {
+                    index = $el.index('#grid tr');
+                }
+
+                if (e.type == 'mouseover') {
+                    $el.row().addClass('highlight');
+                } else {
+                    $el.row().removeClass('highlight');
+                }
+            });
+
+            //vertical highlight effect
+            $('#products').delegate('td', 'mouseover mouseout', function (e) {
+                var $el = $(e.target),
+                    index = $el.parent('td').index();
+
+                if (e.type == 'mouseover') {
+                    $el.parent('td').
+                            column().
+                            addClass('highlight');
+                } else {
+                    $el.parent('td').
+                            column().
+                            removeClass('highlight');
+                }
+
+            });
+
+
+            //remove effect
+            $('#products').delegate('td .remove', 'click', function (e) {
+                var $el = $(e.target);
+                var index = $el.parents('td').index();
+                var removeCollection = [];
+
+                var trash = [];
+                //find related tds in grid and hide them
+                $el.parents('td').
+                        column().
+                        remove();
+                updateControlView();
+            });
+
+            var updateControlView = function () {
+                $('.move-left,.move-right').show();
+                $('#products table').each(function () {
+                    $(this).find('.move-left:first,.move-right:last').hide();
+                });
+            };
+
+            var showCategory = function (category) {
+                category = category || $('#queue-categories li:first').
+                        attr('data-category-id');
+                $('#products table, #properties table, #grid table').hide();
+                $('#products table[data-category-id=' + category + ']').show();
+                $('#properties table[data-category-id=' + category + ']').show();
+                $('#grid table[data-category-id=' + category + ']').show();
+            };
+
+            var syncRowsHeight = function () {
+                //set tr rows in properties table
+                var $propertyRows = $('#properties tr');
+                $('#grid tr').each(function (index) {
+                    var height = $(this).css('height')
+                    //stupid firefox bug fix
+                    $propertyRows.eq(index).
+                            css('height', height)
+                    $(this).css('height', height);
+                });
+            };
+
+            //initialize
+            $(document).ready(function () {
+                showCategory();
+                updateControlView();
+                syncRowsHeight();
+            });
+
+            /**
+             * Move Function
+             * @param $col
+             * A single td inside column wrapped by a jQuery object
+             * @param index
+             * The index you want to move the column to
+             * @param side
+             * Whether you want to move the column to the right
+             * or to the left of index
+             */
+            var moveColumn = function ($col, index, side) {
+                var $head = $(),
+                    $tail = $(),
+                    category = $col.parents('table').attr('data-category-id'),
+                    categoryTable = 'table[data-category-id=' + category + ']',
+                    $gridTarget = $('#grid ' + categoryTable + ' td').filter(function () {
+                        return $(this).index() == index;
+                    });
+
+                //some validation
+                if ( side != 'right' && side != 'left') {
+                    throw new Error('side paramete can only ber left or right');
+                }
+
+                //find head, and tail
+                $col.each(function () {
+                    if( $(this).find('div').hasClass('product-ico') ) {
+                        $head = $(this);
+                    } else {
+                        $tail = $tail.add(this)
+                    }
+                });
+
+                if (side == 'right') {
+                    //move head
+                    $head.insertAfter($('#products ' + categoryTable + ' td').eq(index));
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertAfter($gridTarget.eq(i));
+                    }
+                } else if (side == 'left') {
+                    //move head
+                    $head.insertBefore($('#products ' + categoryTable + ' td').eq(index))
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertBefore($gridTarget.eq(i));
+                    }
+                }
+            };
+
+            //add column
+            /**
+             *
+             * @param index of where you want your col to be inserted
+             * @param col html column with product head and grid tail
+             */
+            var addColumn = function (index, col, side) {
+                var $head = col.eq(0),
+                    $tail = col.not(':eq(0)'),
+                    $gridTarget = $('#grid td').filter(function () {
+                        return $(this).index() == index;
+                    });
+                side = side || 'right';
+
+                if (side == 'right') {
+                    //move head
+                    $head.insertAfter('#products td:eq(' + index + ')');
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertAfter($gridTarget.eq(i));
+                    }
+                } else if (side == 'left') {
+                    //move head
+                    $head.insertBefore($('#products td').eq(index))
+                    //move tail
+                    for (var i = 0; i < $tail.length; i++) {
+                        $tail.eq(i).insertBefore($gridTarget.eq(i));
+                    }
+                } else {
+                    throw new Error('side paramete can only ber left or right');
+                }
+            };
+
+            /**
+             * A TEMPORARY FUNCTION
+             */
+            // Returns a random integer between min and max
+            // Using Math.round() will give you a non-uniform distribution!
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            var randomColumn = function () {
+                var index = getRandomInt(0, 7),
+                    col = $('#products td:eq(' + index + ')').
+                        column().
+                        clone();
+                col.eq(getRandomInt(2, 4)).
+                    find('div').
+                    text(getRandomInt(1,100));
+                return col;
+            };
+            $('#corner').delegate('#more-products a', 'click', function () {
+                addColumn(0, randomColumn(), 'left');
+                return false;
+            });
+
+            /**
+             * END OF TEMPORARY FUNCTIONS
+             */
+
+            //move effect
+            $('#products').delegate('.move-right,.move-left', 'click', function (e) {
+                var $el = $(e.target),
+                    index = $el.
+                            parents('td').
+                            index();
+
+                if ($el.hasClass('move-right')) {
+                    moveColumn($el.parents('td').column(), index + 1, 'right');
+                } else {
+                    moveColumn($el.parents('td').column(), index - 1, 'left');
+                }
+                updateControlView();
+            });
+
+
+            /**
+             *
+             * Category switcher events
+             */
+            window.jkTimeOuts = {};
+            $('#corner').delegate('#queues', 'mouseover', function () {
+                $('#queue-categories').fadeIn(100);
+            });
+            $('#corner').delegate('#queues', 'mouseover', function () {
+                if (jkTimeOuts.categories) {
+                    clearTimeout(jkTimeOuts.categories);
+                }
+            });
+            $('#corner').delegate('#queues', 'mouseout', function () {
+                if ( $('#queue-categories').css('display') == 'block' ) {
+                    jkTimeOuts.categories = setTimeout(function () {
+                        $('#queue-categories').fadeOut(100);
+                    }, 500)
+                }
+            });
+            $('#corner').delegate('#queue-categories li', 'click', function (e) {
+                var categoryId = $(e.target).parents('li').attr('data-category-id');
+                showCategory(categoryId);
+                updateControlView();
+                syncRowsHeight();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="compare-wrapper">
+
+<div id="corner">
+    <div id="queues">
+        <a href="#">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul id="queue-categories">
+            <li data-category-id="tv">
+                <div>
+                    <a href="#">TV <span>(5)</span></a>
+                </div>
+            </li>
+            <li data-category-id="mobile">
+                <div>
+                    <a href="#">Mobile <span>(12)</span></a>
+                </div>
+            </li>
+            <li>
+                <div data-category-id="tablet">
+                    <a href="#">Tablet <span>(3)</span></a>
+                </div>
+            </li>
+            <li>
+                <div data-category-id="crystal">
+                    <a href="#">Crystal <span>(15)</span></a>
+                </div>
+            </li>
+            <li>
+                <div data-category-id="pen">
+                    <a href="#">Pen <span>(2)</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="more-products">
+        <a href="#">More...</a>
+    </div>
+</div>
+
+<div id="products">
+    <table data-category-id="mobile">
+        <tbody>
+        <tr>
+            <td>
+                <div class="product-ico">Mobile 1
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 2
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 3
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 4
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 5
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 6
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 7
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">Mobile 8
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table data-category-id="tv">
+        <tbody>
+        <tr>
+            <td>
+                <div class="product-ico">TV 1
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 2
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 3
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 4
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 5
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 6
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+            <td>
+                <div class="product-ico">TV 7
+                    <i class="fa fa-trash-o remove control"></i>
+                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
+                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="properties">
+    <table data-category-id="mobile">
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table data-category-id="tv">
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="heading">
+            <td>
+                <div><i class="state fa open fa-caret-down"></i>گروه</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>ویژگی</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="grid">
+    <table data-category-id="mobile">
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                </div>
+            </td>
+            <td>
+                <div>2</div>
+            </td>
+            <td>
+                <div>3</div>
+            </td>
+            <td>
+                <div>4</div>
+            </td>
+            <td>
+                <div>5</div>
+            </td>
+            <td>
+                <div>6</div>
+            </td>
+            <td>
+                <div>7</div>
+            </td>
+            <td>
+                <div>8</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>FF FF FF</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>SS</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>FF FF FF</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>SS</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                </div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>FF FF FF</div>
+            </td>
+            <td>
+                <div>SS</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>EE</div>
+            </td>
+            <td>
+                <div>XXXXX</div>
+            </td>
+            <td>
+                <div>Sira Nevada</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table data-category-id="tv">
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                    too much contetn
+                </div>
+            </td>
+            <td>
+                <div>TV 2</div>
+            </td>
+            <td>
+                <div>3</div>
+            </td>
+            <td>
+                <div>4</div>
+            </td>
+            <td>
+                <div>TV 5</div>
+            </td>
+            <td>
+                <div>6</div>
+            </td>
+            <td>
+                <div>7</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>FF FF FF</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>TV SS</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>TV v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>TV v3</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>TV v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>TV v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>TV v2</div>
+            </td>
+            <td>
+                <div>
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                    too much content
+                </div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="space">
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+            <td>
+                <div>v1</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>FF FF FF</div>
+            </td>
+            <td>
+                <div>SS</div>
+            </td>
+            <td>
+                <div>v2</div>
+            </td>
+            <td>
+                <div>EE</div>
+            </td>
+            <td>
+                <div>XXXXX</div>
+            </td>
+            <td>
+                <div>Sira Nevada</div>
+            </td>
+            <td>
+                <div>v3</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
+</body>
+</html>

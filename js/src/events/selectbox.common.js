@@ -1,0 +1,1 @@
+jk.handlers.selectboxInstaller();
