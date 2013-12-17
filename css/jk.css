@@ -4334,6 +4334,10 @@ hr {
 .list-dropdown {
   position: relative;
 }
+.list-dropdown li {
+  list-style: none;
+  margin: 5px 0;
+}
 .list-dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -4349,9 +4353,8 @@ hr {
   right: auto;
   left: 0px;
 }
-.list-dropdown .dropdown-menu li {
-  list-style: none;
-  margin: 5px 0;
+.list-dropdown.open .dropdown-menu {
+  display: block;
 }
 .carousel-title {
   font-weight: normal;
@@ -4549,7 +4552,10 @@ hr {
   padding-right: 15px;
   padding-left: 15px;
 }
-.header .ribbon .nav > li.item:hover > a {
+.header .ribbon .nav > li.item > a:hover {
+  background-color: inherit;
+}
+.header .ribbon .nav > li.item.open > a {
   background-image: -webkit-linear-gradient(top, #0a3159 0%, #125190 100%);
   background-image: linear-gradient(to bottom, #0a3159 0%, #125190 100%);
   background-repeat: repeat-x;
@@ -4625,6 +4631,12 @@ hr {
 .header .ribbon .nav > #jk-main-logo.active i.fa-chevron-down {
   visibility: hidden;
 }
+.header .ribbon .nav > #jk-main-logo.active a.logo-link:hover {
+  background-image: -webkit-linear-gradient(top, #0a3159 0%, #125190 100%);
+  background-image: linear-gradient(to bottom, #0a3159 0%, #125190 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a3159', endColorstr='#ff125190', GradientType=0);
+}
 .header .ribbon .nav > #jk-main-logo .logo-link {
   padding-top: 4px;
 }
@@ -4653,13 +4665,23 @@ hr {
 .header .ribbon .nav > #jk-main-logo #nav-browse-flyout #nav-subcats-wrap {
   right: 227px;
 }
+.header .ribbon .nav > #jk-main-logo:hover {
+  /*#nav-browse-flyout {
+            visibility: visible;
+
+          }*/
+}
 .header .ribbon .nav > #jk-main-logo:hover .logo {
   background-position: 0 -55px;
 }
 .header .ribbon .nav > #jk-main-logo:hover i.fa-chevron-down {
   visibility: visible;
 }
-.header .ribbon .nav > #jk-main-logo:hover #nav-browse-flyout {
+.header .ribbon .nav > #jk-main-logo .dropdown-menu {
+  padding: 0;
+  visibility: hidden;
+}
+.header .ribbon .nav > #jk-main-logo.open #nav-browse-flyout {
   visibility: visible;
 }
 .header .ribbon .nav.shortcuts-nav {
@@ -5031,6 +5053,7 @@ hr {
   height: 32px;
   border-bottom: 1px dotted #dddddd;
   cursor: pointer;
+  margin: 0 !important;
 }
 .nav-flyout #nav-cats .nav-pop-li .text {
   color: #1a75d0;
@@ -5111,6 +5134,7 @@ hr {
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-browse-cat-ul > .nav-pop-li {
   padding: 0 15px;
+  margin: 0 !important;
 }
 .nav-flyout #nav-subcats-wrap .nav-subcats .nav-browse-cat-ul > .nav-pop-li > a {
   display: block;

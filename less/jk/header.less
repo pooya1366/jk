@@ -98,9 +98,12 @@
           > a {
             padding-right: @header_nav_item_padding;
             padding-left: @header_nav_item_padding;
+            &:hover {
+              background-color: inherit;
+            }
           }
 
-          &:hover {
+          &.open {
             > a {
               #gradient.vertical(#0a3159, #125190);
             }
@@ -202,6 +205,11 @@
           i.fa-chevron-down {
             visibility: hidden;
           }
+          a.logo-link {
+            &:hover {
+              #gradient.vertical(#0a3159, #125190);
+            }
+          }
         }
         .logo-link {
           padding-top: 4px;
@@ -237,12 +245,22 @@
           i.fa-chevron-down {
             visibility: visible;
           }
-          #nav-browse-flyout {
+          /*#nav-browse-flyout {
             visibility: visible;
 
-          }
+          }*/
         }
 
+        .dropdown-menu {
+          padding: 0;
+          visibility: hidden;
+        }
+
+        &.open {
+          #nav-browse-flyout {
+            visibility: visible;
+          }
+        }
 
       }//End of .jk-header .ribbon .nav > #jk-main-logo
 

@@ -1,8 +1,8 @@
 window.jk.handlers = window.jk.handlers || {};
 
 jk.handlers.changeSlideMenu = function (target, action) {
-    var $t = $(target),
-        display = action == 'open' ? 'block' : 'none';
+    var $t = $(target);
+        //display = action == 'open' ? 'block' : 'none';
 
     if ( !$(target).hasClass('list-dropdown') ) {
         $t = $(target).parents('.list-dropdown');
@@ -13,8 +13,8 @@ jk.handlers.changeSlideMenu = function (target, action) {
     } else {
         $t.removeClass('open');
     }
-    $t.find('.dropdown-menu')
-        .css('display', display);
+    //$t.find('.dropdown-menu')
+    //    .css('display', display);
 
 };
 
@@ -27,5 +27,5 @@ jk.handlers.closeDropdownMenu = function (target) {
 };
 
 jk.handlers.closeAllDropDowns = function () {
-    $('.dropdown-menu').css('display', 'none');
+    $('.list-dropdown').removeClass('open');
 };
