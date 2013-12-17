@@ -11,6 +11,7 @@ $('body').delegate('.list-dropdown', 'mouseenter', function (e) {
 });
 
 $('body').delegate('.list-dropdown', 'mouseleave', function (e) {
+    clearTimeout(jkTimeOuts.openSlideMenu);
     jkTimeOuts.closeSlideMenu = setTimeout(function() {
         jk.handlers.closeDropdownMenu(e.target);
     }, 300);
