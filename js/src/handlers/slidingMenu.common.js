@@ -8,9 +8,14 @@ jk.handlers.changeSlideMenu = function (target, action) {
         $t = $(target).parents('.list-dropdown');
     }
 
+    if (action == 'open') {
+        $t.addClass('open');
+    } else {
+        $t.removeClass('open');
+    }
     $t.find('.dropdown-menu')
-        .css('display', display)
-        .toggleClass('open');
+        .css('display', display);
+
 };
 
 jk.handlers.openDropdownMenu = function (target) {
