@@ -12,7 +12,9 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
-        mainNav: 'js/src/plugins/mainNav.common'
+        mainNav: 'js/src/plugins/mainNav.common',
+        fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
+        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs'
     }
 
     /*
@@ -44,8 +46,13 @@ require.config({
         },
         mainNav: {
             deps: ['jquery']
+        },
+        fancyBox: {
+            deps: ['jquery']
+        },
+        fancyBoxThumbs: {
+            deps: ['jquery', 'fancyBox']
         }
-
     }
 });
 
@@ -53,10 +60,21 @@ require(['jquery',
     'commonPlugins',
     'commonVents',
     'affixEvent',
-    'compare',
     'navScroller',
-    'mainNav'
+    'mainNav',
+    'fancyBox',
+    'fancyBoxThumbs'
 
 ], function () {
 
+    $(document).ready(function () {
+        $('ul.fancy-box a').fancybox( {
+            helpers: {
+                thumbs: {
+                    width: 50,
+                    height: 50
+                }
+            }
+        });
+    });
 });
