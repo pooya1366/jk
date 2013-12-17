@@ -1,3 +1,28 @@
+//Image path corrections
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+  background-image: url('../images/fancyBox/fancybox_sprite.png');
+}
+#fancybox-loading div {
+  background: url('../images/fancyBox/fancybox_loading.gif') center center no-repeat;
+}
+.fancybox-nav {
+  background: transparent url('../images/fancyBox/blank.gif'); /* helps IE */
+}
+.fancybox-overlay {
+  background: url('../images/fancyBox/fancybox_overlay.png');
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+  #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-image: url('../images/fancyBox/fancybox_sprite@2x.png');
+  }
+  #fancybox-loading div {
+    background-image: url('../images/fancyBox/fancybox_loading@2x.gif');
+  }
+}
+//end of image path correction
+
 #fancybox-thumbs {
   text-align: center;
   background-color: #000000;
@@ -13,4 +38,7 @@
 .fancybox-overlay-fixed {
   background-color: #222222;
   background-color: rgba(0,0,0,0.75);
+}
+#fancybox-thumbs.bottom {
+  bottom: 0;
 }
