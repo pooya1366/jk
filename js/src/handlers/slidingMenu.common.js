@@ -4,7 +4,7 @@ jk.handlers.changeSlideMenu = function (target, action) {
     var $t = $(target),
         display = action == 'open' ? 'block' : 'none';
 
-    if ( !$(target).hasClass('.list-dropdown') ) {
+    if ( !$(target).hasClass('list-dropdown') ) {
         $t = $(target).parents('.list-dropdown');
     }
 
