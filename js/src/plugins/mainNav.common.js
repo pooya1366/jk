@@ -22,6 +22,7 @@ $('#nav-browse-flyout').hover(function() {
 $nav_pop_li.hover(function() {
 
     var target = this;
+        clearTimeout($nav_pop_li.t);
     $nav_pop_li.t = setTimeout((function() {
         $($nav_pop_li).removeClass('nav-active');
         $(target).addClass('nav-active');
