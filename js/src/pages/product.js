@@ -14,7 +14,8 @@ require.config({
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         mainNav: 'js/src/plugins/mainNav.common',
         fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
-        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs'
+        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
+        typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
     /*
@@ -52,6 +53,9 @@ require.config({
         },
         fancyBoxThumbs: {
             deps: ['jquery', 'fancyBox']
+        },
+        typeahead: {
+            deps: ['jquery']
         }
     }
 });
@@ -63,7 +67,8 @@ require(['jquery',
     'navScroller',
     'mainNav',
     'fancyBox',
-    'fancyBoxThumbs'
+    'fancyBoxThumbs',
+    'typeahead'
 
 ], function () {
 
