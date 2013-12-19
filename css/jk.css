@@ -5926,5 +5926,6 @@ select {
   padding: 4px 10px;
 }
 .tt-suggestion.tt-is-under-cursor {
-  background-color: #4083C4;
+  background-color: #0B5EAD;
+  color: white;
 }
