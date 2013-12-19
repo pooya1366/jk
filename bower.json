@@ -11,6 +11,7 @@
         "html5shiv": "",
         "uri.js": "https://github.com/medialize/URI.js.git",
         "jqueryCookie": "https://github.com/carhartl/jquery-cookie.git",
-        "fancyBox": "https://github.com/fancyapps/fancyBox.git"
+        "fancyBox": "https://github.com/fancyapps/fancyBox.git",
+        "typeahead.js": ""
     }
 }
