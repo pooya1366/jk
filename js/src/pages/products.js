@@ -13,7 +13,8 @@ require.config({
         ViewToggleEvent: 'js/src/events/categoryViewToggle',
         compareButtonEvent: 'js/src/events/compareButton',
         mainNav: 'js/src/plugins/mainNav.common',
-        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie'
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
+        typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
     /*
@@ -36,6 +37,9 @@ require.config({
         },
         mainNav: {
             deps: ['jquery']
+        },
+        typeahead: {
+            deps: ['jquery']
         }
 
     }
@@ -50,7 +54,7 @@ require(['jquery',
          'mainNav',
          'compareButtonEvent',
          'compareButtonHandler',
-         'jqueryCookie'
-
+         'jqueryCookie',
+         'typeahead'
 ], function () {
 });

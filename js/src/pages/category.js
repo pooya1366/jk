@@ -7,7 +7,8 @@ require.config({
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
-        mainNav: 'js/src/plugins/mainNav.common'
+        mainNav: 'js/src/plugins/mainNav.common',
+        typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
     /*
@@ -27,6 +28,9 @@ require.config({
         },
         mainNav: {
             deps: ['jquery']
+        },
+        typeahead: {
+            deps: ['jquery']
         }
     }
 });
@@ -34,7 +38,8 @@ require.config({
 require(['jquery',
          'commonVents',
          'commonPlugins',
-         'mainNav'
+         'mainNav',
+         'typeahead'
 ], function () {
 
 });
