@@ -373,3 +373,8 @@
   margin-bottom: 0;
   font-weight: bold;
 }
+.item .btn-compare i.icon-checkbox {
+  margin: 1px 4px 0px 5px;
+  font-size: 1.15em;
+  vertical-align: middle;
+}

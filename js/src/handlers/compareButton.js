@@ -137,8 +137,8 @@ define(['jqueryCookie'], function () {
     jk.handlers.updateCompareQueue = function (target) {
         var $product = $(target).
             parents('li[data-role=product]');
-        if ( !$product.find('input[type=checkbox]').
-                    prop('checked') )
+        if ( !$product.find('i.icon-checkbox').
+                    hasClass('fa-check-square-o') )
         {
             jk.compare.removeProduct(~~$product.attr('data-product-id'))
         } else {
@@ -152,8 +152,17 @@ define(['jqueryCookie'], function () {
     jk.handlers.toggleCompareInput = function (target) {
         var checkBox = $(target).
             parents('.btn-compare').
-            find('input[type=checkbox]');
-        checkBox.prop('checked', !checkBox.prop('checked'));
+            find('i.icon-checkbox');
+        //if check box is not checked
+        if (checkBox.hasClass('fa-square-o')) {
+            checkBox.
+                removeClass('fa-square-o').
+                addClass('fa-check-square-o');
+        } else {
+            checkBox.
+                removeClass('fa-check-square-o').
+                addClass('fa-square-o');
+        }
     };
 
 });
