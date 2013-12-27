@@ -25,10 +25,18 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 src: [
-                        'js/libs/bootstrap/js/transition.js',
-                        'js/libs/bootstrap/js/modal.js'
+                    'js/libs/bootstrap/js/transition.js',
+                    'js/libs/bootstrap/js/modal.js'
                 ],
                 dest: 'js/dist/libs/bootstrap.js',
+                nonull: true
+            },
+            critical: {
+                src: [
+                    'js/libs/jquery/jquery.js',
+                    'js/src/**/*.critical.js'
+                ],
+                dest: 'js/dist/critical.js',
                 nonull: true
             }
         },
