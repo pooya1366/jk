@@ -22,6 +22,21 @@ module.exports = function (grunt) {
             plugins: {
                 src: ['js/src/plugins/*.common.js'],
                 dest: 'js/dist/plugins/commonPlugins.js'
+            },
+            bootstrap: {
+                src: [
+                        'js/libs/bootstrap/js/transition.js',
+                        'js/libs/bootstrap/js/modal.js'
+                ],
+                dest: 'js/dist/libs/bootstrap.js',
+                nonull: true
+            }
+        },
+
+        uglify: {
+            bootstrap : {
+                src : 'js/dist/libs/bootstrap.js',
+                dest : 'js/dist/libs/bootstrap.min.js'
             }
         },
 
@@ -80,6 +95,7 @@ module.exports = function (grunt) {
     });
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('assemble-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -97,5 +113,6 @@ module.exports = function (grunt) {
   	grunt.registerTask('makePlugins', ['concat:plugins']);
   	grunt.registerTask('watchTheme', ['watch:themes']);
   	grunt.registerTask('watchVents', ['watch:vents']);
+  	grunt.registerTask('bootstrap', ['concat:bootstrap', 'uglify:bootstrap']);
 
 }
