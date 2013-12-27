@@ -1,32 +1,36 @@
-window.jk = window.jk || {};
-window.jk.handlers = window.jk.handlers || {};
+(function ($) {
 
-jk.handlers.changeSlideMenu = function (target, action) {
-    var $t = $(target);
-        //display = action == 'open' ? 'block' : 'none';
+    window.jk = window.jk || {};
+    window.jk.handlers = window.jk.handlers || {};
 
-    if ( !$(target).hasClass('list-dropdown') ) {
-        $t = $(target).parents('.list-dropdown');
-    }
+    jk.handlers.changeSlideMenu = function (target, action) {
+        var $t = $(target);
+            //display = action == 'open' ? 'block' : 'none';
 
-    if (action == 'open') {
-        $t.addClass('open');
-    } else {
-        $t.removeClass('open');
-    }
-    //$t.find('.dropdown-menu')
-    //    .css('display', display);
+        if ( !$(target).hasClass('list-dropdown') ) {
+            $t = $(target).parents('.list-dropdown');
+        }
 
-};
+        if (action == 'open') {
+            $t.addClass('open');
+        } else {
+            $t.removeClass('open');
+        }
+        //$t.find('.dropdown-menu')
+        //    .css('display', display);
 
-jk.handlers.openDropdownMenu = function (target) {
-    jk.handlers.changeSlideMenu(target, 'open');
-};
+    };
 
-jk.handlers.closeDropdownMenu = function (target) {
-    jk.handlers.changeSlideMenu(target, 'close');
-};
+    jk.handlers.openDropdownMenu = function (target) {
+        jk.handlers.changeSlideMenu(target, 'open');
+    };
 
-jk.handlers.closeAllDropDowns = function () {
-    $('.list-dropdown').removeClass('open');
-};
+    jk.handlers.closeDropdownMenu = function (target) {
+        jk.handlers.changeSlideMenu(target, 'close');
+    };
+
+    jk.handlers.closeAllDropDowns = function () {
+        $('.list-dropdown').removeClass('open');
+    };
+
+})(jQuery);

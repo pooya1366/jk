@@ -1,10 +1,15 @@
-window.jk = window.jk || {};
-window.jk.handlers = window.jk.handlers || {};
+(function ($) {
 
-$(document).ready(function () {
+    window.jk = window.jk || {};
+    window.jk.handlers = window.jk.handlers || {};
 
-    $('.selectbox').each(function () {
-        $(this).selectBox({animationSpeed: 'fast'});
+    $(document).ready(function () {
+
+        $('.selectbox').each(function () {
+            $(this).selectBox({animationSpeed: 'fast'});
+        });
+
     });
 
-});
+})(jQuery);
+

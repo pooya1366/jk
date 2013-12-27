@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
     window.jkTimeOuts = window.jkTimeOuts || {};
     $('html').delegate('.list-dropdown', 'mouseenter', function (e) {
         //hold for 100ms then open the menu
@@ -17,4 +17,4 @@
             jk.handlers.closeDropdownMenu(e.target);
         }, 200);
     });
-}());
+})(jQuery);

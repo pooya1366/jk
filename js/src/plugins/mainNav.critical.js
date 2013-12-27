@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
     $(document).ready(function () {
 
         var $nav_subcats_wrap = $('#nav-subcats-wrap');
@@ -41,4 +41,4 @@
         );
 
     });
-}());
+})(jQuery);
