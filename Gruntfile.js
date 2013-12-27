@@ -34,6 +34,7 @@ module.exports = function (grunt) {
             critical: {
                 src: [
                     'js/libs/jquery/jquery.js',
+                    'js/src/extras/noConflict.js',
                     'js/src/plugins/*.critical.js',
                     'js/src/handlers/*.critical.js',
                     'js/src/events/*.critical.js'
