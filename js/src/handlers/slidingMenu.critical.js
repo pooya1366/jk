@@ -1,3 +1,4 @@
+window.jk = window.jk || {};
 window.jk.handlers = window.jk.handlers || {};
 
 jk.handlers.changeSlideMenu = function (target, action) {
