@@ -45,6 +45,10 @@ module.exports = function (grunt) {
             bootstrap : {
                 src : 'js/dist/libs/bootstrap.js',
                 dest : 'js/dist/libs/bootstrap.min.js'
+            },
+            critical : {
+                src : 'js/dist/critical.js',
+                dest : 'js/dist/critical.min.js'
             }
         },
 
@@ -116,7 +120,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('getLibs', ['bower:libs','copy:libs', 'clean:libs']);
 
-  	grunt.registerTask('join', ['concat:vents', 'concat:plugins']);
+  	grunt.registerTask('join', ['concat:vents', 'concat:plugins', 'concat:critical']);
   	grunt.registerTask('makeTheme', ['less:production']);
   	grunt.registerTask('makePlugins', ['concat:plugins']);
   	grunt.registerTask('watchTheme', ['watch:themes']);
