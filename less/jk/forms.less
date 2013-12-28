@@ -14,8 +14,49 @@ form {
       margin: 0 4px;
     }
   }
+  .panel-heading {
+    h2 {
+      margin: 0;
+    }
+  }
 }
 input[type="email"],
 input[type="password"] {
   direction: ltr;
+}
+.radio, .checkbox {
+  padding-left: 0;
+  padding-right: 20px;
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  float: right;
+  margin-left: 0;
+  margin-right: -20px;
+}
+.form-group {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+
+  .validation-advice {
+    position: absolute;
+    bottom: -4px;
+    width: 100%;
+  }
+}
+.form-control.validation-failed {
+  border-color: @red;
+  .form-control-focus(@red);
+}
+.validation-advice {
+  background-color: @red;
+  .border-bottom-radius(4px);
+  color: white;
+  font-size: 10px;
+  text-align: left;
+  padding: 2px 5px;
 }
