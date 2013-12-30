@@ -81,6 +81,10 @@ module.exports = function (grunt) {
             vents: {
                 files: ['js/src/events/*.js', 'js/src/handlers/*.js'],
                 tasks: ['concat:vents']
+            },
+            join: {
+                files: ['js/src/**/*.js'],
+                tasks: ['concat:vents', 'concat:plugins', 'concat:critical']
             }
         },
 
