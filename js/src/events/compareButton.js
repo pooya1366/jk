@@ -16,8 +16,14 @@ define(['compareButtonHandler'], function () {
     //move add to compare button
     //event handler combined due to simplicity
     $(".products-list div.btn-compare").hover(function(){
+        if( $('#ListView').hasClass('active') ) {
+            return;
+        }
         $(this).animate({'width': '80px'}, 100);
     }, function(){
+        if( $('#ListView').hasClass('active') ) {
+            return;
+        }
         $(this).animate({'width': '36px'}, 100);
     })
 });
