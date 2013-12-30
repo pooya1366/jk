@@ -1,0 +1,133 @@
+@import "../bootstrap/mixins";
+@import "../bootstrap/variables";
+@import "variables";
+.opc-wrapper {
+  .clearfix();
+  width: 980px;
+  margin: 0 auto;
+  .page-header {
+    clear: both;
+  }
+  .opc-progress-container {
+    width: 230px;
+    float: right;
+
+    .block-progress {
+      .block-title {
+        height: 34px;
+        h3 {
+          padding-top: 5px;
+        }
+      }
+      > .block-content {
+        > dl {
+          margin-bottom: 0;
+          > div {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+          }
+          #payment-progress-opcheckout {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+        }
+
+        dt.complete {
+          border-bottom: 1px solid #eee;
+          background-color: #f2f2f2;
+          padding: 5px;
+          margin-bottom: 5px;
+          .changelink {
+            float: left;
+            color: #888;
+            font-size: 11px;
+            .separator {
+              display: none;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+  #checkoutSteps {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 730px;
+    .border-top-radius(4px);
+    .border-bottom-radius(4px);
+    border: 1px solid #ccc;
+
+    > li {
+      list-style: none;
+      &.active {
+        border-bottom: 1px solid #ddd;
+        .step-title {
+          color: @btn-success-bg;
+        }
+        .number {
+          background-color: @btn-success-bg;
+          color: white;
+        }
+      }
+      .step {
+        padding: 10px;
+      }
+    }
+    .step-title {
+      .clearfix();
+      color: #999;
+      padding: 5px;
+      display: block;
+      background: #f5f5f5;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      .border-top-radius(4px);
+      .number {
+        float: right;
+        width: 22px;
+        height: 22px;
+        color: #999;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 11px;
+        background: #d9d9d9;
+        display: inline-block;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .2) inset;
+        font-family: @font-family-base;
+        padding-top: 3px;
+        margin-left: 5px;
+      }
+      h2 {
+        float: right;
+        margin: 0;
+        font-size: 16px;
+        margin-top: 5px;
+      }
+    }
+    #checkout-step-login {
+      .col2-set {
+        .clearfix();
+      }
+      .col-1,
+      .col-2 {
+        float: right;
+        width: 50%;
+      }
+      .col-1 {
+        border-left: 1px solid #ddd;
+        padding-left: 20px;
+      }
+      .col-2 {
+        padding-right: 20px;
+      }
+    }
+
+  }
+}

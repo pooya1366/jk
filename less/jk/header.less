@@ -165,9 +165,15 @@
             &.cart-items {
               width: 265px;
               padding: 10px;
+              .shopping-cart-title {
+                font-family: @font-family-koodak;
+                font-size: 16px;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 10px;
+              }
               ol.mini-products-list {
                 padding: 0;
-                .item {
+                li.item {
                   border-bottom: 1px solid #eee;
                   padding: 10px 0;
                   .product-image {
@@ -185,6 +191,9 @@
                         display: block;
                       }
                     }
+                  }
+                  &:first-child {
+                    padding-top: 0;
                   }
                 }
               }

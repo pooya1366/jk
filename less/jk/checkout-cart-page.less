@@ -1,0 +1,65 @@
+@import "../bootstrap/mixins";
+.content-wrapper {
+  .cart {
+    position: relative;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    .clearfix();
+
+    .title-buttons{
+      margin-bottom: 20px;
+    }
+    .totals {
+      position: absolute;
+      left: 0;
+      width: 360px;
+      #shopping-cart-totals-table {
+        float: left;
+        margin-bottom: 20px;
+      }
+      .panel-body {
+        margin-bottom: -10px;
+      }
+      #shopping-cart-totals-table {
+        width: 100%;
+      }
+      .checkout-types {
+        clear: both;
+        .checkout-type {
+          text-align: left;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .cart-collaterals{
+      .clearfix();
+      width: 100%;
+      padding-left: 380px;
+
+      .deals {
+        float: right;
+        width: 260px;
+        .giftcard {
+          .check-gc-status {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .shipping {
+        float: right;
+        width: 320px;
+        margin-right: 20px;
+
+        #co-shipping-method-form
+        {
+          margin-top: 10px;
+        }
+      }
+
+    }
+
+  }
+}
