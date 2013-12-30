@@ -12,6 +12,7 @@
         "uri.js": "https://github.com/medialize/URI.js.git",
         "jqueryCookie": "https://github.com/carhartl/jquery-cookie.git",
         "fancyBox": "https://github.com/fancyapps/fancyBox.git",
+        "flexSlider": "https://github.com/woothemes/FlexSlider.git",
         "typeahead.js": ""
     }
 }
