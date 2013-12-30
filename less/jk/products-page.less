@@ -209,7 +209,8 @@
 
     margin-top: 1px;
     border-right: 1px solid @_border_color;
-
+    display: inline-block;
+    width: 100%;
     > .item {
       border: 1px solid @_border_color;
       border-right: 0;
@@ -460,4 +461,114 @@
   margin: 1px 4px 0px 5px;
   font-size: 1.15em;
   vertical-align: middle;
+}
+
+.block-layered-nav {
+  .block-title {
+    padding-bottom: 1px !important;
+    font-size: 16px;
+    font-family: @font-family-koodak;
+  }
+  .block-subtitle {
+    display: none;
+  }
+  .currently {
+    background-color: #fbfbfb;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    .block-subtitle {
+      font-weight: bold;
+      font-size: 11px;
+      padding: 5px 10px;
+      margin: 0;
+      display: block;
+    }
+    ol {
+      margin: 0;
+      padding: 0 10px;
+      li {
+        list-style: none;
+        margin-bottom: 5px;
+        .label {
+          color: @red;
+          font-size: 11px;
+          padding-right: 0;
+        }
+        .btn-remove {
+          float: left;
+          padding-top: 1px;
+          color: #888;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  dl {
+    margin: 0;
+    dt {
+      border-bottom: 1px solid #ddd;
+      color: #333;
+      padding-bottom: 3px;
+      margin-bottom: 3px;
+    }
+    dd {
+      ol {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          margin-bottom: -4px;
+          a {
+            .clearfix();
+            display: inline-block;
+            padding: 1px 2px 0px 5px;
+            .icon {
+              margin-left: 5px;
+              font-size: 13px;
+              color: #666;
+              width: 13px;
+              display: block;
+              float: right;
+              text-align: left;
+            }
+            .title {
+              display: block;
+              float: right;
+            }
+            .count {
+              color: #888;
+              display: block;
+              float: left;
+              margin-right: 5px;
+            }
+            i.fa-check-square-o {
+              display: none;
+            }
+            &:hover {
+              background-color: #f5f5f5;
+              i.fa-square-o {
+                display: none;
+              }
+              i.fa-check-square-o {
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .actions {
+    color: #888;
+    margin: -10px;
+    margin-top: 5px;
+    background-color: #fbfbfb;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top: 1px solid #eee;
+    padding: 5px 10px;
+    a {
+      color: #888;
+    }
+  }
 }
