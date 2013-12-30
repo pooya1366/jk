@@ -60,14 +60,14 @@
     width: 730px;
     .border-top-radius(4px);
     .border-bottom-radius(4px);
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
 
     > li {
       list-style: none;
       &.active {
         border-bottom: 1px solid #ddd;
         .step-title {
-          color: @btn-success-bg;
+          color: darken(@btn-success-bg, 5%);
         }
         .number {
           background-color: @btn-success-bg;
@@ -76,6 +76,31 @@
       }
       .step {
         padding: 10px;
+        .fields {
+          border-bottom: 1px solid #eee;
+          margin-bottom: 5px;
+        }
+        .customer-name {
+          .clearfix();
+          > .field {
+            float: right;
+            width: 344px;
+          }
+          .name-firstname {
+            margin-left: 20px;
+          }
+        }
+        .customer-region-city-postcode {
+          .clearfix();
+          > .field {
+            float: right;
+            width: 222px;
+            margin-left: 20px;
+            &.customer-postcode {
+              margin-left: 0;
+            }
+          }
+        }
       }
     }
     .step-title {
