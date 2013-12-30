@@ -101,16 +101,6 @@ define(['jqueryCookie'], function () {
         console.log('adding ' + productId + ' into category ' + cat);
     };
 
-    jk.compare.slideCompareButton = function (target, type) {
-        if (type == 'open') {
-            $(target).animate({width: '80px'}, 200);
-            console.log('anim to 80');
-        } else if (type == 'close') {
-            $(target).animate({width: '40px'}, 200);
-            console.log('anim to 40');
-        }
-    };
-
     jk.compare.syncViewWithCookie = function () {
         //check and see if any of the inputs are pre field
         $('.btn-compare i.icon-checkbox').each(function () {

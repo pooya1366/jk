@@ -18,6 +18,6 @@ define(['compareButtonHandler'], function () {
     $(".products-list div.btn-compare").hover(function(){
         $(this).animate({'width': '80px'}, 100);
     }, function(){
-        $(this).animate({'width': '39px'}, 100);
+        $(this).animate({'width': '36px'}, 100);
     })
 });
