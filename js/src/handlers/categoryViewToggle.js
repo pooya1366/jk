@@ -14,6 +14,9 @@ define(['jquery'], function() {
                 $('.products-list ol.item-list').removeClass('GridView ListView');
                 $('.products-list ol.item-list').addClass(id);
                 $('.products-list ol.item-list').fadeIn(200);
+                if (id == 'ListView') {
+                    $('.products-list .btn-compare').css('width', '80px');
+                }
             });
         }
     }
