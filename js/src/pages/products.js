@@ -12,7 +12,6 @@ require.config({
         compareButtonHandler: 'js/src/handlers/compareButton',
         ViewToggleEvent: 'js/src/events/categoryViewToggle',
         compareButtonEvent: 'js/src/events/compareButton',
-        mainNav: 'js/src/plugins/mainNav.common',
         jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
@@ -35,9 +34,6 @@ require.config({
         dropDown: {
             deps: ['jquery']
         },
-        mainNav: {
-            deps: ['jquery']
-        },
         typeahead: {
             deps: ['jquery']
         }
@@ -51,7 +47,6 @@ require(['jquery',
          'dropDown',
          'ViewToggleHandler',
          'ViewToggleEvent',
-         'mainNav',
          'compareButtonEvent',
          'compareButtonHandler',
          'jqueryCookie',
