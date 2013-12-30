@@ -12,4 +12,12 @@ define(['compareButtonHandler'], function () {
     $(document).ready(function () {
         jk.compare.syncViewWithCookie();
     });
+
+    //move add to compare button
+    //event handler combined due to simplicity
+    $(".products-list div.btn-compare").hover(function(){
+        $(this).animate({'width': '80px'}, 100);
+    }, function(){
+        $(this).animate({'width': '39px'}, 100);
+    })
 });
