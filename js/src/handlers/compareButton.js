@@ -103,8 +103,8 @@ define(['jqueryCookie'], function () {
 
     jk.compare.syncViewWithCookie = function () {
         //check and see if any of the inputs are pre field
-        $('.btn-compare input').each(function () {
-            if ($(this).prop('checked')) {
+        $('.btn-compare i.icon-checkbox').each(function () {
+            if ($(this).hasClass('fa-check-square-o')) {
                 jk.handlers.updateCompareQueue(this);
             }
         });
@@ -122,8 +122,9 @@ define(['jqueryCookie'], function () {
             //product is in the compare queue
             if (~product) {
                 $(this).
-                    find('.btn-compare input[type=checkbox]').
-                    prop('checked', true);
+                        find('.btn-compare i.icon-checkbox').
+                        removeClass('fa-square-o').
+                        addClass('fa-check-square-o');
             }
         });
     };
