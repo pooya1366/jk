@@ -2,6 +2,7 @@
     window.jkTimeOuts = window.jkTimeOuts || {};
     $('html').delegate('.list-dropdown', 'mouseenter', function (e) {
         //hold for 100ms then open the menu
+        clearTimeout(jkTimeOuts.closeSlideMenu);
         clearTimeout(jkTimeOuts.openSlideMenu);
         jkTimeOuts.openSlideMenu = setTimeout(function () {
             //close all other dropdown-menus
@@ -12,6 +13,7 @@
     });
 
     $('html').delegate('.list-dropdown', 'mouseleave', function (e) {
+        clearTimeout(jkTimeOuts.closeSlideMenu);
         clearTimeout(jkTimeOuts.openSlideMenu);
         jkTimeOuts.closeSlideMenu = setTimeout(function() {
             jk.handlers.closeDropdownMenu(e.target);

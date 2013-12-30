@@ -3,4 +3,6 @@
 js/dist/
 js/libs/
 node_modules/
-css/
+css/*
+
+css/products-page.css
