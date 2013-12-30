@@ -299,7 +299,7 @@
 .products-list .ListView > .item > .item-content {
   padding: 20px 0;
   position: relative;
-  min-height: 170px;
+  min-height: 200px;
   height: 100%;
 }
 .products-list .ListView > .item > .item-content .btn-quickview {
