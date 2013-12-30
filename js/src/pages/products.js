@@ -9,8 +9,8 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         dropDown: 'js/libs/bootstrap/js/dropdown',
         ViewToggleHandler: 'js/src/handlers/categoryViewToggle',
-        compareButtonHandler: 'js/src/handlers/compareButton',
         ViewToggleEvent: 'js/src/events/categoryViewToggle',
+        compareButtonHandler: 'js/src/handlers/compareButton',
         compareButtonEvent: 'js/src/events/compareButton',
         jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
@@ -52,4 +52,5 @@ require(['jquery',
          'jqueryCookie',
          'typeahead'
 ], function () {
+    $.noConflict();
 });
