@@ -1,7 +1,8 @@
 (function ($) {
     jQuery.fn.jkCarousel = function () {
-        var $node = $(this),
-            carouselWidth = function(){return $node.find('.items-container').width()},
+        var $node = $(this);
+        adjustItemsWidth();
+        var carouselWidth = function(){return $node.find('.items-container').width()},
             $items = $node.find('li.item'),
             itemsCount = $items.length,
             itemWidth = function(){return $items.width()},
@@ -10,6 +11,32 @@
             pagesCount = function(){return Math.ceil( (itemsCount * itemWidth()) / carouselWidth())},
             min_margin_right = function(){return (pagesCount() - 1) * carouselWidth() * -1},
             max_margin_right = 0;
+
+        function adjustItemsWidth () {
+            var $windowWidth = $(window).width();
+            var itemWidth;
+            if ( !eval($node.attr('data-carousel-responsive')) ) {
+                itemWidth = $node.find('.items-container').width() /
+                            $node.attr('data-carousel-items') - 6;
+            } else if ( $windowWidth < 1020) {
+                //normal
+                itemWidth = $node.find('.items-container').width() /
+                    $node.attr('data-carousel-items') - 6;
+            } else if ( $windowWidth > 1020 && $windowWidth < 1270) {
+                //large
+                itemWidth = $node.find('.items-container').width() /
+                    $node.attr('data-carousel-items-lg') - 6;
+            } else {
+                //X large
+                itemWidth = $node.find('.items-container').width() /
+                    $node.attr('data-carousel-items-xlg') - 6;
+            }
+
+            $node.find('li.item').each(function () {
+                $(this).width(itemWidth);
+            });
+            console.log('width caled!');
+        };
 
         var findNextMargin = function (direction) {
             var marginRight = parseInt($node.find('ul.items').css('margin-right')),
@@ -97,6 +124,7 @@
                 }, speed(), updateNavClasses(0) );
                 resized = false;
                 updateBorderClasses();
+                adjustItemsWidth();
             }
         }, 250);
     };
