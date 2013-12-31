@@ -12,7 +12,6 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
-        mainNav: 'js/src/plugins/mainNav.common',
         fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
         fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
@@ -45,9 +44,6 @@ require.config({
         scrollSpy: {
             deps: ['jquery']
         },
-        mainNav: {
-            deps: ['jquery']
-        },
         fancyBox: {
             deps: ['jquery']
         },
@@ -65,25 +61,28 @@ require(['jquery',
     'commonVents',
     'affixEvent',
     'navScroller',
-    'mainNav',
     'fancyBox',
     'fancyBoxThumbs',
     'typeahead'
 
 ], function () {
 
-    $(document).ready(function () {
-        $('ul.fancy-box a').fancybox( {
-            openEffect: 'elastic',
-            closeEffect: 'none',
-            arrows: true,
-            margin: [40, 40, 60, 40],
-            helpers: {
-                thumbs: {
-                    width: 50,
-                    height: 50
+    $.noConflict();
+
+    (function ($) {
+        $(document).ready(function () {
+            $('ul.fancy-box a').fancybox( {
+                openEffect: 'elastic',
+                closeEffect: 'none',
+                arrows: true,
+                margin: [40, 40, 60, 40],
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
                 }
-            }
+            });
         });
-    });
+    })(jQuery);
 });

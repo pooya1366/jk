@@ -1,20 +1,24 @@
-define(['jquery'], function() {
-    $('#product-page-nav ul li a[href^=\'#\']').on('click', function(e) {
-        var target = this;
-        $('#product-page-nav').removeClass('spy-active');
-        $('#product-page-nav ul li').removeClass('active');
-        $(target).parent('li').addClass('active');
+define([], function() {
 
-        e.preventDefault();
+    (function ($) {
+        $('#product-page-nav ul li a[href^=\'#\']').on('click', function(e) {
+            var target = this;
+            $('#product-page-nav').removeClass('spy-active');
+            $('#product-page-nav ul li').removeClass('active');
+            $(target).parent('li').addClass('active');
 
-        $('html, body').animate({
-            scrollTop: $(this.hash).offset().top
+            e.preventDefault();
 
-        }, 400, function(e){
-            window.location.hash = target.hash;
+            $('html, body').animate({
+                scrollTop: $(this.hash).offset().top
 
-            $('#product-page-nav').addClass('spy-active');
+            }, 400, function(e){
+                window.location.hash = target.hash;
 
+                $('#product-page-nav').addClass('spy-active');
+
+            });
         });
-    });
+    })(jQuery);
+
 });
