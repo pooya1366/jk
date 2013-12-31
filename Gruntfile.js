@@ -64,9 +64,9 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'less/jk', src: '**/*-page.less', dest: 'css/', ext: '.css' },
                     {src: ['less/jk/jk.less',
                             'js/libs/fancyBox/source/jquery.fancybox.css',
+                            'js/libs/flexSlider/flexslider.css',
                             'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs.css',
-                            'less/overwrites/fancyBox.less',
-                            'less/overwrites/typeahead.less'
+                            'less/overwrites/*.less'
                           ],
                         dest: 'css/jk.css'}
                 ]
