@@ -2,40 +2,39 @@
     jQuery.fn.jkCarousel = function () {
         var $node = $(this);
         adjustItemsWidth();
-        var carouselWidth = function(){return $node.find('.items-container').width()},
+        var carouselWidth = function(){return $node.find('.items-container').width() -
+                ($node.find('.items-container').css('padding-left').split('px')[0] * 2);
+            },
             $items = $node.find('li.item'),
             itemsCount = $items.length,
             itemWidth = function(){return $items.width()},
-            itemsPerRow = function(){return carouselWidth() / itemWidth()},
+            itemsPerRow = function(){return Math.floor(carouselWidth() / itemWidth())},
             speed = function(){return itemsPerRow() * 80},
             pagesCount = function(){return Math.ceil( (itemsCount * itemWidth()) / carouselWidth())},
             min_margin_right = function(){return (pagesCount() - 1) * carouselWidth() * -1},
             max_margin_right = 0;
 
         function adjustItemsWidth () {
-            var $windowWidth = $(window).width();
+            var windowWidth = $(window).width();
+            var containerWidth = $node.find('.items-container').width() -
+                ($node.find('.items-container').css('padding-left').split('px')[0] * 2);
             var itemWidth;
             if ( !eval($node.attr('data-carousel-responsive')) ) {
-                itemWidth = $node.find('.items-container').width() /
-                            $node.attr('data-carousel-items') - 6;
-            } else if ( $windowWidth < 1020) {
+                itemWidth = containerWidth / $node.attr('data-carousel-items');
+            } else if ( windowWidth < 1020) {
                 //normal
-                itemWidth = $node.find('.items-container').width() /
-                    $node.attr('data-carousel-items') - 6;
-            } else if ( $windowWidth > 1020 && $windowWidth < 1270) {
+                itemWidth = containerWidth / $node.attr('data-carousel-items');
+            } else if ( windowWidth > 1020 && windowWidth < 1270) {
                 //large
-                itemWidth = $node.find('.items-container').width() /
-                    $node.attr('data-carousel-items-lg') - 6;
+                itemWidth = containerWidth / $node.attr('data-carousel-items-lg');
             } else {
                 //X large
-                itemWidth = $node.find('.items-container').width() /
-                    $node.attr('data-carousel-items-xlg') - 6;
+                itemWidth = containerWidth / $node.attr('data-carousel-items-xlg');
             }
 
             $node.find('li.item').each(function () {
                 $(this).width(itemWidth);
             });
-            console.log('width caled!');
         };
 
         var findNextMargin = function (direction) {
@@ -56,9 +55,11 @@
             for (var i=0; i < itemsCount; i++) {
                 if ( i % cachedItemsPerRow == 0 ){
                     $items.eq(i).addClass('first');
+                    console.log('fist -> ' + i);
                 }
                 else if( (i + 1) % cachedItemsPerRow == 0 ) {
                     $items.eq(i).addClass('last');
+                    console.log('last -> ' + i);
                 }
             }
         };
@@ -96,6 +97,7 @@
                 }, speed(), function(){
                     updateNavClasses(nextMargin);
                     $node.find('.nav').removeClass('processing');
+                    updateBorderClasses();
                 });
             }
         });
