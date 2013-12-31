@@ -7,6 +7,7 @@ require.config({
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         bootstrap: 'js/dist/libs/bootstrap.min',
+        slideShow: 'js/libs/flexSlider/jquery.flexslider',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
@@ -30,6 +31,9 @@ require.config({
         },
         bootstrap: {
             deps: ['jquery']
+        },
+        slideShow: {
+            deps: ['jquery']
         }
     }
 });
@@ -39,6 +43,7 @@ require(['jquery',
         'commonVents',
         'html5shiv',
         'typeahead',
+        'slideShow',
         'bootstrap'
 ], function () {
 });
