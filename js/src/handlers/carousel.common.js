@@ -4,7 +4,7 @@ if ( typeof jk === 'undefined' ) {
 }
 (function ($) {
     jk.handlers.initCarousels = function () {
-        $('.carousel').each(function () {
+        $('.jk-carousel').each(function () {
             $(this).jkCarousel();
         });
     }

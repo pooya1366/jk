@@ -2,22 +2,20 @@
     jQuery.fn.jkCarousel = function () {
         var $node = $(this);
         adjustItemsWidth();
-        var carouselWidth = function(){return $node.find('.items-container').width() -
-                ($node.find('.items-container').css('padding-left').split('px')[0] * 2);
-            },
+        $node.find('.items-container').animate({'opacity': 1}, 200);
+        var carouselWidth = function(){return $node.find('.items-container').width();},
             $items = $node.find('li.item'),
             itemsCount = $items.length,
-            itemWidth = function(){return $items.width()},
+            itemWidth = function(){return Math.floor($items.width())},
             itemsPerRow = function(){return Math.round(carouselWidth() / itemWidth())},
             speed = function(){return itemsPerRow() * 80},
             pagesCount = function(){return Math.ceil(itemsCount / itemsPerRow()) },
-            min_margin_right = function(){return (pagesCount() - 1) * carouselWidth() * -1},
+            min_margin_right = function(){return (pagesCount() - 1) * $node.find('.items-container').width() * -1},
             max_margin_right = 0;
 
         function adjustItemsWidth () {
             var windowWidth = $(window).width();
-            var containerWidth = $node.find('.items-container').width() -
-                ($node.find('.items-container').css('padding-left').split('px')[0] * 2);
+            var containerWidth = $node.find('.items-container').width();
             var itemWidth;
             if ( !eval($node.attr('data-carousel-responsive')) ) {
                 itemWidth = containerWidth / $node.attr('data-carousel-items');
@@ -31,7 +29,7 @@
                 //X large
                 itemWidth = containerWidth / $node.attr('data-carousel-items-xlg');
             }
-
+            itemWidth = Math.floor(itemWidth);
             $node.find('li.item').each(function () {
                 $(this).width(itemWidth);
             });
@@ -71,7 +69,7 @@
                 $node.find('.nav[data-direction=next]').
                     removeClass('disabled');
             }
-            else if(margin < min_margin_right()) {
+            else if(margin <= min_margin_right()) {
                 $node.find('.nav[data-direction=next]').
                     addClass('disabled');
                 $node.find('.nav[data-direction=previous]').
@@ -97,7 +95,7 @@
                 }, speed(), function(){
                     updateNavClasses(nextMargin);
                     $node.find('.nav').removeClass('processing');
-                    updateBorderClasses();
+                    //updateBorderClasses();
                 });
             }
         });
@@ -116,7 +114,7 @@
 
         var resized = false;
         $(window).resize(function() {
-            resized = true;
+            resized = eval($node.attr('data-carousel-responsive')) ? true : false;
         });
         setInterval(function() {
             if (resized) {
