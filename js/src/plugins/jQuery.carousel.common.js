@@ -8,9 +8,9 @@
             $items = $node.find('li.item'),
             itemsCount = $items.length,
             itemWidth = function(){return $items.width()},
-            itemsPerRow = function(){return Math.floor(carouselWidth() / itemWidth())},
+            itemsPerRow = function(){return Math.round(carouselWidth() / itemWidth())},
             speed = function(){return itemsPerRow() * 80},
-            pagesCount = function(){return Math.ceil( (itemsCount * itemWidth()) / carouselWidth())},
+            pagesCount = function(){return Math.ceil(itemsCount / itemsPerRow()) },
             min_margin_right = function(){return (pagesCount() - 1) * carouselWidth() * -1},
             max_margin_right = 0;
 
@@ -41,9 +41,9 @@
             var marginRight = parseInt($node.find('ul.items').css('margin-right')),
                 nextMargin;
             if (direction == 'next') {
-                nextMargin = marginRight - carouselWidth();
+                nextMargin = marginRight - $node.find('.items-container').width();
             } else if (direction == 'previous') {
-                nextMargin = marginRight + carouselWidth();
+                nextMargin = marginRight + $node.find('.items-container').width();
             }
             return nextMargin;
         };
@@ -71,7 +71,7 @@
                 $node.find('.nav[data-direction=next]').
                     removeClass('disabled');
             }
-            else if(margin == min_margin_right()) {
+            else if(margin < min_margin_right()) {
                 $node.find('.nav[data-direction=next]').
                     addClass('disabled');
                 $node.find('.nav[data-direction=previous]').
@@ -125,8 +125,8 @@
                     'marginRight': 0
                 }, speed(), updateNavClasses(0) );
                 resized = false;
-                updateBorderClasses();
                 adjustItemsWidth();
+                updateBorderClasses();
             }
         }, 250);
     };
