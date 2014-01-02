@@ -122,10 +122,10 @@
                 if ( $icon.hasClass('open') ) {
                     $icon.
                         removeClass('open fa-caret-down').
-                        addClass('close fa-caret-left');
+                        addClass('close fa-caret-right');
                 } else {
                     $icon.
-                            removeClass('close fa-caret-left').
+                            removeClass('close fa-caret-right').
                             addClass('open fa-caret-down');
                 }
 
@@ -187,14 +187,14 @@
             var updateControlView = function () {
                 $('.move-left,.move-right').show();
                 $('#products table').each(function () {
-                    $(this).find('.move-left:first,.move-right:last').hide();
+                    //$(this).find('.move-left:first,.move-right:last').hide();
                 });
             };
 
             var showCategory = function (category) {
                 category = category || $('#queue-categories li:first').
                         attr('data-category-id');
-                $('#products table, #properties table, #grid table').hide();
+                //$('#products table, #properties table, #grid table').hide();
                 $('#products table[data-category-id=' + category + ']').show();
                 $('#properties table[data-category-id=' + category + ']').show();
                 $('#grid table[data-category-id=' + category + ']').show();
@@ -245,7 +245,7 @@
 
                 //find head, and tail
                 $col.each(function () {
-                    if( $(this).find('div').hasClass('product-ico') ) {
+                    if( $(this).find('div').hasClass('product-info') ) {
                         $head = $(this);
                     } else {
                         $tail = $tail.add(this)
@@ -379,7 +379,7 @@
 <div id="compare-wrapper">
 
 <div id="corner">
-    <div id="queues">
+    <!--<div id="queues">
         <a href="#">
             <i class="fa fa-chevron-down"></i>
         </a>
@@ -413,119 +413,64 @@
     </div>
     <div id="more-products">
         <a href="#">More...</a>
-    </div>
+    </div>-->
 </div>
 
 <div id="products">
-    <table data-category-id="mobile">
-        <tbody>
-        <tr>
-            <td>
-                <div class="product-ico">Mobile 1
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 2
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 3
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 4
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 5
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 6
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 7
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-            <td>
-                <div class="product-ico">Mobile 8
-                    <i class="fa fa-trash-o remove control"></i>
-                    <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
-                    <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
     <table data-category-id="tv">
         <tbody>
         <tr>
             <td>
-                <div class="product-ico">TV 1
+                <div class="product-info">
+                    <h2 class="item-title">TV 1</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 2
+                <div class="product-info">
+                    <h2 class="item-title">TV 2</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 3
+                <div class="product-info">
+                    <h2 class="item-title">TV 3</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 4
+                <div class="product-info">
+                    <h2 class="item-title">TV 4</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 5
+                <div class="product-info">
+                    <h2 class="item-title">TV 5</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 6
+                <div class="product-info">
+                    <h2 class="item-title">TV 6</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
                 </div>
             </td>
             <td>
-                <div class="product-ico">TV 7
+                <div class="product-info">
+                    <h2 class="item-title">TV 7</h2>
                     <i class="fa fa-trash-o remove control"></i>
                     <i class="fa fa-arrow-left move-left control" data-role="move-left"></i>
                     <i class="fa  fa-arrow-right move-right control" data-role="move-right"></i>
@@ -537,74 +482,7 @@
 </div>
 
 <div id="properties">
-    <table data-category-id="mobile">
-        <tbody>
-        <tr class="heading">
-            <td>
-                <div><i class="state fa open fa-caret-down"></i>گروه</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        </tbody>
-        <tbody>
-        <tr class="heading">
-            <td>
-                <div><i class="state fa open fa-caret-down"></i>گروه</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        </tbody>
-        <tbody>
-        <tr class="heading">
-            <td>
-                <div><i class="state fa open fa-caret-down"></i>گروه</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>ویژگی</div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
     <table data-category-id="tv">
         <tbody>
         <tr class="heading">
@@ -661,7 +539,7 @@
                 <div>ویژگی</div>
             </td>
         </tr>
-        <tr>
+        <tr class="last">
             <td>
                 <div>ویژگی</div>
             </td>
@@ -671,342 +549,6 @@
 </div>
 
 <div id="grid">
-    <table data-category-id="mobile">
-        <tbody>
-        <tr class="space">
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    too much contetn
-                    too much contetn
-                    too much contetn
-                    too much contetn
-                    too much contetn
-                    too much contetn
-                    too much contetn
-                </div>
-            </td>
-            <td>
-                <div>2</div>
-            </td>
-            <td>
-                <div>3</div>
-            </td>
-            <td>
-                <div>4</div>
-            </td>
-            <td>
-                <div>5</div>
-            </td>
-            <td>
-                <div>6</div>
-            </td>
-            <td>
-                <div>7</div>
-            </td>
-            <td>
-                <div>8</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>FF FF FF</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>SS</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>FF FF FF</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>SS</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-        </tr>
-        </tbody>
-        <tbody>
-        <tr class="space">
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>
-                    too much content
-                    too much content
-                    too much content
-                    too much content
-                    too much content
-                    too much content
-                    too much content
-                </div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-        </tr>
-        </tbody>
-        <tbody>
-        <tr class="space">
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-            <td>
-                <div></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-            <td>
-                <div>v1</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>FF FF FF</div>
-            </td>
-            <td>
-                <div>SS</div>
-            </td>
-            <td>
-                <div>v2</div>
-            </td>
-            <td>
-                <div>EE</div>
-            </td>
-            <td>
-                <div>XXXXX</div>
-            </td>
-            <td>
-                <div>Sira Nevada</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-            <td>
-                <div>v3</div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
     <table data-category-id="tv">
         <tbody>
         <tr class="space">
@@ -1028,7 +570,7 @@
             <td>
                 <div></div>
             </td>
-            <td>
+            <td class="last">
                 <div></div>
             </td>
         </tr>
@@ -1059,7 +601,7 @@
             <td>
                 <div>6</div>
             </td>
-            <td>
+            <td class="last">
                 <div>7</div>
             </td>
         </tr>
@@ -1082,7 +624,7 @@
             <td>
                 <div>v3</div>
             </td>
-            <td>
+            <td class="last">
                 <div>TV v3</div>
             </td>
         </tr>
@@ -1107,7 +649,7 @@
             <td>
                 <div></div>
             </td>
-            <td>
+            <td class="last">
                 <div></div>
             </td>
         </tr>
@@ -1130,7 +672,7 @@
             <td>
                 <div>v1</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v1</div>
             </td>
         </tr>
@@ -1161,7 +703,7 @@
             <td>
                 <div>v2</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v2</div>
             </td>
         </tr>
@@ -1184,7 +726,7 @@
             <td>
                 <div>v3</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v3</div>
             </td>
         </tr>
@@ -1209,7 +751,7 @@
             <td>
                 <div></div>
             </td>
-            <td>
+            <td class="last">
                 <div></div>
             </td>
         </tr>
@@ -1232,7 +774,7 @@
             <td>
                 <div>v1</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v1</div>
             </td>
         </tr>
@@ -1255,11 +797,11 @@
             <td>
                 <div>v2</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v2</div>
             </td>
         </tr>
-        <tr>
+        <tr class="last">
             <td>
                 <div>FF FF FF</div>
             </td>
@@ -1278,7 +820,7 @@
             <td>
                 <div>Sira Nevada</div>
             </td>
-            <td>
+            <td class="last">
                 <div>v3</div>
             </td>
         </tr>
