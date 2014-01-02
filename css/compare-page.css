@@ -13,8 +13,8 @@ table {
   text-align: center;
   border-right: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
-  height: 160px;
-  width: 200px;
+  height: 161px;
+  width: 201px;
   position: absolute;
   top: 0;
   left: 0;
@@ -102,10 +102,9 @@ table {
 #properties {
   position: fixed;
   left: 0;
-  top: 160px;
+  top: 161px;
   text-align: right;
   overflow: hidden;
-  border-top: 1px solid #bbb;
   color: #888;
 }
 #properties table tbody tr td {
