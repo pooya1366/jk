@@ -53,11 +53,9 @@
             for (var i=0; i < itemsCount; i++) {
                 if ( i % cachedItemsPerRow == 0 ){
                     $items.eq(i).addClass('first');
-                    console.log('fist -> ' + i);
                 }
                 else if( (i + 1) % cachedItemsPerRow == 0 ) {
                     $items.eq(i).addClass('last');
-                    console.log('last -> ' + i);
                 }
             }
         };
