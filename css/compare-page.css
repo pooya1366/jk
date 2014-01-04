@@ -69,7 +69,7 @@ table {
 #products table tbody tr td .product-info .price-box {
   position: absolute;
   width: 100%;
-  bottom: 5px;
+  bottom: 0px;
 }
 #products table tbody tr td .product-info .price-box .price-label {
   display: none;
@@ -84,7 +84,7 @@ table {
 #products table tbody tr td .product-info .availability {
   position: absolute;
   width: 100%;
-  bottom: 5px;
+  bottom: 0px;
 }
 #products table tbody tr td .product-info .control {
   color: #aaa;

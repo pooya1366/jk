@@ -1,0 +1,57 @@
+@import "../bootstrap/mixins";
+ol#recently-viewed-items,
+ol.mini-products-list {
+  padding: 0;
+  margin: 0;
+  li.item {
+    .clearfix();
+    list-style: none;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    .product-image {
+      float: right;
+      img {
+        width: 50px;
+      }
+    }
+    .product-details {
+      margin-right: 60px;
+      .product-name {
+        margin: 0;
+      }
+      .price-box {
+        .price-label {
+          display: none;
+        }
+      }
+    }
+    .sep {
+      padding: 0;
+      content: " ";
+      display: table;
+      height: 1px;
+      width: 100%;
+      #gradient > .horizontal-three-colors(@start-color: #ffffff; @mid-color: #dddddd; @color-stop: 50%; @end-color: #ffffff);
+      position: absolute;
+      bottom: 0px;
+    }
+    &.last {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      .sep {
+        display: none;
+      }
+    }
+  }
+}
+#wishlist-sidebar {
+  .item {
+    .btn-remove {
+      position: absolute;
+      left: 0;
+      color: #888;
+      font-size: 14px;
+    }
+  }
+}

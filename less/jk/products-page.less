@@ -110,7 +110,9 @@
             font-size: 13px;
             margin-bottom: -7px;
           }
-
+          .special-price {
+            font-size: 16px;
+          }
           .price-desc{
             margin: 0;
             margin-top: -5px;
@@ -189,6 +191,19 @@
         &:hover,
         &:focus {
           color: @link-hover-sc-color;
+        }
+      }
+
+      .btn-wishlist {
+        padding-top: 6px;
+        padding-bottom: 2px;
+        text-shadow: none;
+        i {
+          font-size: 15px;
+          padding-top: 2px;
+        }
+        .text {
+          padding-top: 1px;
         }
       }
 
@@ -297,9 +312,16 @@
               }
             }
           }
-
-
-
+        }
+        .btn-wishlist {
+          position: absolute;
+          bottom: 15px;
+          right: 70px;
+          .text {
+            width: 0;
+            visibility: hidden;
+            margin-right: 0;
+          }
         }
 
         .price-box {
@@ -415,7 +437,8 @@
 
         .price-box {
           position: absolute;
-          bottom: @grid-gutter-width * 3 - 5;
+          //bottom: @grid-gutter-width * 3 - 5;
+          bottom: 90px;
           left: @grid-gutter-width;
           min-width: 135px;
           text-align: left;
@@ -423,15 +446,21 @@
         .availability {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: @grid-gutter-width * 3 - 5;
+          //bottom: @grid-gutter-width * 3 - 5;
+          bottom: 90px;
           text-align: left;
         }
         .buy-options {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: @grid-gutter-width;
+          //bottom: @grid-gutter-width;
+          bottom: 57px;
         }
-
+        .btn-wishlist {
+          position: absolute;
+          left: 20px;
+          bottom: 20px;
+        }
         .btn-compare {
           position: absolute;
           left: @grid-gutter-width;
@@ -494,6 +523,7 @@
     }
     ol {
       margin: 0;
+      margin-top: 5px;
       padding: 0 10px;
       li {
         list-style: none;
