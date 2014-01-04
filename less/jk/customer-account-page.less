@@ -1,0 +1,165 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+@import "../bootstrap/list-group";
+@import "variables";
+
+.table-caption,
+.sub-title,
+.box-title {
+  .clearfix();
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  > .btn {
+    font-family: @font-family-base;
+  }
+}
+
+.col2-set {
+  .clearfix();
+  margin-bottom: 20px;
+  > div {
+    width: 49%;
+    min-height: 160px;
+    &.col-1 {
+      float: right;
+    }
+    &.col-2 {
+      float: left;
+    }
+  }
+}
+.welcome-msg {
+  margin-bottom: 30px;
+  .sub-title {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.recent-orders,
+.col-1,
+.col-2,
+.reviews {
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  #gradient > .vertical(#ffffff, #fafafa);
+  h2, h3 {
+    margin-top: 0;
+    padding-top: 5px;
+    > .btn {
+      margin-top: -5px;
+    }
+  }
+}
+> .sub-title,
+.col2-set > .sub-title {
+  margin-top: 20px;
+  padding-top: 10px;
+  > .btn {
+    margin-top: -10px;
+  }
+}
+.recent-orders {
+  margin-bottom: 40px;
+  table {
+    margin-bottom: 0;
+  }
+}
+#my-orders-table {
+  tbody {
+    tr {
+      td {
+        &.a-center{
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.reviews {
+  margin-top: 20px;
+  ol#my_recent_reviews {
+    margin: 0;
+    padding: 0;
+    li.item {
+      list-style: none;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      .number {
+        float: right;
+        font-weight: bold;
+      }
+      .details {
+        margin-right: 20px;
+      }
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+.buttons-set {
+  margin-top: 20px;
+}
+
+.addresses-primary,
+.addresses-additional {
+  ol {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.my-account {
+  ul.messages {
+    list-style: none;
+    margin: 0;
+    background-color: @alert-info-bg;
+    border: 1px solid @alert-info-border;
+    border-radius: 4px;
+    color: @alert-info-text;
+    padding: 10px 20px;
+    li {
+      list-style: none;
+    }
+    ul {
+      padding: 0;
+    }
+  }
+}
+.pager {
+  .clearfix();
+  .amount {
+    float: left;
+  }
+}
+#my-reviews-table {
+  .product-name {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+.customer-region-city-postcode {
+  .clearfix();
+  > div {
+    float: right;
+    width: 32%;
+    margin-left: 10px;
+    &.customer-postcode {
+      margin-left: 0;
+    }
+  }
+}
+
+#wishlist-view-form {
+  .description,
+  .add-to-cart-alt {
+    margin-bottom: 10px;
+  }
+}

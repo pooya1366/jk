@@ -84,14 +84,14 @@
           }
         }
 
-        .rating {
-          background: url(../images/star-ratings@2x.png) no-repeat 0 0;
-          background-size: 68px 117px;
-          height: 11px;
-          width: 68px;
+        .ratings {
+          /*background: url(../images/star-ratings@2x.png) no-repeat 0 0;
+          background-size: 68px 117px;*/
+          //height: 11px;
+          //width: 68px;
           margin: 0;
           padding: 0;
-          background-position: 0 -79px;
+          /*background-position: 0 -79px;*/
         }
 
 
@@ -273,10 +273,13 @@
           }
         }
 
-        .rating {
+        .ratings {
           position: absolute;
           bottom: 57px;
           right: 20px;
+          .rating-links {
+            display: none;
+          }
         }
 
         .buy-options {
@@ -327,14 +330,14 @@
           left: 10px;
           top: 10px;
           font-size: 10px;
-          width: 38px;
+          width: 36px;
           overflow: hidden;
           -webkit-transition: width 0.2s;
           -moz-transition: width 0.2s;
           -ms-transition: width 0.2s;
           -o-transition: width 0.2s;
           transition: width 0.2s;
-          
+
           .text {
             //display: none;
             //color: transparent;
@@ -392,14 +395,19 @@
           }
 
         }
-        .rating {
+        .ratings {
           margin-right: 200px;
+          .rating-links {
+            font-size: 11px;
+            margin: 0;
+            margin-top: 5px;
+          }
         }
         .item-descs {
           margin-right: 200px;
           padding-left: 190px;
           text-align: justify;
-          margin-top: 10px;
+          margin-top: 5px;
 
         }
 
