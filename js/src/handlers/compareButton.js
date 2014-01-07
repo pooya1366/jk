@@ -170,7 +170,7 @@ define(['jqueryCookie'], function ($) {
                 compareQueue = JSON.parse(cookie || '{}'),
                 queues = compareQueue.queues;
             for ( var q in queues) {
-                count += q.products.length;
+                count += queues[q].products.length;
             }
             return count;
         };

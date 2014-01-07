@@ -24,13 +24,14 @@ define(['compareButtonHandler'], function () {
                         $a = $('<a href="/compare/?set=' + key + '&products=' + value.products.join('-') + '" target="_blank"></a>'),
                         queue = compareQueue.queues[key],
                         $titleSpan = $('<span class="title"></span>').text(queue.name),
-                        $countSpan = $('<span class="count"></span>').text(queue.products.length);
+                        $countSpan = $('<span class="count"></span>').text('(' + queue.products.length + ')');
                     $a.append($titleSpan).
                        append($countSpan);
                     $li.append($a);
                     $('#compare-dropdown').append($li);
                 });
             }
+            jk.compare.syncViewWithCookie();
             e.preventDefault();
         });
 
