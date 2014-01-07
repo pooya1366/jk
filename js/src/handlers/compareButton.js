@@ -61,34 +61,7 @@ define(['jqueryCookie'], function ($) {
             var cookie = $.cookie('compare-queue'),
                 compareQueue = JSON.parse(cookie || '{}');
 
-            if (typeof compareQueue.initialized === 'undefined') {
-                /**
-                 *
-                 * compareQueue schema
-                 * {
-                 *     initialized: true,
-                 *     primaryQueue: '*catName',
-                 *     queues: {
-                 *         *attSetId: [*productId]
-                 *         tv: [415,236,714,471],
-                 *         mobile: [847,491,496,335,13,45,61,35],
-                 *         monitor: [12,13]
-                 *     },
-                 *     attrSetNames : {
-                 *         *attSetId : *attSetName
-                 *     }
-                 * }
-                 *
-                 */
-                compareQueue = {
-                    initialized: true,
-                    primaryQueue: '',
-                    queues: {
-                    },
-                    attrSetNames: {
-                    }
-                }
-            }
+            jk.compare.confirmInit();
 
             if ( !compareQueue.queues[cat] ) {
                 compareQueue.queues[cat] = [];
@@ -183,9 +156,49 @@ define(['jqueryCookie'], function ($) {
             }
         };
 
-        jk.handlers.countProducts = function () {
+        jk.compare.countProducts = function () {
           //returns num of products
             return 3;
         };
+
+        jk.compare.confirmInit = function () {
+            var cookie = $.cookie('compare-queue'),
+            compareQueue = JSON.parse(cookie || '{}');
+
+            if (typeof compareQueue.initialized === 'undefined') {
+                /**
+                 *
+                 * compareQueue schema
+                 * {
+                 *     initialized: true,
+                 *     primaryQueue: '*catName',
+                 *     queues: {
+                 *         *attSetId: [*productId]
+                 *         tv: [415,236,714,471],
+                 *         mobile: [847,491,496,335,13,45,61,35],
+                 *         monitor: [12,13]
+                 *     },
+                 *     attrSetNames : {
+                 *         *attSetId : *attSetName
+                 *     }
+                 * }
+                 *
+                 */
+                compareQueue = {
+                    initialized: true,
+                    primaryQueue: '',
+                    queues: {
+                    },
+                    attrSetNames: {
+                    }
+                }
+                cookie = JSON.stringify(compareQueue);
+                //overwrite the updated object on cookie
+                $.cookie('compare-queue', cookie);
+
+            }
+
+        }
+
     })(jQuery);
 });

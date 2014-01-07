@@ -32,6 +32,7 @@ define(['compareButtonHandler'], function () {
 
         $(document).ready(function () {
             jk.compare.syncViewWithCookie();
+            jk.compare.confirmInit();
         });
 
         //move add to compare button
