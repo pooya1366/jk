@@ -8,7 +8,7 @@ define(['compareButtonHandler'], function () {
             jk.handlers.updateCompareQueue(e.target);
             //update number of products in view
             var count = jk.compare.countProducts();
-            $('#compare-count').val(count);
+            $('#compare-count').text(count);
             if (count == 0 ) {
                 $('#compare-dropdown').
                     removeClass('dropdown-links');
@@ -20,11 +20,15 @@ define(['compareButtonHandler'], function () {
                 var cookie = $.cookie('compare-queue'),
                     compareQueue = JSON.parse(cookie || '{}');
                 $.each(compareQueue.queues, function (key, value) {
-                    var $li = $('<li class="compare-link"><a href="/compare/?set=' + key + '&products=' + value.join('-') + ' target="_blank"></a></li>'),
-                        $titleSpan = $('<span class="title"></span>').text(compareQueue.attrSetNames[key]);
-                        $countSpan = $('<span class="count"></span>').text(compareQueue.queues[key].lenght);
-                    $li.append($titleSpan).
-                        append($countSpan);
+                    var $li = $('<li class="compare-link"></li>'),
+                        $a = $('<a href="/compare/?set=' + key + '&products=' + value.products.join('-') + '" target="_blank"></a>'),
+                        queue = compareQueue.queues[key],
+                        $titleSpan = $('<span class="title"></span>').text(queue.name),
+                        $countSpan = $('<span class="count"></span>').text(queue.products.length);
+                    $a.append($titleSpan).
+                       append($countSpan);
+                    $li.append($a);
+                    $('#compare-dropdown').append($li);
                 });
             }
             e.preventDefault();

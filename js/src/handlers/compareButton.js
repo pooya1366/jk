@@ -1,3 +1,18 @@
+/**
+ *
+ * compareQueue schema
+ * {
+ *     initialized: true,
+ *     primaryQueue: '*catName',
+ *     queues: {
+ *         *attSetId: {name: *attSetName, products:*[]}
+ *         4: {name: TV, products: [415,236,714,471]},
+ *         3: {name: Mobile, products: [847,491,496,335,13,45,61,35]
+ *     }
+ * }
+ *
+ */
+
 define(['jqueryCookie'], function ($) {
     (function ($) {
         window.jk = window.jk || {};
@@ -11,10 +26,10 @@ define(['jqueryCookie'], function ($) {
             var queues = compareQueue.queues;
 
             for ( var q in queues) {
-                var position = jQuery.inArray(productId, queues[q]);
+                var position = jQuery.inArray(productId, queues[q].products);
                 //if a match is found
                 if ( ~position ) {
-                    //delete it
+                    //return it
                     return {queue: q, index: position};
                 }
             }
@@ -33,10 +48,10 @@ define(['jqueryCookie'], function ($) {
             //if product is found
             if ( ~product ) {
                 //delete it
-                queues[q].splice(index, 1);
+                queues[q].products.splice(index, 1);
             }
             //if queue is empty remove it's container
-            if (!queues[q].length) {
+            if (!queues[q].products.length) {
                 queues[q] = undefined;
             }
 
@@ -50,7 +65,7 @@ define(['jqueryCookie'], function ($) {
          * @param cat
          * @param productId
          */
-        jk.compare.addProduct = function (cat, productId) {
+        jk.compare.addProduct = function (setId, setName, productId) {
             productId = ~~productId;
             var found = jk.compare.findProduct(productId);
             //if exists, no need to add it again
@@ -63,20 +78,20 @@ define(['jqueryCookie'], function ($) {
 
             jk.compare.confirmInit();
 
-            if ( !compareQueue.queues[cat] ) {
-                compareQueue.queues[cat] = [];
+            if ( !compareQueue.queues[setId] ) {
+                compareQueue.queues[setId] = {name:setName, products:[]};
             }
             //push the current product into it's cat queue
-            compareQueue.queues[cat].push(productId);
+            compareQueue.queues[setId].products.push(productId);
             //set the primaryQueue to the current category
-            compareQueue.primaryQueue = cat;
+            compareQueue.primaryQueue = setId;
 
             cookie = JSON.stringify(compareQueue);
 
             //overwrite the updated object on cookie
             $.cookie('compare-queue', cookie);
 
-            console.log('adding ' + productId + ' into category ' + cat);
+            console.log('adding ' + productId + ' into category ' + setId);
         };
 
         jk.compare.syncViewWithCookie = function () {
@@ -118,25 +133,17 @@ define(['jqueryCookie'], function ($) {
         jk.handlers.updateCompareQueue = function (target) {
             var $product = $(target).
                 parents('li[data-role=product]'),
-                attrSetId = $product.attr('data-attribute-set'),
-                cookie = $.cookie('compare-queue'),
-                compareQueue = JSON.parse(cookie || '{}');
+                productId = $product.attr('data-product-id'),
+                attrSetId = $product.attr('data-attribute-set-id'),
+                attrSetName = $product.attr('data-attribute-set-name');
+
             if ( !$product.find('i.icon-checkbox').
                 hasClass('fa-check-square-o') )
             {
                 jk.compare.removeProduct(~~$product.attr('data-product-id'));
 
-                if ( compareQueue.queues[attrSetId] ) {
-                    compareQueue.attrSetNames[attrSetId] = undefined;
-                }
             } else {
-                jk.compare.addProduct(
-                    $product.attr('data-attribute-set'),
-                    $product.attr('data-product-id')
-                );
-                if (typeof compareQueue.attrSetNames[attrSetId] === "undefined") {
-                    compareQueue.attrSetNames = $product.attr('data-attribute-set-name');
-                }
+                jk.compare.addProduct(attrSetId, attrSetName, productId);
             }
         };
 
@@ -166,30 +173,11 @@ define(['jqueryCookie'], function ($) {
             compareQueue = JSON.parse(cookie || '{}');
 
             if (typeof compareQueue.initialized === 'undefined') {
-                /**
-                 *
-                 * compareQueue schema
-                 * {
-                 *     initialized: true,
-                 *     primaryQueue: '*catName',
-                 *     queues: {
-                 *         *attSetId: [*productId]
-                 *         tv: [415,236,714,471],
-                 *         mobile: [847,491,496,335,13,45,61,35],
-                 *         monitor: [12,13]
-                 *     },
-                 *     attrSetNames : {
-                 *         *attSetId : *attSetName
-                 *     }
-                 * }
-                 *
-                 */
+
                 compareQueue = {
                     initialized: true,
                     primaryQueue: '',
                     queues: {
-                    },
-                    attrSetNames: {
                     }
                 }
                 cookie = JSON.stringify(compareQueue);
