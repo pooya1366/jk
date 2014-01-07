@@ -164,8 +164,15 @@ define(['jqueryCookie'], function ($) {
         };
 
         jk.compare.countProducts = function () {
-          //returns num of products
-            return 3;
+            //returns num of products
+            var cookie = $.cookie('compare-queue'),
+                count = 0,
+                compareQueue = JSON.parse(cookie || '{}'),
+                queues = compareQueue.queues;
+            for ( var q in queues) {
+                count += q.products.length;
+            }
+            return count;
         };
 
         jk.compare.confirmInit = function () {
