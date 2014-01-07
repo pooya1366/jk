@@ -27,7 +27,6 @@ define(['compareButtonHandler'], function () {
                         append($countSpan);
                 });
             }
-
             e.preventDefault();
         });
 
