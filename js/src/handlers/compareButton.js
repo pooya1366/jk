@@ -74,7 +74,7 @@ define(['jqueryCookie'], function ($) {
                  *         mobile: [847,491,496,335,13,45,61,35],
                  *         monitor: [12,13]
                  *     },
-                 *     attSetNames : {
+                 *     attrSetNames : {
                  *         *attSetId : *attSetName
                  *     }
                  * }
@@ -84,6 +84,8 @@ define(['jqueryCookie'], function ($) {
                     initialized: true,
                     primaryQueue: '',
                     queues: {
+                    },
+                    attrSetNames: {
                     }
                 }
             }
@@ -159,7 +161,7 @@ define(['jqueryCookie'], function ($) {
                     $product.attr('data-attribute-set'),
                     $product.attr('data-product-id')
                 );
-                if (typeof compareQueue.attSetNames[attrSetId] === "undefined") {
+                if (typeof compareQueue.attrSetNames[attrSetId] === "undefined") {
                     compareQueue.attrSetNames = $product.attr('data-attribute-set-name');
                 }
             }
