@@ -6,6 +6,27 @@ define(['compareButtonHandler'], function () {
             jk.handlers.toggleCompareInput(e.target);
             //add or remove product to compare queue
             jk.handlers.updateCompareQueue(e.target);
+            //update number of products in view
+            var count = jk.compare.countProducts();
+            $('#compare-count').val(count);
+            if (count == 0 ) {
+                $('#compare-dropdown').
+                    removeClass('dropdown-links');
+            } else {
+                $('#compare-dropdown').
+                    addClass('dropdown-links').
+                    find('li.compare-link').
+                    remove();
+                var cookie = $.cookie('compare-queue'),
+                    compareQueue = JSON.parse(cookie || '{}');
+                $.each(compareQueue.queues, function (key, value) {
+                    var $li = $('<li class="compare-link"><a href="/compare/?set=' + key + '&products=' + value.join('-') + ' target="_blank"></a></li>'),
+                        $titleSpan = $('<span class="title"></span>').text(compareQueue.attrSetNames[key]);
+                        $countSpan = $('<span class="count"></span>').text(compareQueue.queues[key].lenght);
+                    $li.append($titleSpan).
+                        append($countSpan);
+                });
+            }
 
             e.preventDefault();
         });

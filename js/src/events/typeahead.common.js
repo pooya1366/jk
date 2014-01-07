@@ -1,14 +1,14 @@
 $(document).ready(function () {
     $('#search-text').typeahead([
         {
-            name: 'nba-teams',
-            local: ['book', 'booking', 'book store'],
-            header: '<h3 class="league-name">NBA Teams</h3>'
+            name: 'product',
+            remote: 'jk/ajax.php?header=product&q=%QUERY',
+            header: 'products'
         },
         {
-            name: 'nhl-teams',
-            local: ['booker', 'book keeper', 'book keeping'],
-            header: '<h3 class="league-name">NHL Teams</h3>'
+            name: 'category',
+            remote: 'jk/ajax.php?header=category&q=%QUERY',
+            header: 'category'
         }
     ]);
 });

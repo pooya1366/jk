@@ -4,7 +4,6 @@ define(['jqueryCookie'], function ($) {
         jk.handlers = jk.handlers || {};
         jk.compare  = jk.compare || {};
 
-
         jk.compare.findProduct = function (productId) {
             productId = ~~productId;
             var cookie = $.cookie('compare-queue'),
@@ -70,10 +69,13 @@ define(['jqueryCookie'], function ($) {
                  *     initialized: true,
                  *     primaryQueue: '*catName',
                  *     queues: {
-                 *         *catName: [*productId]
+                 *         *attSetId: [*productId]
                  *         tv: [415,236,714,471],
                  *         mobile: [847,491,496,335,13,45,61,35],
                  *         monitor: [12,13]
+                 *     },
+                 *     attSetNames : {
+                 *         *attSetId : *attSetName
                  *     }
                  * }
                  *
@@ -132,22 +134,34 @@ define(['jqueryCookie'], function ($) {
 
         /**
          *
+         * if a checkbox is checked when coming from server, it must
+         * be added to compare queue
          * @param target must be a add to compare button inside
          * the product element
          *
          */
         jk.handlers.updateCompareQueue = function (target) {
             var $product = $(target).
-                parents('li[data-role=product]');
+                parents('li[data-role=product]'),
+                attrSetId = $product.attr('data-attribute-set'),
+                cookie = $.cookie('compare-queue'),
+                compareQueue = JSON.parse(cookie || '{}');
             if ( !$product.find('i.icon-checkbox').
                 hasClass('fa-check-square-o') )
             {
-                jk.compare.removeProduct(~~$product.attr('data-product-id'))
+                jk.compare.removeProduct(~~$product.attr('data-product-id'));
+
+                if ( compareQueue.queues[attrSetId] ) {
+                    compareQueue.attrSetNames[attrSetId] = undefined;
+                }
             } else {
                 jk.compare.addProduct(
                     $product.attr('data-attribute-set'),
                     $product.attr('data-product-id')
                 );
+                if (typeof compareQueue.attSetNames[attrSetId] === "undefined") {
+                    compareQueue.attrSetNames = $product.attr('data-attribute-set-name');
+                }
             }
         };
 
@@ -165,6 +179,11 @@ define(['jqueryCookie'], function ($) {
                     removeClass('fa-check-square-o').
                     addClass('fa-square-o');
             }
+        };
+
+        jk.handlers.countProducts = function () {
+          //returns num of products
+            return 3;
         };
     })(jQuery);
 });
