@@ -1,14 +1,17 @@
-.stock-status {
-  .in-stock {
+@import "variables";
+.availability {
+  font-family: @font-family-koodak;
+  font-size: 14px;
+  &.in-stock {
     color: @green;
   }
-  .out-of-stock {
+  &.out-of-stock {
     color: #888;
   }
-  .comming-soon {
+  &.soon {
     color: @btn-info-bg;
   }
-  .discontinued {
+  &.discontinued {
     color: @red;
   }
 }

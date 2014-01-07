@@ -13,7 +13,7 @@ table {
   text-align: center;
   border-right: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
-  height: 161px;
+  height: 181px;
   width: 201px;
   position: absolute;
   top: 0;
@@ -38,7 +38,7 @@ table {
 #products table tbody tr td .product-info {
   padding: 5px;
   width: 180px;
-  height: 160px;
+  height: 180px;
   position: relative;
   direction: rtl;
 }
@@ -59,22 +59,32 @@ table {
 #products table tbody tr td .product-info .item-title a {
   color: #333;
 }
+#products table tbody tr td .product-info .ratings {
+  width: 60px;
+  margin: auto;
+}
+#products table tbody tr td .product-info .ratings .rating-links {
+  display: none;
+}
 #products table tbody tr td .product-info .price-box {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 0px;
 }
 #products table tbody tr td .product-info .price-box .price-label {
   display: none;
 }
 #products table tbody tr td .product-info .price-box .old-price {
   display: none;
-  font-size: 12px;
 }
 #products table tbody tr td .product-info .price-box .special-price,
 #products table tbody tr td .product-info .price-box .regular-price {
   margin-bottom: 0;
-  font-size: 14px;
+}
+#products table tbody tr td .product-info .availability {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
 }
 #products table tbody tr td .product-info .control {
   color: #aaa;
@@ -102,7 +112,7 @@ table {
 #properties {
   position: fixed;
   left: 0;
-  top: 161px;
+  top: 181px;
   text-align: right;
   overflow: hidden;
   color: #888;
@@ -143,7 +153,7 @@ table {
 }
 #grid {
   position: fixed;
-  top: 161px;
+  top: 181px;
   left: 201px;
   right: 0;
   bottom: 0;

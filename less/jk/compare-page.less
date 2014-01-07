@@ -1,5 +1,5 @@
 @product-info-col-width:    180px;
-@product-info-col-height:   160px;
+@product-info-col-height:   180px;
 @product-info-col-padding:  5px;
 
 @corner-width:  200px;
@@ -67,22 +67,32 @@ table {
                 color: #333;
               }
             }
+            .ratings {
+              width: 60px;
+              margin: auto;
+              .rating-links {
+                display: none;
+              }
+            }
             .price-box {
               position: absolute;
               width: 100%;
-              bottom: 0;
+              bottom: 0px;
               .price-label {
                 display: none;
               }
               .old-price {
                 display: none;
-                font-size: 12px;
               }
               .special-price,
               .regular-price {
                 margin-bottom: 0;
-                font-size: 14px;
               }
+            }
+            .availability {
+              position: absolute;
+              width: 100%;
+              bottom: 0px;
             }
             .control {
               color: #aaa;

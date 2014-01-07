@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                             'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs.css',
                             'less/overwrites/*.less'
                           ],
-                        dest: 'css/jk.css'}
+                        dest: 'css/styles.css'}
                 ]
             }
         },

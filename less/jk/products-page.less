@@ -60,8 +60,6 @@
 .products-list {
 
   .item-list {
-    display: inline-block;
-    width: 100%;
     position: relative;
     background: #fff;
     padding: 0;
@@ -77,6 +75,8 @@
 
         .item-title {
           font-size: 14px;
+          line-height: 1.5;
+          text-align: justify;
           > a {
             color: @text-color;
             &:hover {
@@ -86,19 +86,20 @@
           }
         }
 
-        .rating {
-          background: url(../images/star-ratings@2x.png) no-repeat 0 0;
-          background-size: 68px 117px;
-          height: 11px;
-          width: 68px;
+        .ratings {
+          /*background: url(../images/star-ratings@2x.png) no-repeat 0 0;
+          background-size: 68px 117px;*/
+          //height: 11px;
+          //width: 68px;
           margin: 0;
           padding: 0;
-          background-position: 0 -79px;
+          /*background-position: 0 -79px;*/
         }
 
 
         .price-box {
-
+          font-family: @font-family-koodak;
+          font-size: 16px;
           max-width: 145px;
           p {
             margin: 0;
@@ -108,17 +109,21 @@
           }
 
           .old-price {
+            font-size: 13px;
             margin-bottom: -7px;
           }
-
-          .price-desc{
+          .special-price {
+            font-size: 16px;
+          }
+          .price-desc {
+            display: block;
             margin: 0;
             margin-top: -5px;
             font-size: 10px;
           }
 
         }
-        .stock-status {
+        .availability {
           font-family: @font-family-koodak;
           font-size: 15px;
         }
@@ -191,6 +196,16 @@
           color: @link-hover-sc-color;
         }
       }
+      .btn-more-info {
+        padding-top: 6px;
+      }
+      .btn-wishlist {
+        padding-top: 4px;
+        padding-bottom: 3px;
+        .text {
+          font-size: 10px;
+        }
+      }
 
       &:hover {
         .btn-quickview {
@@ -210,8 +225,6 @@
 
     margin-top: 1px;
     border-right: 1px solid @_border_color;
-    display: inline-block;
-    width: 100%;
     > .item {
       border: 1px solid @_border_color;
       border-right: 0;
@@ -267,7 +280,7 @@
         }
 
         .item-title {
-          margin: 15px 0 10px 0;
+          margin: 10px 0 10px 0;
           > a {
             display: block;
             width: inherit;
@@ -277,10 +290,13 @@
           }
         }
 
-        .rating {
+        .ratings {
           position: absolute;
           bottom: 57px;
           right: 20px;
+          .rating-links {
+            display: none;
+          }
         }
 
         .buy-options {
@@ -296,21 +312,29 @@
               }
             }
           }
-
-
-
+        }
+        .btn-wishlist {
+          position: absolute;
+          bottom: 15px;
+          right: 65px;
+          .text {
+            display: none;
+            /*width: 0;
+            visibility: hidden;
+            margin-right: 0;*/
+          }
         }
 
         .price-box {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: 15px;
+          bottom: 10px;
           text-align: left;
         }
-        .stock-status {
+        .availability {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: 15px;
+          bottom: 10px;
           text-align: left;
         }
 
@@ -331,14 +355,14 @@
           left: 10px;
           top: 10px;
           font-size: 10px;
-          width: 38px;
+          width: 36px;
           overflow: hidden;
           -webkit-transition: width 0.2s;
           -moz-transition: width 0.2s;
           -ms-transition: width 0.2s;
           -o-transition: width 0.2s;
           transition: width 0.2s;
-          
+
           .text {
             //display: none;
             //color: transparent;
@@ -396,36 +420,48 @@
           }
 
         }
-        .rating {
+        .ratings {
           margin-right: 200px;
+          .rating-links {
+            font-size: 11px;
+            margin: 0;
+            margin-top: 5px;
+          }
         }
         .item-descs {
           margin-right: 200px;
           padding-left: 190px;
           text-align: justify;
-          margin-top: 10px;
+          margin-top: 5px;
 
         }
 
         .price-box {
           position: absolute;
-          bottom: @grid-gutter-width * 3 - 5;
+          //bottom: @grid-gutter-width * 3 - 5;
+          bottom: 58px;
           left: @grid-gutter-width;
           min-width: 135px;
           text-align: left;
         }
-        .stock-status {
+        .availability {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: @grid-gutter-width * 3 - 5;
+          //bottom: @grid-gutter-width * 3 - 5;
+          bottom: 58px;
           text-align: left;
         }
         .buy-options {
           position: absolute;
           left: @grid-gutter-width;
-          bottom: @grid-gutter-width;
+          //bottom: @grid-gutter-width;
+          bottom: 20px;
         }
-
+        .btn-wishlist {
+          position: absolute;
+          left: 20px;
+          bottom: 20px;
+        }
         .btn-compare {
           position: absolute;
           left: @grid-gutter-width;
@@ -488,6 +524,7 @@
     }
     ol {
       margin: 0;
+      margin-top: 5px;
       padding: 0 10px;
       li {
         list-style: none;
@@ -506,72 +543,83 @@
       }
     }
   }
-  dl {
-    margin: 0;
-    dt {
-      border-bottom: 1px solid #ddd;
-      color: #333;
-      padding-bottom: 3px;
-      margin-bottom: 3px;
-    }
-    dd {
-      ol {
-        margin: 0;
-        padding: 0;
-        li {
-          list-style: none;
-          margin-bottom: -4px;
-          a {
-            .clearfix();
-            display: inline-block;
-            padding: 1px 2px 0px 5px;
-            .icon {
-              margin-left: 5px;
-              font-size: 13px;
-              color: #666;
-              width: 13px;
+  .block-content {
+    padding: 0;
+    dl {
+      padding: 10px;
+      margin: 0;
+      dt {
+        border-bottom: 1px solid #ddd;
+        color: #333;
+        padding-bottom: 3px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      dd {
+        margin-bottom: 10px;
+        ol {
+          margin: 0;
+          padding: 0;
+          li {
+            list-style: none;
+            a {
+              .clearfix();
               display: block;
-              float: right;
-              text-align: left;
-            }
-            .title {
-              display: block;
-              float: right;
-            }
-            .count {
-              color: #888;
-              display: block;
-              float: left;
-              margin-right: 5px;
-            }
-            i.fa-check-square-o {
-              display: none;
-            }
-            &:hover {
-              background-color: #f5f5f5;
-              i.fa-square-o {
+              padding: 0 1px 0 3px;
+              .icon {
+                margin-left: 5px;
+                font-size: 13px;
+                color: #666;
+                width: 13px;
+                display: block;
+                float: right;
+                text-align: left;
+              }
+              .title {
+                display: block;
+                float: right;
+              }
+              .count {
+                color: #888;
+                display: block;
+                float: left;
+                margin-right: 5px;
+              }
+              i.fa-check-square {
                 display: none;
               }
-              i.fa-check-square-o {
-                display: inline-block;
+              &:hover {
+                background-color: #fbfbfb;
+                .title {
+                  //color: @link-hover-sc-color;
+                }
+                i.fa-square-o {
+                  display: none;
+                }
+                i.fa-check-square {
+                  display: inline-block;
+                }
               }
             }
           }
         }
+        &.last {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .actions {
+      color: #888;
+      margin: 0;
+      background-color: #fbfbfb;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top: 1px solid #eee;
+      padding: 5px 10px;
+      a {
+        color: #888;
       }
     }
   }
-  .actions {
-    color: #888;
-    margin: -10px;
-    margin-top: 5px;
-    background-color: #fbfbfb;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top: 1px solid #eee;
-    padding: 5px 10px;
-    a {
-      color: #888;
-    }
-  }
+
 }
