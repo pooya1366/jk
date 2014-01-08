@@ -1,3 +1,5 @@
-$(document).ready(function () {
-    jk.handlers.initCaptionHeader();
-});
+(function ($) {
+    $(document).ready(function () {
+        jk.handlers.initCaptionHeader();
+    });
+})(jQuery);
