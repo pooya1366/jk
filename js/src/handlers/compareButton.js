@@ -95,6 +95,16 @@ define(['jqueryCookie'], function ($) {
         };
 
         jk.compare.syncViewWithCookie = function () {
+            $('.item-list li[data-role=product]').each(function () {
+                var productId = $(this).attr('data-product-id');
+
+                if (!~jk.compare.findProduct(productId)) {
+                    $(this).find('.btn-compare i.icon-checkbox').
+                        removeClass('fa-check-square-o').
+                        addClass('fa-square-o');
+                }
+            });
+
             //check and see if any of the inputs are pre field
             $('.btn-compare i.icon-checkbox').each(function () {
                 if ($(this).hasClass('fa-check-square-o')) {
@@ -108,7 +118,6 @@ define(['jqueryCookie'], function ($) {
              *    stored in cookie is a pain, so It's easier to check
              *    items in the view first
              */
-
             $('.item[data-role=product]').each(function () {
                 var id = $(this).attr('data-product-id');
                 var product = jk.compare.findProduct(id);
@@ -120,6 +129,38 @@ define(['jqueryCookie'], function ($) {
                         addClass('fa-check-square-o');
                 }
             });
+
+
+            /**
+             *
+             *  this section builds compare queue view again based
+             *  on your cookie.
+             */
+            var count = jk.compare.countProducts();
+            $('#compare-count').text(count);
+            if (count == 0 ) {
+                $('#compare-dropdown').
+                    removeClass('dropdown-links');
+            } else {
+                $('#compare-dropdown').
+                    addClass('dropdown-links').
+                    find('li.compare-link').
+                    remove();
+                var cookie = $.cookie('compare-queue'),
+                    compareQueue = JSON.parse(cookie || '{}');
+                $.each(compareQueue.queues, function (key, value) {
+                    var $li = $('<li class="compare-link"></li>'),
+                        $a = $('<a href="/compare/?set=' + key + '&products=' + value.products.join('-') + '" target="_blank"></a>'),
+                        queue = compareQueue.queues[key],
+                        $titleSpan = $('<span class="title"></span>').text(queue.name),
+                        $countSpan = $('<span class="count"></span>').text('(' + queue.products.length + ')');
+                    $a.append($titleSpan).
+                        append($countSpan);
+                    $li.append($a);
+                    $('#compare-dropdown').append($li);
+                });
+            }
+
         };
 
         /**
