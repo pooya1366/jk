@@ -37,7 +37,9 @@ module.exports = function (grunt) {
                     'js/src/extras/noConflict.js',
                     'js/src/plugins/*.critical.js',
                     'js/src/handlers/*.critical.js',
-                    'js/src/events/*.critical.js'
+                    'js/src/events/*.critical.js',
+                    'js/libs/typeahead.js/test/vendor/hogan-2.0.0.js',
+                    'js/libs/typeahead.js/dist/typeahead.min.js'
                 ],
                 dest: 'js/dist/critical.js',
                 nonull: true
