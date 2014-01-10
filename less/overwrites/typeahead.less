@@ -1,30 +1,94 @@
-.search-box span.twitter-typeahead {
-  width: 100%;
-}
-.search-box span.twitter-typeahead .tt-hint {
-  width: 100%;
-  height: 39px;
-  direction: rtl;
-  color: transparent;
-}
-.search-box .twitter-typeahead h3 {
-  line-height: 20px;
-  padding-top: 10px;
-  margin: 0 0;
-  background-color: #D6B8D6;
-}
+@import "../jk/variables";
+@import "../bootstrap/mixins";
 #search-text {
   direction: rtl;
 }
-
-.search-box .tt-dropdown-menu {
-  width: 100%;
-  background-color: #fafafa;
-}
-.tt-suggestion {
-  padding: 4px 10px;
-}
-.tt-suggestion.tt-is-under-cursor {
-  background-color: #0B5EAD;
-  color: white;
+.search-box {
+  .twitter-typeahead {
+    width: 100%;
+    > span {
+      left: auto !important;
+      right: 0 !important;
+    }
+    .tt-hint {
+      width: 100%;
+      height: 39px;
+      direction: rtl;
+      color: transparent;
+    }
+  }
+  .tt-dropdown-menu {
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+    .header {
+      margin: 0;
+      margin-bottom: 3px;
+      padding: 4px 10px 0px 10px;
+      font-size: 14px;
+    }
+    .tt-dataset-terms {
+      border-bottom: 1px solid #ddd;
+      margin-top: 10px;
+      padding-bottom: 5px;
+      .tt-suggestion {
+        p {
+          .clearfix();
+          .title {
+            float: right;
+          }
+          .num {
+            float: left;
+          }
+        }
+      }
+    }
+    .tt-dataset-products {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      .tt-suggestion {
+        .thumbnail {
+          float: right;
+          img {
+            max-width: 40px;
+            max-height: 40px;
+          }
+        }
+        .details {
+          float: right;
+          margin-right: 10px;
+          .product-title {
+            margin: 0;
+            margin-bottom: 5px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .tt-suggestions {
+      .tt-suggestion {
+        padding: 5px 10px;
+        p {
+          margin: 0;
+        }
+        a {
+          color: #333;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &.tt-is-under-cursor {
+          color: white;
+          background-color: @link-color;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
