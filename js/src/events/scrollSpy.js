@@ -1,0 +1,2 @@
+jk.handlers.initialScrollSpy();
+

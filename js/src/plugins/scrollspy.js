@@ -65,8 +65,12 @@
           && [[ $href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]]) || null
       })
       .sort(function (a, b) { return a[0] - b[0] })
-      .each(function () {
-        self.offsets.push(this[0])
+      .each(function (index) {
+        if (index > 1) {
+            self.offsets.push(this[0] - (jQuery('a[href=' + this[1] + ']').height() * index))
+        } else {
+            self.offsets.push(this[0])
+        }
         self.targets.push(this[1])
       })
   }

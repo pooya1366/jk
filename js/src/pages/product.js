@@ -8,10 +8,15 @@ require.config({
         affix: 'js/libs/bootstrap/js/affix',
         affixEvent: 'js/src/events/affixEvent',
         affixHandler: 'js/src/handlers/affixHandler',
+        scrollSpyEvent: 'js/src/events/scrollSpy',
+        scrollSpyHandler: 'js/src/handlers/scrollSpyHandler',
+//        scrollSpyEvent: 'js/src/events/jk-scrollSpy',
+//        scrollSpyHandler: 'js/src/handlers/jk-scrollSpy',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
-        scrollSpy: 'js/libs/bootstrap/js/scrollspy',
+//        scrollSpy: 'js/libs/bootstrap/js/scrollspy',
+        scrollSpy: 'js/src/plugins/scrollspy',
         fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
         fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
@@ -52,6 +57,12 @@ require.config({
         },
         typeahead: {
             deps: ['jquery']
+        },
+        scrollSpyHandlers: {
+            deps: ['jquery', 'scrollSpy']
+        },
+        scrollSpyEvent: {
+            deps: ['jquery', 'scrollSpyHandler']
         }
     }
 });
@@ -63,7 +74,10 @@ require(['jquery',
     'navScroller',
     'fancyBox',
     'fancyBoxThumbs',
-    'typeahead'
+    'typeahead',
+    'scrollSpy',
+    'scrollSpyEvent',
+    'scrollSpyHandler'
 
 ], function () {
 
