@@ -1,9 +1,9 @@
 @import "variables";
-
+@import "../bootstrap/mixins";
 .carousel-title {
   font-weight: normal;
-  font-size: 20px;
-  margin: @grid-gutter-width*2 0 0 0;
+  font-size: 18px;
+  margin: 30px 0 0 0;
 }
 
 .jk-carousel {
@@ -41,7 +41,7 @@
   .items-container {
     opacity: 0;
     //.size(@container-desktop - 2 * @car-nav-width, 230px);
-    .size(100%, 230px);
+    .size(100%, 215px);
     padding-left: @car-nav-width;
     padding-right: @car-nav-width;
     margin: 0 auto;
@@ -56,7 +56,7 @@
       padding: 0;
       list-style: none;
       .item {
-        .size((@container-desktop - 2 * @car-nav-width) / 5, 230px);
+        .size((@container-desktop - 2 * @car-nav-width) / 5, 215px);
         float: right;
         /*padding-right: @grid-gutter-width/2;
         padding-left: @grid-gutter-width/2;*/
@@ -74,8 +74,8 @@
             content: "";
             display: block;
             width: 1px;
-            height: 50%;
-            margin-top: -30%;
+            height: 90%;
+            margin-top: -45%;
             position: absolute;
             right: 0;
             top: 50%;
@@ -87,6 +87,37 @@
             background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,0.5) 50%, rgba(255,255,255,0) 100%);
             background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,0.5) 50%, rgba(255,255,255,0) 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+          }
+          .product-name {
+            margin: 0;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.45;
+          }
+          .ratings {
+            position: absolute;
+            bottom: 35px;
+            width: 100%;
+            margin-right: (-@grid-gutter-width/2);
+            .rating-box {
+              margin: auto;
+            }
+          }
+          .price-stock-status-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin-right: (-@grid-gutter-width/2);
+          }
+          .price-box {
+            .clearfix();
+
+            .special-price {
+              margin-top: -10px;
+            }
+            .price-label {
+              display: none;
+            }
           }
         }
         &.first {

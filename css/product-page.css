@@ -135,6 +135,29 @@
   margin: 0;
   padding-left: 120px;
 }
+.product-page-container .product-details .header .ratings:before,
+.product-page-container .product-details .header .ratings:after {
+  content: " ";
+  display: table;
+}
+.product-page-container .product-details .header .ratings:after {
+  clear: both;
+}
+.product-page-container .product-details .header .ratings .rating-box,
+.product-page-container .product-details .header .ratings .rating-links {
+  float: right;
+}
+.product-page-container .product-details .header .ratings .rating-box {
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.product-page-container .product-details .header .ratings .rating-links {
+  font-size: 11px;
+  margin: 0;
+}
+.product-page-container .product-details .header .no-rating {
+  margin: 0;
+}
 .product-page-container .product-details .header .product-logo {
   position: absolute;
   left: 0;
