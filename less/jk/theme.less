@@ -331,3 +331,28 @@ dd {
 .no-display {
   display: none;
 }
+
+.ads-footer {
+  margin-top: 5px;
+  text-align: left;
+  a {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 10px;
+    vertical-align: top;
+    .ads-icon {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 12px;
+      height: 12px;
+      background-image: url(../images/bubble-ads.png);
+      background-position: 0px 0px;
+    }
+    &:hover {
+      .ads-icon {
+        background-position: 0 -12px;
+      }
+    }
+  }
+
+}

@@ -9,6 +9,8 @@
   }
 }
 .hp-container .home-page-nav {
+  position: relative;
+  z-index: 5000;
   /*height: 512px;*/
 }
 .hp-container .hp-slider {
@@ -28,6 +30,9 @@
   .hp-container .hp-left-side {
     display: block;
   }
+}
+.hp-container .hp-left-side .jk-ads-block {
+  margin-bottom: 20px;
 }
 .hp-container .hp-adv-boxes .adv-box {
   margin-right: 20px;
