@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             plugins: {
                 src: [
                         'js/src/plugins/*.common.js',
-                        'js/libs/typehead.js/dist/typeahead'
+                        'js/libs/typeahead.js/dist/typeahead.js'
                      ],
                 dest: 'js/dist/plugins/commonPlugins.js'
             },
