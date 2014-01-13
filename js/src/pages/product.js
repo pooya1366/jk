@@ -10,12 +10,9 @@ require.config({
         affixHandler: 'js/src/handlers/affixHandler',
         scrollSpyEvent: 'js/src/events/scrollSpy',
         scrollSpyHandler: 'js/src/handlers/scrollSpyHandler',
-//        scrollSpyEvent: 'js/src/events/jk-scrollSpy',
-//        scrollSpyHandler: 'js/src/handlers/jk-scrollSpy',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
-//        scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         scrollSpy: 'js/src/plugins/scrollspy',
         fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
         fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
@@ -47,7 +44,8 @@ require.config({
             deps: ['jquery', 'scrollSpy']
         },
         scrollSpy: {
-            deps: ['jquery']
+            deps: ['jquery'],
+            exports: '$.fn.scrollspy'
         },
         fancyBox: {
             deps: ['jquery']
