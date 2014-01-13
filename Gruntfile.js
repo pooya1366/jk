@@ -20,7 +20,10 @@ module.exports = function (grunt) {
                 ]
             },
             plugins: {
-                src: ['js/src/plugins/*.common.js'],
+                src: [
+                        'js/src/plugins/*.common.js',
+                        'js/libs/typehead.js/dist/typeahead'
+                     ],
                 dest: 'js/dist/plugins/commonPlugins.js'
             },
             bootstrap: {
