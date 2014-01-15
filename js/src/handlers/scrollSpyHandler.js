@@ -1,15 +1,16 @@
-if (typeof jk === 'undefined') {
-    var jk = {};
-    jk.handlers = {};
-}
+define(['jquery', 'scrollSpy'], function () {
+    var scrollSpyHandlers = {};
 
-(function ($) {
-    jk.handlers.initialScrollSpy = function () {
-        $('body').scrollspy({
-            target: '.spy-active',
-            offset: $('#prodcut-aside-fix > .product-image-gallery').height() +
+    (function ($) {
+        scrollSpyHandlers.initialize = function () {
+            $('body').scrollspy({
+                target: '.spy-active',
+                offset: $('#prodcut-aside-fix > .product-image-gallery').height() +
                     $('#product-page-nav > ul > li').height() +
-                21
-        });
-    };
-})(jQuery);
+                    21
+            });
+        };
+    })(jQuery);
+
+    return scrollSpyHandlers;
+});

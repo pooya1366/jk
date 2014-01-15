@@ -14,8 +14,9 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         navScroller: 'js/src/events/navScroller',
         scrollSpy: 'js/src/plugins/scrollspy',
-        fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
-        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
+//        fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
+//        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
+        fancyBoxHandlers :'js/src/handlers/fancyBoxHandler',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
@@ -43,58 +44,56 @@ require.config({
         affix: {
             deps: ['jquery', 'scrollSpy']
         },
-        scrollSpy: {
-            deps: ['jquery'],
-            exports: '$.fn.scrollspy'
-        },
-        fancyBox: {
-            deps: ['jquery']
-        },
-        fancyBoxThumbs: {
-            deps: ['jquery', 'fancyBox']
-        },
+//        fancyBox: {
+//            deps: ['jquery']
+//        },
+//        fancyBoxThumbs: {
+//            deps: ['jquery', 'fancyBox']
+//        },
         typeahead: {
             deps: ['jquery']
         },
-        scrollSpyHandlers: {
-            deps: ['jquery', 'scrollSpy']
-        },
-        scrollSpyEvent: {
-            deps: ['jquery', 'scrollSpyHandler']
+        scrollSpy: {
+            deps: ['jquery'],
+            exports: '$.fn.scrollspy'
         }
     }
 });
 
 require(['jquery',
+    'scrollSpyHandler',
+    'fancyBoxHandlers',
     'commonPlugins',
     'commonVents',
     'affixEvent',
     'navScroller',
-    'fancyBox',
-    'fancyBoxThumbs',
-    'typeahead',
-    'scrollSpy',
-    'scrollSpyEvent',
-    'scrollSpyHandler'
-
-], function () {
+//    'fancyBox',
+//    'fancyBoxThumbs',
+    'typeahead'
+], function (jQuery, scrollSpyHandler, fancyBoxHandlers) {
 
     $.noConflict();
 
-    (function ($) {
-        $(document).ready(function () {
-            $('ul.fancy-box a').fancybox( {
-                openEffect: 'elastic',
-                closeEffect: 'none',
-                arrows: true,
-                margin: [40, 40, 60, 40],
-                helpers: {
-                    thumbs: {
-                        width: 50,
-                        height: 50
-                    }
-                }
-            });
-        });
-    })(jQuery);
+//    (function ($) {
+//        $(document).ready(function () {
+//            $('ul.fancy-box a').fancybox( {
+//                openEffect: 'elastic',
+//                closeEffect: 'none',
+//                arrows: true,
+//                margin: [40, 40, 60, 40],
+//                helpers: {
+//                    thumbs: {
+//                        width: 50,
+//                        height: 50
+//                    }
+//                }
+//            });
+//        });
+//    })(jQuery);
+
+
+    jQuery(document).ready(function () {
+        scrollSpyHandler.initialize();
+        fancyBoxHandlers.initialize();
+    });
 });
