@@ -41,5 +41,5 @@ require(['jquery',
          'mainNav',
          'typeahead'
 ], function () {
-
+    $.noConflict();
 });
