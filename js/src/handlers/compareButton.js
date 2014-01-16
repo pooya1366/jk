@@ -13,7 +13,8 @@
  *
  */
 
-define(['jqueryCookie'], function ($) {
+define(['jqueryCookie'], function () {
+    var cookieExpireTime = 9999999;
     (function ($) {
         window.jk = window.jk || {};
         jk.handlers = jk.handlers || {};
@@ -30,7 +31,7 @@ define(['jqueryCookie'], function ($) {
 
         //saves compare queue to cookies
         jk.compare.save = function (compareQueue) {
-            $.cookie('compare-queue', JSON.stringify(compareQueue));
+            $.cookie('compare-queue', JSON.stringify(compareQueue), {expires: cookieExpireTime});
         };
 
         jk.compare.findProduct = function (productId) {
