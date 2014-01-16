@@ -61,7 +61,12 @@
         };
 
         var updateNavClasses = function (margin) {
-            if (margin == max_margin_right) {
+            if (max_margin_right == min_margin_right()) {
+                $node.find('.nav[data-direction=previous]').
+                    addClass('disabled');
+                $node.find('.nav[data-direction=next]').
+                    addClass('disabled');
+            } else if (margin == max_margin_right) {
                 $node.find('.nav[data-direction=previous]').
                     addClass('disabled');
                 $node.find('.nav[data-direction=next]').
