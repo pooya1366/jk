@@ -7,7 +7,8 @@ require.config({
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
-        mainNav: 'js/src/plugins/mainNav.common',
+        captionHeaderHandler: 'js/src/handlers/captionHeader',
+        captionHeaderEvent: 'js/src/events/captionHeader',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
@@ -36,10 +37,11 @@ require.config({
 });
 
 require(['jquery',
-         'commonVents',
-         'commonPlugins',
-         'mainNav',
-         'typeahead'
+    'commonVents',
+    'commonPlugins',
+    'captionHeaderHandler',
+    'captionHeaderEvent',
+    'typeahead'
 ], function () {
     $.noConflict();
 });

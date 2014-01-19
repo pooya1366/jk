@@ -1,3 +1,4 @@
+@import "variables";
 @product-info-col-width:    180px;
 @product-info-col-height:   180px;
 @product-info-col-padding:  5px;
@@ -28,6 +29,22 @@ table {
   position: absolute;
   top: 0;
   left: 0;
+  .addToCompare {
+    direction: rtl;
+    padding: 50px 10px 0 10px;
+    #addToCompareSearchTxt {
+      width: 100%;
+      padding: 4px 10px;
+      border: 1px solid #ccc;
+      border-right: 2px solid @red;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .note {
+      font-size: 11px;
+      color: #888;
+    }
+  }
 }
 
 #products {
@@ -157,6 +174,7 @@ table {
               font-weight: bold;
               padding-left: 5px;
               .state {
+                width: 8px;
                 color: white;
                 margin-right: 5px;
                 font-size: 14px;

@@ -1,3 +1,5 @@
+/*@screen-md:         (@container-desktop + (2*@grid-gutter-width));
+@screen-lg:         (@container-lg-desktop + (2*@grid-gutter-width));*/
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +20,22 @@ table {
   position: absolute;
   top: 0;
   left: 0;
+}
+#corner .addToCompare {
+  direction: rtl;
+  padding: 50px 10px 0 10px;
+}
+#corner .addToCompare #addToCompareSearchTxt {
+  width: 100%;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-right: 2px solid #cc0000;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#corner .addToCompare .note {
+  font-size: 11px;
+  color: #888;
 }
 #products {
   position: fixed;
@@ -143,6 +161,7 @@ table {
   padding-left: 5px;
 }
 #properties table tbody tr.heading td div .state {
+  width: 8px;
   color: white;
   margin-right: 5px;
   font-size: 14px;
