@@ -17,6 +17,11 @@
     //remove effect
     $('#products').delegate('td .remove', 'click', function (e) {
         jk.compare.removeFromGrid(e.target);
+        jk.compare.removeProduct(
+            $(e.target).
+                parents('div.product-info').
+                attr('data-product-id')
+        );
     });
 
     //initialize
