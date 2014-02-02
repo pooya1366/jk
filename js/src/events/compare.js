@@ -19,7 +19,7 @@
         jk.compare.removeFromGrid(e.target);
         jk.compare.removeProduct(
             $(e.target).
-                parents('div.product-info').
+                parents('div[data-role=product]').
                 attr('data-product-id')
         );
     });
