@@ -35,6 +35,14 @@
   padding-right: 20px;
   padding-bottom: 20px;
 }
+.subcategories-panel .panel-heading {
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+.subcategories-panel .panel-heading .panel-title {
+  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
 .subcategories-panel .box {
   width: 33.33%;
   height: 221px;
@@ -70,12 +78,17 @@
 }
 .subcategories-panel .box .caption-box .caption-header .header-style {
   text-align: center;
-  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 17px;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.1;
   color: #1a75d0;
   padding: 8px 0 0 0;
   margin: 0;
   text-indent: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .subcategories-panel .box .caption-box .caption-header .header-style a {
   display: block;
@@ -89,7 +102,7 @@
   float: left;
   color: #999;
   font-size: 12px;
-  margin-top: 8px;
+  margin-top: 5px;
   margin-left: 5px;
 }
 .subcategories-panel .box .caption-box .caption-header .e-toggle i.fa-minus {
@@ -125,16 +138,19 @@
 }
 .subcategories-panel .box .caption-box .caption-list ul li {
   text-align: center;
-  padding: 12px 10px 0 10px;
+  padding: 8px 10px 0 10px;
   margin: 0;
 }
 .subcategories-panel .box .caption-box .caption-list ul li a {
   display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .subcategories-panel .box .caption-box .caption-list ul li.shop-all {
-  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: bold;
   width: 100%;
   position: absolute;
   bottom: 8px;
@@ -143,13 +159,22 @@
 .subcategories-panel .box .caption-box .caption-list ul li.shop-all i.fa {
   font-size: 10px;
 }
+.subcategories-panel .box .caption-box .caption-list ul li:first-child {
+  padding-top: 5px;
+}
 .subcategories-panel .box .content-image .img-container {
   width: inherit;
   height: 171px;
+  text-align: center;
   border-bottom: 1px solid #eef2f7;
+}
+.subcategories-panel .box .content-image .img-container a {
+  width: 100%;
+  display: block;
 }
 .subcategories-panel .box .content-image .img-container img {
   max-width: 100%;
+  height: 161px;
 }
 .cat-slider {
   height: 280px;

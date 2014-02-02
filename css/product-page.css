@@ -134,10 +134,10 @@
   padding-top: 10px;
   margin-bottom: 20px;
 }
-.product-page-container .product-details .header h1.product-title {
-  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  margin: 0;
+.product-page-container .product-details .header .product-title {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  margin-top: 0;
   padding-left: 120px;
 }
 .product-page-container .product-details .header .ratings:before,
@@ -170,7 +170,7 @@
   max-height: 40px;
 }
 .product-page-container .product-details .product-data-box {
-  min-height: 700px;
+  min-height: 400px;
   padding-bottom: 20px;
   padding-top: 10px;
 }
@@ -182,8 +182,8 @@
   padding-bottom: 0;
 }
 .product-page-container .product-details .product-data-box .title {
-  font-size: 20px;
-  line-height: 1.3;
+  font-family: "jk-Koodak", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
   margin-top: 0;
 }
 .product-page-container .product-details .product-data-box > .inner {
@@ -314,6 +314,9 @@
 .product-page-container .product-details #product-review #review-form-container #review-form {
   width: 500px;
 }
+.product-page-container .product-details #product-review #review-form-container #review-form .product-name {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+}
 .product-page-container .product-details #product-review #product-review-table th .rating-box {
   color: transparent;
 }
@@ -322,6 +325,16 @@
 }
 .product-page-container .product-details #product-review #product-review-table tbody tr td.value input {
   margin: auto;
+}
+.product-page-container .product-details #product-features .box-additional h3 {
+  height: 34px;
+  padding-top: 3px;
+  margin-bottom: 0;
+  background-color: #aaa;
+  color: white;
+  font-size: 16px;
+  line-height: 2;
+  text-align: center;
 }
 .product-additional-actions a {
   color: #777;
@@ -369,5 +382,8 @@
   margin-top: 15px;
 }
 table.product-attribute-specs {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+table.product-attribute-specs tbody tr th {
+  vertical-align: middle;
 }

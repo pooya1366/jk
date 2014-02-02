@@ -16,7 +16,9 @@
     }
   }
   margin-bottom: @grid-gutter-width;
-
+  .pages {
+    float: right;
+  }
   .pagination {
     margin-top: 0;
     margin-bottom: 0;
@@ -74,9 +76,8 @@
       > .item-content {
 
         .item-title {
-          font-size: 14px;
-          line-height: 1.5;
-          text-align: justify;
+          font-size: 13px;
+          font-family: @font-family-sans-serif;
           > a {
             color: @text-color;
             &:hover {
@@ -348,7 +349,7 @@
           position: absolute;
           right: 50%;
           margin-right: -57px;
-          top: 80px;
+          top: 140px;
         }
 
         .btn-compare {
@@ -401,13 +402,13 @@
         .btn-quickview {
           position: absolute;
           right: 43px;
-          top: 68px;
+          top: 150px;
         }
 
         .item-title {
           font-size: 16px;
           margin-top: 0;
-          margin-bottom: 5px;
+          //margin-bottom: 5px;
           margin-right: 200px;
           padding-left: 190px;
         }
@@ -442,7 +443,7 @@
           padding-left: 190px;
           text-align: justify;
           margin-top: 5px;
-
+          color: #777;
         }
 
         .price-box {

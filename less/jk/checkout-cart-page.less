@@ -12,6 +12,27 @@
     .title-buttons{
       margin-bottom: 20px;
     }
+
+    .cart-table {
+      tbody {
+        tr {
+          td {
+            &.a-center {
+              min-width: 100px;
+              &.last {
+                min-width: 0;
+              }
+            }
+          }
+        }
+      }
+      .product-name {
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+    }
+
     .totals {
       float: left;
       width: 325px;
@@ -20,6 +41,7 @@
         float: left;
         margin-bottom: 20px;
       }
+
       .panel-body {
         margin-bottom: -10px;
       }
@@ -38,6 +60,7 @@
     .cart-collaterals{
       .clearfix();
       width: 655px;
+
       .crosssell {
         float: right;
         width: 50%;

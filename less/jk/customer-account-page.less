@@ -117,7 +117,33 @@
 }
 
 .my-account {
-  ul.messages {
+  form {
+    max-width: 600px;
+    margin: auto;
+    &#wishlist-view-form {
+      max-width: 100%;
+      #wishlist-table {
+        tbody {
+          tr {
+            td {
+              .product-name {
+                margin-top: 0;
+              }
+              .description {
+                color: #777;
+                padding: 0 10px 10px;
+              }
+              .cart-cell {
+                width: 260px;
+                padding: 0 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*ul.messages {
     list-style: none;
     margin: 0;
     background-color: @alert-info-bg;
@@ -131,7 +157,7 @@
     ul {
       padding: 0;
     }
-  }
+  }*/
 }
 .pager {
   .clearfix();
