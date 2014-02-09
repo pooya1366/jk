@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
         jquery: 'js/libs/jquery/jquery.min',
@@ -25,9 +25,6 @@ require.config({
      */
     ,
     shim: {
-        commonVents :{
-            deps: ['jquery', 'commonPlugins']
-        },
         commonPlugins: {
             deps: ['jquery']
         },
@@ -53,4 +50,13 @@ require(['jquery',
          'typeahead'
 ], function () {
     $.noConflict();
+
+    jQuery(document).ready(function () {
+        jk.compare.syncViewWithCookie();
+        jk.compare.confirmInit();
+        setInterval(function () {
+            jk.compare.syncViewWithCookie();
+        }, 2000);
+    });
+
 });

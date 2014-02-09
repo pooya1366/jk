@@ -11,14 +11,6 @@ define(['compareButtonHandler'], function () {
             e.preventDefault();
         });
 
-        $(document).ready(function () {
-            jk.compare.syncViewWithCookie();
-            jk.compare.confirmInit();
-            setInterval(function () {
-                jk.compare.syncViewWithCookie();
-            }, 2000);
-        });
-
         //move add to compare button
         //event handler combined due to simplicity
         $(".products-list div.btn-compare").hover(function(){

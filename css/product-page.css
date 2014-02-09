@@ -387,3 +387,30 @@ table.product-attribute-specs {
 table.product-attribute-specs tbody tr th {
   vertical-align: middle;
 }
+.btn-compare {
+  font-size: 10px;
+  padding: 0;
+  cursor: pointer;
+  background: white;
+}
+.btn-compare i.icon-checkbox {
+  margin: 1px 4px 0px 5px;
+  font-size: 1.15em;
+  vertical-align: middle;
+  width: 9px;
+  text-align: left;
+}
+.btn-compare.in-compare {
+  visibility: visible !important;
+}
+.btn-compare input {
+  width: 20px;
+  cursor: pointer;
+}
+.btn-compare label {
+  font-weight: normal;
+  margin: 0;
+  padding: 2px 0px 2px 8px;
+  margin-right: -2px;
+  cursor: pointer;
+}

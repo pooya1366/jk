@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
         jquery: 'js/libs/jquery/jquery.min',
@@ -21,9 +21,6 @@ require.config({
      */
     ,
     shim: {
-        commonVents :{
-            deps: ['jquery', 'commonPlugins']
-        },
         commonPlugins: {
             deps: ['jquery']
         },
@@ -37,11 +34,11 @@ require.config({
 });
 
 require(['jquery',
-    'commonVents',
-    'commonPlugins',
-    'captionHeaderHandler',
-    'captionHeaderEvent',
-    'typeahead'
+         'commonVents',
+         'commonPlugins',
+         'captionHeaderHandler',
+         'captionHeaderEvent',
+         'typeahead'
 ], function () {
     $.noConflict();
 });

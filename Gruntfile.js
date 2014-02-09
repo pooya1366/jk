@@ -8,6 +8,10 @@ module.exports = function (grunt) {
                 separator: ';'
             },
             vents: {
+                options: {
+                    banner: "define(['jquery', 'commonPlugins'], function () {",
+                    footer: '});'
+                },
                 files : [
                     {
                         src: ['js/src/handlers/*.common.js', 'js/src/events/*.common.js'],
