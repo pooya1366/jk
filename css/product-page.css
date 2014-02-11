@@ -415,9 +415,12 @@ table.product-attribute-specs tbody tr th {
   vertical-align: middle;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 table.product-attribute-specs tbody tr td.data ul {
   margin-bottom: 0;
 =======
+=======
+>>>>>>> 5273ef7c95497917136190a65d84a044f7604d8d
 .btn-compare {
   font-size: 10px;
   padding: 0;
@@ -444,5 +447,8 @@ table.product-attribute-specs tbody tr td.data ul {
   padding: 2px 0px 2px 8px;
   margin-right: -2px;
   cursor: pointer;
+<<<<<<< HEAD
+>>>>>>> 5273ef7c95497917136190a65d84a044f7604d8d
+=======
 >>>>>>> 5273ef7c95497917136190a65d84a044f7604d8d
 }
