@@ -80,3 +80,32 @@ input[type="password"] {
   text-align: left;
   padding: 2px 5px;
 }
+
+select {
+  &.form-control {
+    background-color: whitesmoke;
+    background-image: -webkit-linear-gradient(top,whitesmoke,#f1f1f1);
+    background-image: linear-gradient(top,whiteSmoke,#f1f1f1);
+    background: url(../images/grey-disclosure-arrow-up-down.png) 12px 11px no-repeat whitesmoke;
+    color: #212121;
+    outline: none;
+    overflow: hidden;
+    text-align: right;
+    text-decoration: none;
+    vertical-align: middle;
+    -webkit-appearance: button;
+    appearance: button;
+    transition: none;
+    -webkit-transition: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+
+    &:hover {
+      background-color: #f8f8f8;
+      border-color: #c6c6c6;
+      -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+      box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    }
+  }
+}
