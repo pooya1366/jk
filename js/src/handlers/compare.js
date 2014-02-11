@@ -95,7 +95,7 @@
     };
 
     jk.compare.removeFromUrl = function (id) {
-        var products = window.location.search.split(/products=|&/)[1],
+        var products = window.location.search.split(/products=/)[1].split('&')[0],
             ids = products.split('-');
 
         for (var i = 0; i < ids.length; i++) {

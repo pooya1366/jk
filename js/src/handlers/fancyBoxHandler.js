@@ -1,8 +1,7 @@
 define([
     'jquery',
-    'js/libs/fancyBox/source/jquery.fancybox.pack',
-    'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs'
-], function (jQuery, fancyBox, fancyBoxThumbs) {
+    'js/dist/plugins/fancyBox'
+], function ($) {
     return {
         install : function () {
             $(document).ready(function () {

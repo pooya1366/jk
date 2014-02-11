@@ -11,10 +11,10 @@ require.config({
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         scrollSpyEvent: 'js/src/events/scrollSpy',
         compareButtonHandler: 'js/src/handlers/compareButton',
-        compareButtonEvent: 'js/src/events/compareButton',
         jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
+        fancyBox :'js/dist/plugins/fancyBox',
         fancyBoxHandlers :'js/src/handlers/fancyBoxHandler',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
@@ -54,6 +54,10 @@ require.config({
         jqueryCookie: {
             deps: ['jquery'],
             exports: '$.cookie'
+        },
+        fancyBox: {
+            deps: ['jquery'],
+            exports: '$.fn.fancyBox'
         }
     }
 });
@@ -65,7 +69,6 @@ require([
     'jquery',
     'commonVents',
     'commonPlugins',
-    'compareButtonEvent',
     'compareButtonHandler',
     'affixEvent',
     'scrollSpy',
@@ -74,4 +77,28 @@ require([
 
     fancy.install();
     scrollSpyPackage.install();
+
+
+    $('div.btn-compare').delegate('.icon-checkbox ', 'click', function (e) {
+        //toggle the checkbox inside this button
+        jk.handlers.toggleCompareInput(e.target);
+        var $product = $('#product-common-info'),
+            id = $product.data('product-id'),
+            setId = $product.data('attribute-set-id'),
+            setName = $product.data('attribute-set-name');
+
+        if ( $(e.target).hasClass('fa-check-square-o') ) {
+            jk.compare.addProduct(setId, setName, id);
+        } else {
+            jk.compare.removeProduct(id);
+        }
+        //sync
+        jk.compare.syncViewWithCookie();
+        e.preventDefault();
+    });
+
+    setInterval(function () {
+        jk.compare.syncViewWithCookie();
+    }, 2000);
+
 });

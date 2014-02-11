@@ -30,6 +30,13 @@ module.exports = function (grunt) {
                      ],
                 dest: 'js/dist/plugins/commonPlugins.js'
             },
+            fancyBox: {
+                src: [
+                    'js/libs/fancyBox/source/jquery.fancybox.js',
+                    'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs.js'
+                ],
+                dest: 'js/dist/plugins/fancyBox.js'
+            },
             bootstrap: {
                 src: [
                     'js/libs/bootstrap/js/transition.js',
