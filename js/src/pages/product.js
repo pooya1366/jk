@@ -8,6 +8,7 @@ require.config({
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         scrollSpyEvent: 'js/src/events/scrollSpy',
         compareButtonHandler: 'js/src/handlers/compareButton',
+        compareButtonEvent: 'js/src/events/compareButton',
         jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
@@ -61,6 +62,7 @@ require([
     'commonVents',
     'commonPlugins',
     'compareButtonHandler',
+    'compareButtonEvent',
     'stickySidebar',
     'scrollSpy',
     'jqueryCookie'
@@ -81,8 +83,8 @@ require([
     fancy.install();
     scrollSpyPackage.install();
 
-
-    $('div.btn-compare').delegate('.icon-checkbox ', 'click', function (e) {
+/*
+    $('[data-role=product]').delegate('div.btn-compare', 'click', function (e) {
         //toggle the checkbox inside this button
         jk.handlers.toggleCompareInput(e.target);
         var $product = $('#product-common-info'),
@@ -99,6 +101,7 @@ require([
         jk.compare.syncViewWithCookie();
         e.preventDefault();
     });
+*/
 
     setInterval(function () {
         jk.compare.syncViewWithCookie();

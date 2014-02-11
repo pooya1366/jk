@@ -180,7 +180,7 @@ define(['jqueryCookie'], function () {
          */
         jk.handlers.updateCompareQueue = function (target) {
             var $product = $(target).
-                parents('li[data-role=product]'),
+                parents('[data-role=product]'),
                 productId = $product.attr('data-product-id'),
                 attrSetId = $product.attr('data-attribute-set-id'),
                 attrSetName = $product.attr('data-attribute-set-name');
