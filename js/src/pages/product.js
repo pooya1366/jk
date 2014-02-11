@@ -14,8 +14,7 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         fancyBox :'js/dist/plugins/fancyBox',
         fancyBoxHandlers :'js/src/handlers/fancyBoxHandler',
-        stickySidebar :'js/src/plugins/stickySidebar',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead'
+        stickySidebar :'js/src/plugins/stickySidebar'
     }
 
     /*
@@ -31,9 +30,6 @@ require.config({
             deps: ['jquery']
         },
         commonPlugins: {
-            deps: ['jquery']
-        },
-        typeahead: {
             deps: ['jquery']
         },
         scrollSpy: {

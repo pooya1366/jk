@@ -6,9 +6,7 @@ require.config({
         commonPlugins: 'js/dist/plugins/commonPlugins',
         commonVents: 'js/dist/vents/commonVents',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
-        bootstrap: 'js/dist/libs/bootstrap.min',
-        slideShow: 'js/libs/flexSlider/jquery.flexslider',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead'
+        slideShow: 'js/libs/flexSlider/jquery.flexslider'
     }
 
     /*
@@ -23,12 +21,6 @@ require.config({
         commonPlugins: {
             deps: ['jquery']
         },
-        typeahead: {
-            deps: ['jquery']
-        },
-        bootstrap: {
-            deps: ['jquery']
-        },
         slideShow: {
             deps: ['jquery']
         }
@@ -39,8 +31,8 @@ require(['jquery',
         'commonPlugins',
         'commonVents',
         'html5shiv',
-        'typeahead',
-        'slideShow',
-        'bootstrap'
+        'slideShow'
 ], function () {
+    jQuery.noConflict();
+
 });

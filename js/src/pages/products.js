@@ -12,8 +12,7 @@ require.config({
         ViewToggleEvent: 'js/src/events/categoryViewToggle',
         compareButtonHandler: 'js/src/handlers/compareButton',
         compareButtonEvent: 'js/src/events/compareButton',
-        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead',
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie'
 //        bootstrap: 'js/dist/libs/bootstrap'
 //        quickView: 'js/src/modules/quickView'
     }
@@ -33,9 +32,6 @@ require.config({
         dropDown: {
             deps: ['jquery']
         },
-        typeahead: {
-            deps: ['jquery']
-        },
         bootstrap: {
             deps: ['jquery'],
             exports: '$.fn.popover'
@@ -53,8 +49,7 @@ require([
          'ViewToggleEvent',
          'compareButtonEvent',
          'compareButtonHandler',
-         'jqueryCookie',
-         'typeahead'
+         'jqueryCookie'
 //         'bootstrap'
 ], function (jQuery, qViewEvent) {
 

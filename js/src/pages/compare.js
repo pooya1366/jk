@@ -11,8 +11,7 @@ require.config({
         compareHandlers: 'js/src/handlers/compare',
         compareButtonHandler: 'js/src/handlers/compareButton',
         compareButtonEvent: 'js/src/events/compareButton',
-        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead'
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie'
     }
 
     /*
@@ -25,12 +24,6 @@ require.config({
     ,
     shim: {
         commonPlugins: {
-            deps: ['jquery']
-        },
-        typeahead: {
-            deps: ['jquery']
-        },
-        bootstrap: {
             deps: ['jquery']
         },
         compareEvents: {
@@ -46,11 +39,21 @@ require(['jquery',
     'commonPlugins',
     'commonVents',
     'html5shiv',
-    'typeahead',
     'compareHandlers',
     'compareEvents',
     'compareButtonEvent',
     'compareButtonHandler',
     'jqueryCookie'
 ], function () {
+    jQuery.noConflict();
+
+    jQuery('#addToCompareSearchTxt').typeahead({
+        minLength: 2,
+        valueKey: 'title',
+        remote: {
+            url: (function () { return '/jkcatalog/compare/search?q=%QUERY' + window.location.search.replace('?', '&')})()
+        },
+        template: '<a href="{{url}}">{{title}}</a>',
+        engine: Hogan
+    });
 });

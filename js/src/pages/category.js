@@ -8,8 +8,7 @@ require.config({
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         captionHeaderHandler: 'js/src/handlers/captionHeader',
-        captionHeaderEvent: 'js/src/events/captionHeader',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead'
+        captionHeaderEvent: 'js/src/events/captionHeader'
     }
 
     /*
@@ -26,9 +25,6 @@ require.config({
         },
         mainNav: {
             deps: ['jquery']
-        },
-        typeahead: {
-            deps: ['jquery']
         }
     }
 });
@@ -37,8 +33,7 @@ require(['jquery',
          'commonVents',
          'commonPlugins',
          'captionHeaderHandler',
-         'captionHeaderEvent',
-         'typeahead'
+         'captionHeaderEvent'
 ], function () {
     $.noConflict();
 });
