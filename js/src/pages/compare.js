@@ -51,7 +51,11 @@ require(['jquery',
         minLength: 2,
         valueKey: 'title',
         remote: {
-            url: (function () { return '/jkcatalog/compare/search?q=%QUERY' + window.location.search.replace('?', '&')})()
+            url: '/jkcatalog/compare/search?q=%QUERY',
+            replace: function (url, query) {
+                return url.replace('%QUERY', query) + window.location.search.replace('?', '&');
+            }
+
         },
         template: '<a href="{{url}}">{{title}}</a>',
         engine: Hogan
