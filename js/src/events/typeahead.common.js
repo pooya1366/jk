@@ -31,17 +31,15 @@
         ]);
 
         $('input#search-text').on('typeahead:selected', function (object, datum) {
-            window.location.href = datum.url;
-            /*switch (datum.type)
-             {
-
-             case 'term':
-             window.location.href = datum.url;
-             break;
-             case 'product':
-             window.location.href = datum.url;
-             break;
-             }*/
+            switch (datum.type)
+            {
+                case 'term':
+                    $('#search_mini_form').submit();
+                    break;
+                case 'product':
+                    window.location.href = datum.url;
+                    break;
+            }
         });
     });
 })(jQuery);

@@ -5,9 +5,6 @@ require.config({
         jquery: 'js/libs/jquery/jquery.min',
         commonPlugins: 'js/dist/plugins/commonPlugins',
         commonVents: 'js/dist/vents/commonVents',
-        affix: 'js/libs/bootstrap/js/affix',
-        affixEvent: 'js/src/events/affixEvent',
-        affixHandler: 'js/src/handlers/affixHandler',
         scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         scrollSpyEvent: 'js/src/events/scrollSpy',
         compareButtonHandler: 'js/src/handlers/compareButton',
@@ -16,6 +13,7 @@ require.config({
         respond: 'js/libs/respond/respond.min',
         fancyBox :'js/dist/plugins/fancyBox',
         fancyBoxHandlers :'js/src/handlers/fancyBoxHandler',
+        stickySidebar :'js/src/plugins/stickySidebar',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
@@ -28,21 +26,14 @@ require.config({
      */
     ,
     shim: {
+        stickySidebar: {
+            deps: ['jquery']
+        },
         commonPlugins: {
             deps: ['jquery']
         },
         typeahead: {
             deps: ['jquery']
-        },
-        affix: {
-            deps: ['jquery']
-        },
-        affixHandler: {
-            deps: ['jquery', 'affix']
-        },
-        affixEvent: {
-            deps: ['jquery', 'affixHandler'],
-            exports: '$.fn.affix'
         },
         scrollSpy: {
             deps: ['jquery'],
@@ -70,10 +61,22 @@ require([
     'commonVents',
     'commonPlugins',
     'compareButtonHandler',
-    'affixEvent',
+    'stickySidebar',
     'scrollSpy',
     'jqueryCookie'
 ], function (scrollSpyPackage, fancy) {
+
+
+    $(document).ready(function () {
+        jQuery('#prodcut-aside-fix').stickySidebar({
+            headerSelector: '#jk-header',
+            contentSelector: '.product-details',
+            footerSelector: '.footer-container',
+            sidebarTopMargin: 10,
+            footerThreshold: 60
+        });
+    });
+
 
     fancy.install();
     scrollSpyPackage.install();

@@ -65,9 +65,6 @@
   top: 10px;
   position: fixed;
 }
-.product-page-container .product-sidebar #prodcut-aside-fix.affix-bottom {
-  position: absolute;
-}
 .product-page-container .product-sidebar #prodcut-aside-fix:after {
   padding: 0;
   content: "";
@@ -172,33 +169,6 @@
   top: 10px;
   max-height: 40px;
 }
-.product-page-container .product-details .btn-compare {
-  font-size: 10px;
-  padding: 0;
-  cursor: pointer;
-  background: white;
-}
-.product-page-container .product-details .btn-compare i.icon-checkbox {
-  margin: 1px 4px 0px 5px;
-  font-size: 1.15em;
-  vertical-align: middle;
-  width: 9px;
-  text-align: left;
-}
-.product-page-container .product-details .btn-compare.in-compare {
-  visibility: visible !important;
-}
-.product-page-container .product-details .btn-compare input {
-  width: 20px;
-  cursor: pointer;
-}
-.product-page-container .product-details .btn-compare label {
-  font-weight: normal;
-  margin: 0;
-  padding: 2px 0px 2px 8px;
-  margin-right: -2px;
-  cursor: pointer;
-}
 .product-page-container .product-details .product-data-box {
   min-height: 400px;
   padding-bottom: 20px;
@@ -218,9 +188,6 @@
 }
 .product-page-container .product-details .product-data-box > .inner {
   position: relative;
-}
-.product-page-container .product-details .product-data-box#product-related {
-  min-height: 350px;
 }
 .product-page-container .product-details .carousel .items-container {
   /*width: @product-details-width - 2*@car-nav-width + 2;
@@ -344,6 +311,9 @@
 .product-page-container .product-details #product-review #review-form-container {
   padding-top: 10px;
 }
+.product-page-container .product-details #product-review #review-form-container #review-form {
+  width: 500px;
+}
 .product-page-container .product-details #product-review #review-form-container #review-form .product-name {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
@@ -417,6 +387,30 @@ table.product-attribute-specs {
 table.product-attribute-specs tbody tr th {
   vertical-align: middle;
 }
-table.product-attribute-specs tbody tr td.data ul {
-  margin-bottom: 0;
+.btn-compare {
+  font-size: 10px;
+  padding: 0;
+  cursor: pointer;
+  background: white;
+}
+.btn-compare i.icon-checkbox {
+  margin: 1px 4px 0px 5px;
+  font-size: 1.15em;
+  vertical-align: middle;
+  width: 9px;
+  text-align: left;
+}
+.btn-compare.in-compare {
+  visibility: visible !important;
+}
+.btn-compare input {
+  width: 20px;
+  cursor: pointer;
+}
+.btn-compare label {
+  font-weight: normal;
+  margin: 0;
+  padding: 2px 0px 2px 8px;
+  margin-right: -2px;
+  cursor: pointer;
 }
