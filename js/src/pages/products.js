@@ -13,7 +13,9 @@ require.config({
         compareButtonHandler: 'js/src/handlers/compareButton',
         compareButtonEvent: 'js/src/events/compareButton',
         jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
-        typeahead: 'js/libs/typeahead.js/dist/typeahead'
+        typeahead: 'js/libs/typeahead.js/dist/typeahead',
+//        bootstrap: 'js/dist/libs/bootstrap'
+//        quickView: 'js/src/modules/quickView'
     }
 
     /*
@@ -33,12 +35,17 @@ require.config({
         },
         typeahead: {
             deps: ['jquery']
+        },
+        bootstrap: {
+            deps: ['jquery'],
+            exports: '$.fn.popover'
         }
-
     }
 });
 
-require(['jquery',
+require([
+         'jquery',
+//         'quickView',
          'commonVents',
          'commonPlugins',
          'dropDown',
@@ -48,8 +55,13 @@ require(['jquery',
          'compareButtonHandler',
          'jqueryCookie',
          'typeahead'
-], function () {
-    $.noConflict();
+//         'bootstrap'
+], function (jQuery, qViewEvent) {
+
+
+    jQuery.noConflict();
+
+//    qViewEvent.install();
 
     jQuery(document).ready(function () {
         jk.compare.syncViewWithCookie();

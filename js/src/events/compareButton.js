@@ -2,7 +2,6 @@ define(['compareButtonHandler'], function () {
     (function ($) {
         //if a add to compare list button is clicked
         $('[data-role=product]').delegate('div.btn-compare', 'click', function (e) {
-            console.log(e.target);
             //toggle the checkbox inside this button
             jk.handlers.toggleCompareInput(e.target);
             //add or remove product to compare queue

@@ -38,27 +38,27 @@ require.config({
         },
         scrollSpy: {
             deps: ['jquery'],
-            exports: '$.fn.scrollspy'
+            exports: 'jQuery.fn.scrollspy'
         },
         scrollSpyEvent: {
             deps: ['jquery', 'scrollSpy']
         },
         jqueryCookie: {
             deps: ['jquery'],
-            exports: '$.cookie'
+            exports: 'jQuery.cookie'
         },
         fancyBox: {
             deps: ['jquery'],
-            exports: '$.fn.fancyBox'
+            exports: 'jQuery.fn.fancyBox'
         }
     }
 });
 
 
 require([
+    'jquery',
     'scrollSpyEvent',
     'fancyBoxHandlers',
-    'jquery',
     'commonVents',
     'commonPlugins',
     'compareButtonHandler',
@@ -66,42 +66,22 @@ require([
     'stickySidebar',
     'scrollSpy',
     'jqueryCookie'
-], function (scrollSpyPackage, fancy) {
+], function (jQuery, scrollSpyPackage, fancy) {
+    jQuery.noConflict();
 
-
-    $(document).ready(function () {
+    jQuery(document).ready(function () {
         jQuery('#prodcut-aside-fix').stickySidebar({
             headerSelector: '#jk-header',
             contentSelector: '.product-details',
             footerSelector: '.footer-container',
-            sidebarTopMargin: 10,
+            navSelector: '.breadcrumb',
+            sidebarTopMargin: 20,
             footerThreshold: 60
         });
     });
 
-
     fancy.install();
     scrollSpyPackage.install();
-
-/*
-    $('[data-role=product]').delegate('div.btn-compare', 'click', function (e) {
-        //toggle the checkbox inside this button
-        jk.handlers.toggleCompareInput(e.target);
-        var $product = $('#product-common-info'),
-            id = $product.data('product-id'),
-            setId = $product.data('attribute-set-id'),
-            setName = $product.data('attribute-set-name');
-
-        if ( $(e.target).hasClass('fa-check-square-o') ) {
-            jk.compare.addProduct(setId, setName, id);
-        } else {
-            jk.compare.removeProduct(id);
-        }
-        //sync
-        jk.compare.syncViewWithCookie();
-        e.preventDefault();
-    });
-*/
 
     setInterval(function () {
         jk.compare.syncViewWithCookie();
