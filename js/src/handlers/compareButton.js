@@ -31,7 +31,7 @@ define(['jqueryCookie'], function () {
 
         //saves compare queue to cookies
         jk.compare.save = function (compareQueue) {
-            $.cookie('compare-queue', JSON.stringify(compareQueue), {expires: cookieExpireTime});
+            $.cookie('compare-queue', JSON.stringify(compareQueue), {expires: cookieExpireTime,  path: '/' });
         };
 
         jk.compare.findProduct = function (productId) {
@@ -63,7 +63,7 @@ define(['jqueryCookie'], function () {
                 queues[q].products.splice(index, 1);
             }
             //if queue is empty remove it's container
-            if (!queues[q].products.length) {
+            if (!queues[q] || !queues[q].products.length) {
                 queues[q] = undefined;
             }
 
@@ -89,7 +89,7 @@ define(['jqueryCookie'], function () {
 
             jk.compare.confirmInit();
 
-            if ( !compareQueue.queues[setId] ) {
+            if ( !compareQueue.queues || !compareQueue.queues[setId] ) {
                 compareQueue.queues[setId] = {name:setName, products:[]};
             }
             //push the current product into it's cat queue
@@ -101,6 +101,7 @@ define(['jqueryCookie'], function () {
             jk.compare.save(compareQueue);
         };
 
+        //better to be called syncProductsWithCookie
         jk.compare.syncViewWithCookie = function () {
             $('.item-list li[data-role=product]').each(function () {
                 var productId = $(this).attr('data-product-id');

@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
         jquery: 'js/libs/jquery/jquery.min',
@@ -20,9 +20,6 @@ require.config({
      */
     ,
     shim: {
-        commonVents :{
-            deps: ['jquery', 'commonPlugins']
-        },
         commonPlugins: {
             deps: ['jquery']
         },

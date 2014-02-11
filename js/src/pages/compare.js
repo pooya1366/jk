@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
         jquery: 'js/libs/jquery/jquery.min',
@@ -9,6 +9,9 @@ require.config({
         bootstrap: 'js/dist/libs/bootstrap.min',
         compareEvents: 'js/src/events/compare',
         compareHandlers: 'js/src/handlers/compare',
+        compareButtonHandler: 'js/src/handlers/compareButton',
+        compareButtonEvent: 'js/src/events/compareButton',
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
 
@@ -21,9 +24,6 @@ require.config({
      */
     ,
     shim: {
-        commonVents :{
-            deps: ['jquery', 'commonPlugins']
-        },
         commonPlugins: {
             deps: ['jquery']
         },
@@ -49,6 +49,8 @@ require(['jquery',
     'typeahead',
     'compareHandlers',
     'compareEvents',
-    'bootstrap'
+    'compareButtonEvent',
+    'compareButtonHandler',
+    'jqueryCookie'
 ], function () {
 });

@@ -94,6 +94,20 @@
         return this.pushStack(row);
     };
 
+    jk.compare.removeFromUrl = function (id) {
+        var products = window.location.search.split(/products=|&/)[1],
+            ids = products.split('-');
+
+        for (var i = 0; i < ids.length; i++) {
+            if (ids[i] == id) {
+                ids.splice(i, 1);
+            }
+        }
+
+        var newQuery = window.location.href.replace(products, ids.join('-')).split('compare/')[1];
+        history.pushState({}, "compare", newQuery)
+    };
+
     jk.compare.toggleRow = function (target) {
         var index = $(target).parents('tbody').
                 index(),

@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
         jquery: 'js/libs/jquery/jquery.min',
@@ -8,14 +8,13 @@ require.config({
         affix: 'js/libs/bootstrap/js/affix',
         affixEvent: 'js/src/events/affixEvent',
         affixHandler: 'js/src/handlers/affixHandler',
+        scrollSpy: 'js/libs/bootstrap/js/scrollspy',
         scrollSpyEvent: 'js/src/events/scrollSpy',
-        scrollSpyHandler: 'js/src/handlers/scrollSpyHandler',
+        compareButtonHandler: 'js/src/handlers/compareButton',
+        compareButtonEvent: 'js/src/events/compareButton',
+        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie',
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
-        navScroller: 'js/src/events/navScroller',
-        scrollSpy: 'js/src/plugins/scrollspy',
-//        fancyBox: 'js/libs/fancyBox/source/jquery.fancybox.pack',
-//        fancyBoxThumbs :'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs',
         fancyBoxHandlers :'js/src/handlers/fancyBoxHandler',
         typeahead: 'js/libs/typeahead.js/dist/typeahead'
     }
@@ -29,71 +28,50 @@ require.config({
      */
     ,
     shim: {
-        commonVents :{
-            deps: ['jquery', 'commonPlugins']
-        },
         commonPlugins: {
             deps: ['jquery']
         },
-        affixHandler: {
-            deps: ['jquery', 'scrollSpy', 'affix']
-        },
-        affixEvent: {
-            deps: ['jquery', 'affixHandler']
-        },
-        affix: {
-            deps: ['jquery', 'scrollSpy']
-        },
-//        fancyBox: {
-//            deps: ['jquery']
-//        },
-//        fancyBoxThumbs: {
-//            deps: ['jquery', 'fancyBox']
-//        },
         typeahead: {
             deps: ['jquery']
+        },
+        affix: {
+            deps: ['jquery']
+        },
+        affixHandler: {
+            deps: ['jquery', 'affix']
+        },
+        affixEvent: {
+            deps: ['jquery', 'affixHandler'],
+            exports: '$.fn.affix'
         },
         scrollSpy: {
             deps: ['jquery'],
             exports: '$.fn.scrollspy'
+        },
+        scrollSpyEvent: {
+            deps: ['jquery', 'scrollSpy']
+        },
+        jqueryCookie: {
+            deps: ['jquery'],
+            exports: '$.cookie'
         }
     }
 });
 
-require(['jquery',
-    'scrollSpyHandler',
+
+require([
+    'scrollSpyEvent',
     'fancyBoxHandlers',
-    'commonPlugins',
+    'jquery',
     'commonVents',
+    'commonPlugins',
+    'compareButtonEvent',
+    'compareButtonHandler',
     'affixEvent',
-    'navScroller',
-//    'fancyBox',
-//    'fancyBoxThumbs',
-    'typeahead'
-], function (jQuery, scrollSpyHandler, fancyBoxHandlers) {
+    'scrollSpy',
+    'jqueryCookie'
+], function (scrollSpyPackage, fancy) {
 
-    $.noConflict();
-
-//    (function ($) {
-//        $(document).ready(function () {
-//            $('ul.fancy-box a').fancybox( {
-//                openEffect: 'elastic',
-//                closeEffect: 'none',
-//                arrows: true,
-//                margin: [40, 40, 60, 40],
-//                helpers: {
-//                    thumbs: {
-//                        width: 50,
-//                        height: 50
-//                    }
-//                }
-//            });
-//        });
-//    })(jQuery);
-
-
-    jQuery(document).ready(function () {
-        scrollSpyHandler.initialize();
-        fancyBoxHandlers.initialize();
-    });
+    fancy.install();
+    scrollSpyPackage.install();
 });

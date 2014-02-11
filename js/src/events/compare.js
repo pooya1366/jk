@@ -16,7 +16,12 @@
 
     //remove effect
     $('#products').delegate('td .remove', 'click', function (e) {
+        var id = $(e.target).
+            parents('div[data-role=product]').
+            attr('data-product-id');
         jk.compare.removeFromGrid(e.target);
+        jk.compare.removeProduct(id);
+        jk.compare.removeFromUrl(id)
     });
 
     //initialize
