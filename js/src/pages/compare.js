@@ -49,6 +49,7 @@ require(['jquery',
 
     jQuery('#addToCompareSearchTxt').typeahead({
         minLength: 2,
+        limit: 10,
         valueKey: 'title',
         remote: {
             url: (function () { return '/jkcatalog/compare/search?q=%QUERY' + window.location.search.replace('?', '&')})()
