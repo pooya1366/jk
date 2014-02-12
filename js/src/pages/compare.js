@@ -51,13 +51,12 @@ require(['jquery',
         minLength: 2,
         valueKey: 'title',
         remote: {
-            url: '/jkcatalog/compare/search?q=%QUERY',
-            replace: function (url, query) {
-                return url.replace('%QUERY', query) + window.location.search.replace('?', '&');
-            }
-
+            url: (function () { return '/jkcatalog/compare/search?q=%QUERY' + window.location.search.replace('?', '&')})()
         },
         template: '<a href="{{url}}">{{title}}</a>',
         engine: Hogan
+    });
+    jQuery('#addToCompareSearchTxt').on('typeahead:selected', function (object, datum) {
+        window.location.href = datum.url;
     });
 });

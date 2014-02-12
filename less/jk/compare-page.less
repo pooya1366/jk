@@ -33,16 +33,56 @@ table {
     direction: rtl;
     padding: 50px 10px 0 10px;
     #addToCompareSearchTxt {
+      text-align: right;
       width: 100%;
       padding: 4px 10px;
       border: 1px solid #ccc;
       border-right: 2px solid @red;
       border-radius: 4px;
       margin-bottom: 10px;
+      text-align: right;
+      outline: none;
+      font-size: 11px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      direction: rtl !important;
+      text-align: right !important;
     }
     .note {
       font-size: 11px;
       color: #888;
+    }
+    .twitter-typeahead {
+      .tt-hint {
+        color: transparent;
+      }
+      .tt-dropdown-menu {
+        margin-top: -12px;
+        width: 100%;
+        text-align: right;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-top-color: white;
+        border-right: 2px solid @red;
+        border-radius: 0 0 4px 4px;
+
+        .tt-suggestion {
+          border-top: 1px solid #eee;
+          a {
+            padding: 5px;
+            display: block;
+            color: #333;
+            font-size: 11px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          &.tt-is-under-cursor {
+            background-color: #f5f5f5
+          }
+        }
+      }
     }
   }
 }
