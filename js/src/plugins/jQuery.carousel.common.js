@@ -105,6 +105,8 @@
 
         var init = function(){
             //initializing
+
+            updateNavClasses(0);
             updateBorderClasses();
             if (pagesCount() == 1) {
                 $node.find('.nav[data-direction=next]').
