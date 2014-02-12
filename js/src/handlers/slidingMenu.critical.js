@@ -20,7 +20,7 @@
         //    .css('display', display);
 
     };
-
+    
     jk.handlers.openDropdownMenu = function (target) {
         jk.handlers.changeSlideMenu(target, 'open');
     };
@@ -32,5 +32,4 @@
     jk.handlers.closeAllDropDowns = function () {
         $('.list-dropdown').removeClass('open');
     };
-
 })(jQuery);
