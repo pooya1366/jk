@@ -13,7 +13,7 @@
  *
  */
 
-define(['jqueryCookie'], function () {
+define(['js/src/plugins/jQuery.jkNotification', 'jqueryCookie'], function (Notification) {
     var cookieExpireTime = 9999999;
     (function ($) {
         window.jk = window.jk || {};
@@ -68,6 +68,8 @@ define(['jqueryCookie'], function () {
             }
 
             jk.compare.save(compareQueue);
+
+            new Notification({message: 'از لیست مقایسه حذف گردید.', duration: 3000});
         };
 
         /**
@@ -99,6 +101,8 @@ define(['jqueryCookie'], function () {
 
             //console.log('adding ' + productId + ' into category ' + setId);
             jk.compare.save(compareQueue);
+
+            new Notification({message: 'به لیست مقایسه اضافه شد.', duration: 3000});
         };
 
         //better to be called syncProductsWithCookie
