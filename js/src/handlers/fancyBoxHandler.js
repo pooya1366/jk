@@ -1,11 +1,15 @@
-define([
-    'jquery',
+require.config({
+    paths: {
+        fancyBox :'js/dist/plugins/fancyBox'
+    }
+});
+    define([
     'js/dist/plugins/fancyBox'
-], function ($) {
+], function () {
     return {
         install : function () {
-            $(document).ready(function () {
-                $('ul.fancy-box a').fancybox( {
+            jQuery(document).ready(function () {
+                jQuery('ul.fancy-box a').fancybox( {
                     openEffect: 'elastic',
                     closeEffect: 'none',
                     arrows: true,
