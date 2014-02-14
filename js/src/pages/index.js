@@ -21,7 +21,6 @@ require(['jquery',
         'commonPlugins',
         'commonVents',
         'compareButtonHandler',
-        'html5shiv',
         'slideShow'
 ], function () {
     jQuery.noConflict();
