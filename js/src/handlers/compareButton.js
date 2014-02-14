@@ -13,7 +13,7 @@
  *
  */
 
-define(['js/src/plugins/jQuery.jkNotification', 'jqueryCookie'], function (Notification) {
+define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (Notification) {
     var cookieExpireTime = 9999999;
     (function ($) {
         window.jk = window.jk || {};
