@@ -8,6 +8,7 @@ define(['compareButtonHandler'], function () {
             jk.handlers.updateCompareQueue(e.target);
             //sync
             jk.compare.syncViewWithCookie();
+            jk.compare.syncNavCompareList();
             e.preventDefault();
         });
 

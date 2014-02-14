@@ -85,6 +85,7 @@ require([
 
     setInterval(function () {
         jk.compare.syncViewWithCookie();
+        jk.compare.syncNavCompareList();
     }, 2000);
 
 });

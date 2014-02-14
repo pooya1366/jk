@@ -92,6 +92,7 @@ module.exports = function (grunt) {
                     'js/dist/events/captionHeader.min.js': 'js/src/events/captionHeader.js',
                     'js/dist/events/categoryViewToggle.min.js': 'js/src/events/categoryViewToggle.js',
                     'js/dist/events/compare.min.js': 'js/src/events/compare.js',
+                    'js/dist/events/compareButton.min.js': 'js/src/events/compareButton.js',
                     'js/dist/events/modals.min.js': 'js/src/events/modals.js',
                     'js/dist/events/navScroller.min.js': 'js/src/events/navScroller.js',
                     'js/dist/events/scrollSpy.min.js': 'js/src/events/scrollSpy.js'

@@ -36,21 +36,16 @@ require([
          'compareButtonHandler',
          'jqueryCookie'
 ], function (qViewEvent) {
-
-    var firstMsg = new Notification({message: 'some msg', duration: 10000});
-    setInterval(function () {
-        var firstMsg = new Notification({message: 'some msg', duration: 10000});
-    }, 4000)
-
     jQuery.noConflict();
-
-//    qViewEvent.install();
 
     jQuery(document).ready(function () {
         jk.compare.syncViewWithCookie();
+        jk.compare.syncNavCompareList();
+
         jk.compare.confirmInit();
         setInterval(function () {
             jk.compare.syncViewWithCookie();
+            jk.compare.syncNavCompareList();
         }, 2000);
     });
 

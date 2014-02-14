@@ -107,7 +107,8 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
 
         //better to be called syncProductsWithCookie
         jk.compare.syncViewWithCookie = function () {
-            $('.item-list li[data-role=product]').each(function () {
+
+            $('[data-role=product]').each(function () {
                 var productId = $(this).attr('data-product-id');
 
                 if (!~jk.compare.findProduct(productId)) {
@@ -130,7 +131,7 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
              *    stored in cookie is a pain, so It's easier to check
              *    items in the view first
              */
-            $('.item[data-role=product]').each(function () {
+            $('[data-role=product]').each(function () {
                 var id = $(this).attr('data-product-id');
                 var product = jk.compare.findProduct(id);
                 //product is in the compare queue
@@ -141,8 +142,9 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
                         addClass('fa-check-square-o');
                 }
             });
+        };
 
-
+        jk.compare.syncNavCompareList = function () {
             /**
              *
              *  this section builds compare queue view again based
@@ -171,7 +173,6 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
                     $('#compare-dropdown').append($li);
                 });
             }
-
         };
 
         /**
