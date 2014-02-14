@@ -1,3 +1,6 @@
+define(function () {
+    return (function () {
+
 (function ($) {
     if (typeof jk.compare === 'undefined') {
         jk.compare = {};
@@ -313,3 +316,6 @@
         jk.compare.syncRowsHeight();
     };
 })(jQuery);
+
+    })()
+});
