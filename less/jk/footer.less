@@ -1,0 +1,42 @@
+@import "../bootstrap/mixins";
+.footer-container {
+  margin: 40px 20px 0 20px;
+  min-width: 980px;
+  border: 1px solid #ddd;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  .footer {
+    .clearfix();
+    width: 980px;
+    margin: auto;
+
+    .col {
+      width: 245px;
+      padding: 10px 10px 0 10px;
+      float: right;
+
+      section {
+        margin-bottom: 30px;
+        hr {
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .socials {
+      .clearfix();
+      .social-item {
+        float: right;
+        padding: 0 8px;
+      }
+    }
+
+  }
+}
+.footer-copyright {
+  min-width: 980px;
+  margin: 0 20px;
+  padding: 30px 0;
+  text-align: center;
+}
