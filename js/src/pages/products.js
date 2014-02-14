@@ -2,36 +2,31 @@ require.config({
     baseUrl: '/skin/frontend/jetkharid/default/',
     waitSeconds: 200,
     paths: {
-        jquery: 'js/libs/jquery/jquery.min',
-        commonPlugins: 'js/dist/plugins/commonPlugins',
-        commonVents: 'js/dist/vents/commonVents',
+        //jQuery exists in this file and has been preloaded using a script tag
+        jquery: 'js/dist/critical.min',
+        commonPlugins: 'js/dist/plugins/commonPlugins.min',
+        commonVents: 'js/dist/vents/commonVents.min',
+        //only for IE
         html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
+        //must be concatenated into bootstrap
         dropDown: 'js/libs/bootstrap/js/dropdown',
-        ViewToggleHandler: 'js/src/handlers/categoryViewToggle',
-        ViewToggleEvent: 'js/src/events/categoryViewToggle',
-        compareButtonHandler: 'js/src/handlers/compareButton',
-        compareButtonEvent: 'js/src/events/compareButton',
-        jqueryCookie: 'js/libs/jqueryCookie/jquery.cookie'
+        ViewToggleHandler: 'js/dist/handlers/categoryViewToggle.min',
+        ViewToggleEvent: 'js/dist/events/categoryViewToggle.min',
+        compareButtonHandler: 'js/dist/handlers/compareButton.min',
+        compareButtonEvent: 'js/dist/events/compareButton.min',
+        jqueryCookie: 'js/dist/libs/jquery.cookie.min'
     }
 
     ,
     shim: {
-        commonPlugins: {
-            deps: ['jquery']
-        },
         dropDown: {
             deps: ['jquery']
-        },
-        bootstrap: {
-            deps: ['jquery'],
-            exports: '$.fn.popover'
         }
     }
 });
 
 require([
-         'jquery',
          'commonVents',
          'commonPlugins',
          'dropDown',
@@ -40,7 +35,7 @@ require([
          'compareButtonEvent',
          'compareButtonHandler',
          'jqueryCookie'
-], function (jQuery, qViewEvent) {
+], function (qViewEvent) {
 
     var firstMsg = new Notification({message: 'some msg', duration: 10000});
     setInterval(function () {
