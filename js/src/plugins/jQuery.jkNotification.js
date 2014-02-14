@@ -50,7 +50,7 @@ define(['jquery'], function ($) {
     Notify.prototype.dismiss = function () {
         var _this = this;
         this.wrapper.fadeOut(function () {
-            _this.remove();
+            _this.wrapper.remove();
         });
     };
 
