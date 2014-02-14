@@ -456,6 +456,37 @@
     top: 0;
     text-align: center;
 
+    .product-options {
+      label {
+        font-weight: bold;
+      }
+      ul.options-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          .clearfix();
+          .checkbox {
+            float: right;
+            display: block;
+            margin: 0;
+          }
+          .label {
+            color: black;
+            font-size: 11px;
+            float: right;
+            display: block;
+            margin: 0;
+            padding: 0;
+            label {
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+
     #select-quantity {
       margin-bottom: @grid-gutter-width / 2;
       label {
