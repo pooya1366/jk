@@ -6,8 +6,6 @@ require.config({
         jquery: 'js/dist/critical.min',
         commonPlugins: 'js/dist/plugins/commonPlugins.min',
         commonVents: 'js/dist/vents/commonVents.min',
-        //only for IE
-        html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         //must be concatenated into bootstrap
         dropDown: 'js/libs/bootstrap/js/dropdown',

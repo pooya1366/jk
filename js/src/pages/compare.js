@@ -6,9 +6,6 @@ require.config({
         jquery: 'js/dist/critical.min',
         commonPlugins: 'js/dist/plugins/commonPlugins.min',
         commonVents: 'js/dist/vents/commonVents.min',
-        //this script should only be loaded for IE
-        html5shiv: 'js/libs/html5shiv/dist/html5shiv',
-
         bootstrap: 'js/dist/libs/bootstrap.min',
         compareEvents: 'js/dist/events/compare.min',
         compareHandlers: 'js/dist/handlers/compare.min',

@@ -11,7 +11,6 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         compareButtonEvent: 'js/dist/events/compareButton.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
-        html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
         fancyBox :'js/dist/plugins/fancyBox.min',
         stickySidebar :'js/dist/plugins/stickySidebar.min'

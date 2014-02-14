@@ -6,8 +6,9 @@ require.config({
         jquery: 'js/dist/critical.min',
         commonPlugins: 'js/dist/plugins/commonPlugins.min',
         commonVents: 'js/dist/vents/commonVents.min',
-        html5shiv: 'js/libs/html5shiv/dist/html5shiv',
         respond: 'js/libs/respond/respond.min',
+        jqueryCookie: 'js/dist/libs/jquery.cookie.min',
+        compareButtonHandler: 'js/dist/handlers/compareButton.min',
         captionHeaderHandler: 'js/dist/handlers/captionHeader.min',
         captionHeaderEvent: 'js/dist/events/captionHeader.min'
     },
@@ -25,8 +26,13 @@ require.config({
 require(['jquery',
          'commonVents',
          'commonPlugins',
+         'compareButtonHandler',
          'captionHeaderHandler',
          'captionHeaderEvent'
 ], function () {
     jQuery.noConflict();
+
+    setInterval(function () {
+        jk.compare.syncNavCompareList();
+    }, 2000);
 });

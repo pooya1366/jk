@@ -5,9 +5,9 @@ require.config({
         //jQuery exists in this file and has been preloaded using a script tag
         jquery: 'js/dist/critical.min',
         commonPlugins: 'js/dist/plugins/commonPlugins.min',
+        compareButtonHandler: 'js/dist/handlers/compareButton.min',
         commonVents: 'js/dist/vents/commonVents.min',
-        //this script should only be loaded for IE
-        html5shiv: 'js/libs/html5shiv/dist/html5shiv',
+        jqueryCookie: 'js/dist/libs/jquery.cookie.min',
         slideShow: 'js/libs/flexSlider/jquery.flexslider'
     },
     shim: {
@@ -20,9 +20,14 @@ require.config({
 require(['jquery',
         'commonPlugins',
         'commonVents',
+        'compareButtonHandler',
         'html5shiv',
         'slideShow'
 ], function () {
     jQuery.noConflict();
+
+    setInterval(function () {
+        jk.compare.syncNavCompareList();
+    }, 2000);
 
 });
