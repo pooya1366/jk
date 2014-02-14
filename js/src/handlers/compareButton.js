@@ -108,7 +108,8 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
         //better to be called syncProductsWithCookie
         jk.compare.syncViewWithCookie = function () {
 
-            $('[data-role=product]').each(function () {
+            var $products = $('[data-role=product]');
+            $products.each(function () {
                 var productId = $(this).attr('data-product-id');
 
                 if (!~jk.compare.findProduct(productId)) {
@@ -131,7 +132,7 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
              *    stored in cookie is a pain, so It's easier to check
              *    items in the view first
              */
-            $('[data-role=product]').each(function () {
+            $products.each(function () {
                 var id = $(this).attr('data-product-id');
                 var product = jk.compare.findProduct(id);
                 //product is in the compare queue
@@ -237,7 +238,7 @@ define(['js/dist/plugins/jQuery.jkNotification.min', 'jqueryCookie'], function (
                     primaryQueue: '',
                     queues: {
                     }
-                }
+                };
                 jk.compare.save(compareQueue);
             }
 
