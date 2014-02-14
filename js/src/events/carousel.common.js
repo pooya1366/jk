@@ -1,3 +1,5 @@
-$(document).ready(function () {
-    jk.handlers.initCarousels();
-});
+(function ($) {
+    $(document).ready(function () {
+        jk.handlers.initCarousels();
+    });
+})(jQuery);
