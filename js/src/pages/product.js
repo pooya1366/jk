@@ -57,7 +57,7 @@ require([
     jQuery(document).ready(function () {
         jQuery('#prodcut-aside-fix').stickySidebar({
             headerSelector: '#jk-header',
-            contentSelector: '.product-details',
+            contentSelector: 'section.product-details',
             footerSelector: '.footer-container',
             navSelector: '.breadcrumb',
             sidebarTopMargin: 15,
