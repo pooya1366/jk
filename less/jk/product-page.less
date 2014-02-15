@@ -455,7 +455,27 @@
     left: 0;
     top: 0;
     text-align: center;
-
+    ul {
+      &.options-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          .checkbox {
+            float: right;
+            display: block;
+            margin: 0;
+          }
+          .label {
+            color: #333;
+            font-size: 11px;
+            float: right;
+            display: block;
+            padding: 0;
+          }
+        }
+      }
+    }
     #select-quantity {
       margin-bottom: @grid-gutter-width / 2;
       label {

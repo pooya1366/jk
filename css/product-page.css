@@ -397,6 +397,23 @@
   top: 0;
   text-align: center;
 }
+#product-common-info #buy-box ul.options-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#product-common-info #buy-box ul.options-list li .checkbox {
+  float: right;
+  display: block;
+  margin: 0;
+}
+#product-common-info #buy-box ul.options-list li .label {
+  color: #333;
+  font-size: 11px;
+  float: right;
+  display: block;
+  padding: 0;
+}
 #product-common-info #buy-box #select-quantity {
   margin-bottom: 10px;
 }
