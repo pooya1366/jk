@@ -60,7 +60,7 @@ require([
             contentSelector: '.product-details',
             footerSelector: '.footer-container',
             navSelector: '.breadcrumb',
-            sidebarTopMargin: 20,
+            sidebarTopMargin: 15,
             footerThreshold: 60
         });
     });

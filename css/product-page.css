@@ -57,12 +57,14 @@
   margin-bottom: 0;
 }
 .product-page-container .product-sidebar #prodcut-aside-fix {
+  top: 0;
   background-color: white;
   z-index: 1;
   position: relative;
 }
 .product-page-container .product-sidebar #prodcut-aside-fix.sticky {
   position: fixed;
+  top: 15px;
 }
 .product-page-container .product-sidebar #prodcut-aside-fix:after {
   padding: 0;
