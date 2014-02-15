@@ -8,6 +8,7 @@
             clearTimeout($nav_subcats_wrap.t);
             $nav_subcats_wrap.t = setTimeout((function() {
                 $nav_subcats_wrap.stop().animate({width: 520}, {queue: false, duration: 100});
+                setTimeout(function(){$nav_subcats_wrap.css('overflow', 'visible')}, 100);
             }), 50);
 
         }, function() {
