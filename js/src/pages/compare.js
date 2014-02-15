@@ -23,7 +23,6 @@ require.config({
 require([
     'commonPlugins',
     'commonVents',
-    'html5shiv',
     'compareHandlers',
     'compareEvents',
     'compareButtonEvent',
