@@ -206,11 +206,13 @@ define(function () {
         //set tr rows in properties table
         var $propertyRows = $('#properties tr');
         $('#grid tr').each(function (index) {
-            var height = $(this).css('height')
+            var height = $(this).height();
             //stupid firefox bug fix
             $propertyRows.eq(index).
-                css('height', height)
-            $(this).css('height', height);
+                height(height);
+
+            //**fixing stupid FF bug**
+            $(this).height($propertyRows.eq(index).height());
         });
     };
 
