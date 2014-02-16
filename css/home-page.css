@@ -8,6 +8,10 @@
     padding-left: 320px;
   }
 }
+.hp-container .carousels-wrapper {
+  margin-right: 250px;
+  overflow: hidden;
+}
 .hp-container .home-page-nav {
   position: relative;
   z-index: 5000;
