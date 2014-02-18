@@ -8,7 +8,7 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         commonVents: 'js/dist/vents/commonVents.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
-        slideShow: 'js/libs/flexSlider/jquery.flexslider'
+        slideShow: 'js/libs/flexSlider/jquery.flexslider-min'
     },
     shim: {
         slideShow: {
