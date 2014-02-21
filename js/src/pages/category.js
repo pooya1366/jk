@@ -35,16 +35,22 @@ require(['jquery',
 ], function () {
     jQuery.noConflict();
 
-	jQuery(document).ready(function () {
-		jQuery('.home-slider-wrapper').eq(0).jkSlider({
-			slideDuration: 5000,
-			effect: 'horizontal'
+	(function ($) {
+		$(document).ready(function () {
+			$('.home-slider-wrapper').each(function () {
+				$(this).jkSlider({
+					slideDuration: 5000,
+					effect: 'horizontal'
+				});
+			});
+			$('.cat-slider-wrapper').each(function () {
+				$(this).jkSlider({
+					slideDuration: 5000,
+					effect: 'vertical'
+				});
+			});
 		});
-		jQuery('.cat-slider-wrapper').eq(0).jkSlider({
-			slideDuration: 5000,
-			effect: 'vertical'
-		});
-	});
+	})(jQuery);
 
     setInterval(function () {
         jk.compare.syncNavCompareList();
