@@ -28,6 +28,7 @@ table {
 #corner .addToCompare #addToCompareSearchTxt {
   width: 100%;
   padding: 4px 10px;
+  height: 30px;
   border: 1px solid #ccc;
   border-right: 2px solid #cc0000;
   border-radius: 4px;
@@ -183,6 +184,7 @@ table {
 #properties table tbody tr td div {
   padding: 5px;
   padding-left: 20px;
+  direction: rtl;
 }
 #properties table tbody tr.heading {
   cursor: pointer;
@@ -200,6 +202,8 @@ table {
   color: white;
   margin-right: 5px;
   font-size: 14px;
+  float: left;
+  margin-top: 3px;
 }
 #properties table tbody tr.highlight td {
   background-color: #6f6f6f;

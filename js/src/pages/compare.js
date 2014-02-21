@@ -34,6 +34,7 @@ require([
     jQuery('#addToCompareSearchTxt').typeahead({
         minLength: 2,
         valueKey: 'title',
+        limit: 10,
         remote: {
             url: '/jkcatalog/compare/search?q=%QUERY',
             replace: function (url, query) {

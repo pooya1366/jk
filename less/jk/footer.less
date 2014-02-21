@@ -1,13 +1,20 @@
 @import "../bootstrap/mixins";
 .footer-container {
-  margin-top: 40px;
+  margin-top: 60px;
+  min-width: 980px;
+  border-top: 1px solid #ddd;
+  margin-left: 20px;
+  margin-right: 20px;
   .footer-inner {
     width: 980px;
     margin: auto;
-    border: 1px solid #ddd;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    .logo {
+      width: 150px;
+      height: 41px;
+      margin: 30px auto 20px auto;
+      background: url('../images/jetkharid-logo.svg') 0 0 no-repeat;
+      background-size: 150px;
+    }
     .footer {
       .clearfix();
       width: 980px;
@@ -42,8 +49,13 @@
 
 }
 .footer-copyright {
-  width: 980px;
   margin: auto;
-  padding: 20px 0;
   text-align: center;
+  margin-right: -20px;
+  margin-left: -20px;
+  background-color: #555;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11px;
 }

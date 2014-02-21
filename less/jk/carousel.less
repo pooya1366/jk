@@ -1,6 +1,75 @@
 @import "variables";
 @import "../bootstrap/mixins";
-.carousel-title {
+
+.carousel-wrapper {
+  .showbiz-container {
+    position: relative;
+    max-width: 100%;
+    min-width: 300px;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    .sb-navigation {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      &.sb-navigation-prev {
+        right: 0;
+      }
+      &.sb-navigation-next {
+        left: 0;
+      }
+    }
+    .showbiz {
+      position: relative;
+      padding: 0 50px;
+      > .overflowholder {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        > ul {
+          width: 100000px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li.sb-item {
+            float: right !important;
+            position: relative;
+            margin-left: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.products-carousel-wrapper {
+
+  &.with-border {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+
+    .carousel-title {
+      margin-top: 0;
+    }
+
+  }
+
+  .carousel-title {
+    color: #666;
+    font-size: 18px;
+  }
+
+}
+/*.carousel-title {
   font-weight: normal;
   font-size: 18px;
   margin: 30px 0 0 0;
@@ -46,9 +115,6 @@
     padding-right: @car-nav-width;
     margin: 0 auto;
     overflow: hidden;
-    /*@media (min-width: @screen-lg) {
-      width: @container-lg-desktop - 2 * @car-nav-width;
-    }*/
     .items {
       .clearfix();
       margin: 0;
@@ -58,8 +124,6 @@
       .item {
         .size((@container-desktop - 2 * @car-nav-width) / 5, 215px);
         float: right;
-        /*padding-right: @grid-gutter-width/2;
-        padding-left: @grid-gutter-width/2;*/
         @media (min-width: @screen-lg) {
           width: (@container-lg-desktop - 2 * @car-nav-width) / 6;
         }
@@ -145,4 +209,4 @@
       }
     }
   }
-}
+}*/
