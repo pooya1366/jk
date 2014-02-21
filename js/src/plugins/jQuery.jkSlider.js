@@ -26,9 +26,9 @@ define(['jquery'], function () {
 
 			init: function() {
 				if (this.options.effect == 'horizontal') {
-					this.distance = this.element.find('[data-role=actual-slides] li').first().width();
+					this.distance = this.element.data('width');
 				} else if (this.options.effect == 'vertical') {
-					this.distance = this.element.find('[data-role=actual-slides] li').first().height();
+					this.distance = this.element.data('height');
 				}
 				this.registerEvents();
 				if (this.options.autoStart) { this.startSlide(); }
