@@ -9,11 +9,6 @@ require.config({
         commonVents: 'js/dist/vents/commonVents.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
         slideShow: 'js/dist/plugins/jQuery.jkSlider.min'
-    },
-    shim: {
-        slideShow: {
-            deps: ['jquery']
-        }
     }
 });
 

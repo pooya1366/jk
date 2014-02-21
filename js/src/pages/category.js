@@ -10,7 +10,9 @@ require.config({
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         captionHeaderHandler: 'js/dist/handlers/captionHeader.min',
-        captionHeaderEvent: 'js/dist/events/captionHeader.min'
+        captionHeaderEvent: 'js/dist/events/captionHeader.min',
+	    slideShow: 'js/dist/plugins/jQuery.jkSlider.min'
+
     },
 
     shim: {
@@ -28,9 +30,21 @@ require(['jquery',
          'commonPlugins',
          'compareButtonHandler',
          'captionHeaderHandler',
-         'captionHeaderEvent'
+         'captionHeaderEvent',
+		 'slideShow'
 ], function () {
     jQuery.noConflict();
+
+	jQuery(document).ready(function () {
+		jQuery('.home-slider-wrapper').eq(0).jkSlider({
+			slideDuration: 5000,
+			effect: 'horizontal'
+		});
+		jQuery('.cat-slider-wrapper').eq(0).jkSlider({
+			slideDuration: 5000,
+			effect: 'vertical'
+		});
+	});
 
     setInterval(function () {
         jk.compare.syncNavCompareList();
