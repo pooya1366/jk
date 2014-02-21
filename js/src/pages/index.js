@@ -8,7 +8,7 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         commonVents: 'js/dist/vents/commonVents.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
-        slideShow: 'js/libs/flexSlider/jquery.flexslider'
+        slideShow: 'js/dist/plugins/jQuery.jkSlider.min'
     },
     shim: {
         slideShow: {
@@ -25,7 +25,7 @@ require(['jquery',
 ], function () {
     jQuery.noConflict();
 
-    setInterval(function () {
+	setInterval(function () {
         jk.compare.syncNavCompareList();
     }, 2000);
 
