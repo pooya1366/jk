@@ -9,13 +9,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.home-slider-wrapper').each(function () {
-                $(this).jkSlider({
+                window.s1 =$(this).jkSlider({
                     slideDuration: 5000,
+                    autoStart: false,
                     effect: 'horizontal'
                 });
             });
             $('.cat-slider-wrapper').each(function () {
-                $(this).jkSlider({
+                window.s2 =$(this).jkSlider({
                     slideDuration: 5000,
                     effect: 'vertical'
                 });
@@ -25,7 +26,7 @@
 </head>
 <body>
 
-<div class="home-slider-wrapper" data-width="600" data-animation-speed="200" data-delay="5000">
+<div class="home-slider-wrapper" data-width="660" data-animation-speed="2000" data-delay="5000">
     <div class="home-slider-container">
         <ul class="home-slider-menu pagination">
             <li class="active home-slide-menu-item" data-role="menu-item" data-id="1" data-pos="0">
@@ -42,25 +43,27 @@
             </li>
         </ul>
         <div style="right: -100px;" class="home-slider-menu-arrow">
-            <img src="horizontal_files/notch.png">
+            <img src="../images/jkSlider/notch.png">
         </div>
         <div class="home-slider-images-wrapper" data-role="actual-slides">
             <ul style="display: block; right: 0px;" class="home-slider-images-container">
                 <li class="home-slider-image">
-                    <img width="660" height="180" src="horizontal_files/ADBLCRE_2310_Bunkbed_Fantasy_Gaunt_CTA1._V381701897_.jpg">
+                    <img width="660" height="180" src="../images/jkSlider/2.jpg">
                 </li>
                 <li class="home-slider-image">
-                    <img width="660" height="180" src="horizontal_files/AIVPilots_Bunkbed_v2_660x180._V360912010_.jpg">
+                    <img width="660" height="180" src="../images/jkSlider/1.jpg">
                 </li>
                 <li class="home-slider-image">
-                    <img width="660" height="180" src="horizontal_files/GW-Olympics-Snowboard_660x180._V343012376_.jpg">
+                    <img width="660" height="180" src="../images/jkSlider/2.jpg">
                 </li>
                 <li class="home-slider-image">
-                    <img width="660" height="180" src="horizontal_files/MorphoMac_bunkbed_new_pointer._V354220644_.jpg">
+                    <img width="660" height="180" src="../images/jkSlider/1.jpg">
                 </li>
             </ul>
         </div>
     </div>
+    <div class="navigation next">Next</div>
+    <div class="navigation prev">Prev</div>
 </div>
 
 
