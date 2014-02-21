@@ -11,6 +11,8 @@ define(['jquery'], function () {
 
 		function Plugin( element, options ) {
 			this.element = element;
+			options.animSpeed = this.element.data('animation-speed');
+			options.duration = this.element.data('duration');
 			this.options = $.extend( {}, defaults, options) ;
 			this.numSlides = function () {return this.element.find('[data-role=actual-slides] li').length};
 			this.currSlide = 1;
