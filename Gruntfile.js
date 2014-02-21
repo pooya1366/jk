@@ -114,7 +114,8 @@ module.exports = function (grunt) {
                     'js/dist/plugins/affix.min.js': 'js/src/plugins/affix.js',
                     'js/dist/plugins/jQuery.jkNotification.min.js': 'js/src/plugins/jQuery.jkNotification.js',
                     'js/dist/plugins/scrollspy.min.js': 'js/src/plugins/affix.js',
-                    'js/dist/plugins/stickySidebar.min.js': 'js/src/plugins/stickySidebar.js'
+                    'js/dist/plugins/stickySidebar.min.js': 'js/src/plugins/stickySidebar.js',
+                    'js/dist/plugins/jQuery.jkSlider.min.js': 'js/src/plugins/jQuery.jkSlider.js'
                 }
             },
             libs: {
@@ -139,7 +140,6 @@ module.exports = function (grunt) {
                     {
                         src: ['less/jk/jk.less',
                             'js/libs/fancyBox/source/jquery.fancybox.css',
-                            'js/libs/flexSlider/flexslider.css',
                             'js/libs/fancyBox/source/helpers/jquery.fancybox-thumbs.css',
                             'less/overwrites/*.less'
                           ],
