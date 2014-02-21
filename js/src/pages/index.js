@@ -25,6 +25,17 @@ require(['jquery',
 ], function () {
     jQuery.noConflict();
 
+	jQuery(document).ready(function () {
+		jQuery('.home-slider-wrapper').eq(0).jkSlider({
+			slideDuration: 5000,
+			effect: 'horizontal'
+		});
+		jQuery('.cat-slider-wrapper').eq(0).jkSlider({
+			slideDuration: 5000,
+			effect: 'vertical'
+		});
+	});
+
 	setInterval(function () {
         jk.compare.syncNavCompareList();
     }, 2000);
