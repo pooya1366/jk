@@ -1,4 +1,4 @@
-define(['jquery'], function () {
+//define(['jquery'], function () {
 	;(function ( $, window, document, undefined ) {
 		var jkSlider = "jkSlider",
 			defaults = {
@@ -44,8 +44,8 @@ define(['jquery'], function () {
 			stopSlide: function(){
 				clearInterval(this.startInterval);
 			},
-			slide : function(target, pos){
-				this['slide_' + this.options.effect](target, pos);
+			slide : function(target, pos, userAction){
+				this['slide_' + this.options.effect](target, pos, userAction);
 			},
 			slide_vertical: function (target, pos) {
 				var _this = this;
@@ -62,7 +62,7 @@ define(['jquery'], function () {
 				this.currSlide = target;
 				this.slidePos = pos;
 			},
-			slide_horizontal: function (target, pos) {
+			slide_horizontal: function (target, pos, userAction) {
 				var _this = this;
 				this.sliding = true;
 				this.element.find('[data-role=menu-item]').removeClass('active');
@@ -75,37 +75,43 @@ define(['jquery'], function () {
 					_this.sliding = false;
 				});
 
-				this.element.find('.home-slider-images-container').
-					fadeOut(this.options.animSpeed, function(){
-						$(this).css('right', '-'+pos+'px');
-						$(this).fadeIn(_this.options.animSpeed);
-					});
+				if (!userAction) {
+					this.element.find('.home-slider-images-container').
+						fadeOut(this.options.animSpeed, function(){
+							$(this).css('right', '-'+pos+'px');
+							$(this).fadeIn(_this.options.animSpeed);
+						});
+				} else {
+					this.element.find('.home-slider-images-container').
+						animate({'right': '-'+pos+'px'}, this.options.animSpeed);
+				}
 
 				this.currSlide = target;
 				this.slidePos = pos;
 			},
-			next: function () {
+			next: function (userAction) {
 				if (!this.sliding) {
 					if(this.currSlide < this.numSlides()){
 						this.currSlide++;
 						this.slidePos += this.distance;
-						this.slide(this.currSlide, this.slidePos);
+						this.slide(this.currSlide, this.slidePos, userAction);
 					} else {
-						this.slide(1, 0);
+						this.slide(1, 0, userAction);
 						this.currSlide = 1;
+						this.slide(this.currSlide, this.slidePos, userAction);
 					}
 				}
 			},
-			prev: function () {
+			prev: function (userAction) {
 				if (!this.sliding) {
 					if(this.currSlide == 1){
 						this.currSlide = this.numSlides();
 						this.slidePos = this.numSlides() * this.distance;
-						this.slide(this.currSlide, this.slidePos);
+						this.slide(this.currSlide, this.slidePos, userAction);
 					} else {
 						this.currSlide--;
 						this.slidePos -= this.distance;
-						this.slide(this.currSlide, this.slidePos);
+						this.slide(this.currSlide, this.slidePos, userAction);
 					}
 				}
 			},
@@ -125,11 +131,11 @@ define(['jquery'], function () {
 
 					var slideTo = parseInt($(this).attr('data-id'));
 					var slidePos = parseInt($(this).attr('data-pos'));
-					_this.element.find('.pagination li').removeClass('active');
-					_this.element.find('[data-role=menu-item]').eq(slideTo - 1).
-						addClass('active');
 
 					_this.paginationTimeout = setTimeout(function(){
+						_this.element.find('.pagination li').removeClass('active');
+						_this.element.find('[data-role=menu-item]').eq(slideTo - 1).
+							addClass('active');
 						_this.slide(slideTo, slidePos);
 					}, _this.options.delay);
 				}, 	function(){
@@ -140,14 +146,25 @@ define(['jquery'], function () {
 				});
 
 				this.element.delegate('.navigation', 'click', function (e) {
-					console.log(1);
 					var $navigation = $(e.target);
 					if ($navigation.hasClass('next')) {
-						_this.next();
+						_this.next(true);
 					} else if ($navigation.hasClass('prev')) {
-						_this.prev();
+						_this.prev(true);
 					}
 				})
+				this.element.find('.home-slider-menu').delegate('li', 'click', function (e) {
+					if ($(e.target).hasClass('active')) {
+						return;
+					}
+					clearTimeout(_this.paginationTimeout);
+					var slideTo = parseInt($(this).attr('data-id'));
+					var slidePos = parseInt($(this).attr('data-pos'));
+					_this.element.find('.pagination li').removeClass('active');
+					_this.element.find('[data-role=menu-item]').eq(slideTo - 1).
+						addClass('active');
+					_this.slide(slideTo, slidePos);
+				});
 			}
 		};
 		// A really lightweight plugin wrapper around the constructor,
@@ -157,4 +174,4 @@ define(['jquery'], function () {
 		};
 
 	})( jQuery, window, document );
-});
+//});
