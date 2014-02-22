@@ -2,7 +2,7 @@
 	var jkVerticalSlider = "jkVerticalSlider",
 		defaults = {
 			animSpeed: 500,
-			delay: 1000,
+			delay: 400,
 			autoStart: true,
 			slideDuration: 5000,
 			effect: 'vertical'

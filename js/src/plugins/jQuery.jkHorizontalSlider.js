@@ -45,7 +45,7 @@
 			this.element.find('[data-role=menu-item]').removeClass('active');
 
 			this.element.find('[data-role=caret]').animate({
-				right: ((target-2)*100)
+				right: (-80+(target-1)*130)
 			}, _this.options.animSpeed, function(){
 				_this.element.find('[data-role=menu-item]').
 					eq(target - 1).addClass('active');

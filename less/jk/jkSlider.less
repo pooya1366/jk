@@ -140,13 +140,16 @@ ul.jk-h-slider-menu {
 }
 ul.jk-h-slider-menu > li {
     float: right;
-    width: 90px;
+    width: 130px;
     text-align: center;
     padding: 5px;
     cursor: pointer;
     font-family: tahoma;
     font-size: 12px;
     color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 ul.jk-h-slider-menu > li:hover {
     color: #222;
@@ -160,13 +163,13 @@ ul.jk-h-slider-menu > li.active {
 .jk-h-slider-images-wrapper {
     position: relative;
     width: 660px;
-    height: 180px;
+    height: 200px;
     overflow: hidden;
     clear: both;
 }
 ul.jk-h-slider-images-container {
     width: 1000%;
-    height: 180px;
+    height: 200px;
     position: absolute;
     right: 0;
 }
@@ -181,7 +184,7 @@ ul.jk-h-slider-images-container > li {
     z-index: 1;
     display: block;
     top: 29px;
-    right: -100px;
+    right: -80px;
     width: 294px;
     height: 10px;
     background: url(../images/hp-slider-arrow.png) no-repeat;
@@ -191,6 +194,10 @@ ul.jk-h-slider-images-container > li {
     position: absolute;
     top: 50%;
     z-index: 1;
+    color: #bbb;
+    &:hover {
+      color: #999;
+    }
 }
 .jk-h-slider-nav-arrow[data-nav-dir=next] {
     left: 5px;
