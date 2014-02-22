@@ -8,7 +8,7 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         commonVents: 'js/dist/vents/commonVents.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
-        slideShow: 'js/dist/plugins/jQuery.jkSlider.min'
+        slideShow: 'js/dist/plugins/jQuery.jkHorizontalSlider.min'
     }
 });
 
@@ -22,17 +22,8 @@ require(['jquery',
 
 	(function ($) {
 		$(document).ready(function () {
-			$('.home-slider-wrapper').each(function () {
-				$(this).jkSlider({
-					slideDuration: 5000,
-					effect: 'horizontal'
-				});
-			});
-			$('.cat-slider-wrapper').each(function () {
-				$(this).jkSlider({
-					slideDuration: 5000,
-					effect: 'vertical'
-				});
+			$('.jk-h-slider-wrapper').each(function () {
+				$(this).jkHorizontalSlider();
 			});
 		});
 	})(jQuery);

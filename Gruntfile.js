@@ -115,7 +115,8 @@ module.exports = function (grunt) {
                     'js/dist/plugins/jQuery.jkNotification.min.js': 'js/src/plugins/jQuery.jkNotification.js',
                     'js/dist/plugins/scrollspy.min.js': 'js/src/plugins/affix.js',
                     'js/dist/plugins/stickySidebar.min.js': 'js/src/plugins/stickySidebar.js',
-                    'js/dist/plugins/jQuery.jkSlider.min.js': 'js/src/plugins/jQuery.jkSlider.js'
+                    'js/dist/plugins/jQuery.jkHorizontalSlider.min.js': 'js/src/plugins/jQuery.jkHorizontalSlider.js',
+                    'js/dist/plugins/jQuery.jkVerticalSlider.min.js': 'js/src/plugins/jQuery.jkVerticalSlider.js'
                 }
             },
             libs: {

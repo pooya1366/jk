@@ -11,7 +11,7 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         captionHeaderHandler: 'js/dist/handlers/captionHeader.min',
         captionHeaderEvent: 'js/dist/events/captionHeader.min',
-	    slideShow: 'js/dist/plugins/jQuery.jkSlider.min'
+	    slideShow: 'js/dist/plugins/jQuery.jkVerticalSlider.min'
 
     },
 
@@ -37,17 +37,8 @@ require(['jquery',
 
 	(function ($) {
 		$(document).ready(function () {
-			$('.home-slider-wrapper').each(function () {
-				$(this).jkSlider({
-					slideDuration: 5000,
-					effect: 'horizontal'
-				});
-			});
 			$('.cat-slider-wrapper').each(function () {
-				$(this).jkSlider({
-					slideDuration: 5000,
-					effect: 'vertical'
-				});
+				$(this).jkVerticalSlider();
 			});
 		});
 	})(jQuery);
