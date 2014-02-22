@@ -122,7 +122,7 @@ define(['jquery'], function () {
 				});
 
 				this.element.delegate('[data-role=navigation]', 'click', function(e){
-					if ($(e.target).hasClass('processing')) {
+					if (_this.element.find('[data-role=navigation]').hasClass('processing')) {
 						return;
 					}
 					_this.element.find('[data-role=navigation]').addClass('processing');
