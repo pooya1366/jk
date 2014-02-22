@@ -125,7 +125,7 @@ define(['jquery'], function () {
 					if ($(e.target).hasClass('processing')) {
 						return;
 					}
-					$(e.target).addClass('processing');
+					_this.element.find('[data-role=navigation]').addClass('processing');
 
 					var direction = $(this).attr('data-nav-dir');
 					_this.element.find('[data-role=menu-item]').removeClass('active');
