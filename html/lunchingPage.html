@@ -5,144 +5,175 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/styles.css"/>
     <script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
-    <script type="text/javascript" src="../js/src/plugins/jQuery.jkSlider.js"></script>
+    <script type="text/javascript" src="../js/src/plugins/jQuery.jkHorizontalSlider.js"></script>
+    <script type="text/javascript" src="../js/src/plugins/jQuery.jkVerticalSlider.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.home-slider-wrapper').each(function () {
-                window.s1 =$(this).jkSlider({
-                    slideDuration: 5000,
-                    autoStart: false,
-                    effect: 'horizontal'
-                });
+            $('.jk-h-slider-wrapper').each(function () {
+                $(this).jkHorizontalSlider({autoStart:false});
             });
             $('.cat-slider-wrapper').each(function () {
-                window.s2 =$(this).jkSlider({
-                    slideDuration: 5000,
-                    effect: 'vertical'
-                });
+                $(this).jkVerticalSlider();
             });
         });
     </script>
 </head>
 <body>
 
-<div class="home-slider-wrapper" data-width="660" data-animation-speed="2000" data-delay="5000">
-    <div class="home-slider-container">
-        <ul class="home-slider-menu pagination">
-            <li class="active home-slide-menu-item" data-role="menu-item" data-id="1" data-pos="0">
+<div class="jk-h-slider-wrapper" id="s1" data-animation-speed="500" data-width="660" data-pause-time="2000">
+    <div class="jk-h-slider-container">
+        <ul class="jk-h-slider-menu">
+            <li class="active" data-role="menu-item" data-id="1" data-pos="0">
                 slide 1
             </li>
-            <li class="home-slide-menu-item" data-role="menu-item" data-id="2" data-pos="660">
+            <li class="" data-role="menu-item" data-id="2" data-pos="660">
                 slide 2
             </li>
-            <li class="home-slide-menu-item" data-role="menu-item" data-id="3" data-pos="1320">
+            <li class="" data-role="menu-item" data-id="3" data-pos="1320">
                 slide 3
             </li>
-            <li class="home-slide-menu-item" data-role="menu-item" data-id="4" data-pos="1980">
+            <li class="" data-role="menu-item" data-id="4" data-pos="1980">
                 slide 4
             </li>
         </ul>
-        <div style="right: -100px;" class="home-slider-menu-arrow">
+        <div class="jk-h-slider-nav-arrow" data-role="navigation" data-nav-dir="next">Next</div>
+        <div class="jk-h-slider-nav-arrow" data-role="navigation" data-nav-dir="prev">Previous</div>
+        <div style="right: -100px;" class="jk-h-slider-menu-arrow" data-role="caret">
             <img src="../images/jkSlider/notch.png">
         </div>
-        <div class="home-slider-images-wrapper" data-role="actual-slides">
-            <ul style="display: block; right: 0px;" class="home-slider-images-container">
-                <li class="home-slider-image">
-                    <img width="660" height="180" src="../images/jkSlider/2.jpg">
+        <div class="jk-h-slider-images-wrapper" data-role="actual-slides">
+            <ul style="display: block; right: 0px; opacity: 1;" class="jk-h-slider-images-container">
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/1.jpg">
                 </li>
-                <li class="home-slider-image">
-                    <img width="660" height="180" src="../images/jkSlider/1.jpg">
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/2.jpg">
                 </li>
-                <li class="home-slider-image">
-                    <img width="660" height="180" src="../images/jkSlider/2.jpg">
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/1.jpg">
                 </li>
-                <li class="home-slider-image">
-                    <img width="660" height="180" src="../images/jkSlider/1.jpg">
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/2.jpg">
                 </li>
             </ul>
         </div>
     </div>
-    <div class="navigation next">Next</div>
-    <div class="navigation prev">Prev</div>
 </div>
 
+<div class="jk-h-slider-wrapper" id="s2" data-animation-speed="500" data-width="660" data-pause-time="2000">
+    <div class="jk-h-slider-container">
+        <ul class="jk-h-slider-menu">
+            <li class="active" data-role="menu-item" data-id="1" data-pos="0">
+                slide 1
+            </li>
+            <li class="" data-role="menu-item" data-id="2" data-pos="660">
+                slide 2
+            </li>
+            <li class="" data-role="menu-item" data-id="3" data-pos="1320">
+                slide 3
+            </li>
+            <li class="" data-role="menu-item" data-id="4" data-pos="1980">
+                slide 4
+            </li>
+        </ul>
+        <div class="jk-h-slider-nav-arrow" data-role="navigation" data-nav-dir="next">Next</div>
+        <div class="jk-h-slider-nav-arrow" data-role="navigation" data-nav-dir="prev">Previous</div>
+        <div style="right: -100px;" class="jk-h-slider-menu-arrow" data-role="caret">
+            <img src="../images/jkSlider/notch.png">
+        </div>
+        <div class="jk-h-slider-images-wrapper" data-role="actual-slides">
+            <ul style="display: block; right: 0px; opacity: 1;" class="jk-h-slider-images-container">
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/1.jpg">
+                </li>
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/2.jpg">
+                </li>
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/1.jpg">
+                </li>
+                <li class="jk-h-slider-image">
+                    <img src="../images/jkSlider/2.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-
-
-<div class="cat-slider-wrapper" data-height="360" data-animation-speed="1000" data-delay="5000">
+<div class="cat-slider-wrapper" data-animation-speed="500" data-pause-time="100000" data-height="360">
     <div class="cat-slider-container">
-        <ul class="cat-slider-menu pagination">
-            <li class="active cat-slide-menu-item" data-role="menu-item" data-id="1" data-pos="0">
+        <ul class="cat-slider-menu">
+            <li data-id="1" data-pos="0" class="active" data-role="menu-item">
                 <div class="cat-slider-inner-menu">
-                    <img src="vertical_files/computers__samsung-tablets_thumb.png" alt="">
+                    <img src="./vertical_files/computers__samsung-tablets_thumb.png" alt="">
                     <div>
-                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s1?_encoding=UTF8&amp;ie=UTF8&amp;node=7767526011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">Galaxy PRO</a>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s1?_encoding=UTF8&ie=UTF8&node=7767526011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Galaxy PRO</a>
                         <span>New tablets from Samsung</span>
                     </div>
                 </div>
             </li>
-            <li class="cat-slide-menu-item" data-role="menu-item" data-id="2" data-pos="360">
+            <li data-id="2" data-pos="360" class="" data-role="menu-item">
                 <div class="cat-slider-inner-menu">
-                    <img src="vertical_files/perfect-dell_v1_ss_40.png" alt="">
+                    <img src="./vertical_files/perfect-dell_v1_ss_40.png" alt="">
                     <div>
-                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&amp;node=7865789011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">Find the Perfect Dell</a>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&node=7865789011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Find the Perfect Dell</a>
                         <span>Shop new releases</span>
                     </div>
                 </div>
             </li>
-            <li class="cat-slide-menu-item" data-role="menu-item" data-id="3" data-pos="720">
+            <li data-id="3" data-pos="720" class="" data-role="menu-item">
                 <div class="cat-slider-inner-menu">
-                    <img src="vertical_files/all-new_hp_ss_40.png" alt="">
+                    <img src="./vertical_files/all-new_hp_ss_40.png" alt="">
                     <div>
-                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&amp;ie=UTF8&amp;node=7895874011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">All-New</a>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&ie=UTF8&node=7895874011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">All-New</a>
                         <span>High Peformance HP Laptops</span>
                     </div>
                 </div>
             </li>
-            <li class="cat-slide-menu-item" data-role="menu-item" data-id="4" data-pos="1080">
+            <li data-id="4" data-pos="1080" class="" data-role="menu-item">
                 <div class="cat-slider-inner-menu">
-                    <img src="vertical_files/PC-New-Icon-40.jpg" alt="">
+                    <img src="./vertical_files/PC-New-Icon-40.jpg" alt="">
                     <div>
-                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&amp;node=7639398011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">New Computer Releases</a>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&node=7639398011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">New Computer Releases</a>
                         <span>Shop now</span>
                     </div>
                 </div>
             </li>
-            <li class="cat-slide-menu-item" data-role="menu-item" data-id="5" data-pos="1440">
+            <li data-id="5" data-pos="1440" class="" data-role="menu-item">
                 <div class="cat-slider-inner-menu">
-                    <img src="vertical_files/PremiumLaptop_Billboard_Icon_40x40.jpg" alt="">
+                    <img src="./vertical_files/PremiumLaptop_Billboard_Icon_40x40.jpg" alt="">
                     <div>
-                        <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&amp;field-pct-off-mp-owner=20-&amp;field-enc-merchantbin=ATVPDKIKX0DER&amp;ie=UTF8&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">Save 20% or More</a>
+                        <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&field-pct-off-mp-owner=20-&field-enc-merchantbin=ATVPDKIKX0DER&ie=UTF8&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Save 20% or More</a>
                         <span>on Select Laptops</span>
                     </div>
                 </div>
             </li>
         </ul>
-        <div style="top: -1440px;" class="cat-slider-images-wrapper" data-role="actual-slides">
+        <div class="cat-slider-images-wrapper" data-role="actual-slides" style="top: 0px;">
             <ul class="cat-slider-images-container">
                 <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img13/computers-pc-hardware/slideshow/computers_samsung-tablets_wide-slideshow_2.jpg) no-repeat center top; vertical-align:top;">
-                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s0?_encoding=UTF8&amp;ie=UTF8&amp;node=7767526011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">
-                        <img src="vertical_files/blank_770x360.gif" alt="Galaxy PRO" height="360" width="770">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s0?_encoding=UTF8&ie=UTF8&node=7767526011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Galaxy PRO">
                     </a>
                 </li>
                 <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img14/computers-pc-hardware/billboard/perfect-dell_sw-bb_1280x360.jpg) no-repeat center top; vertical-align; %&gt;;">
-                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&amp;node=7865789011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">
-                        <img src="vertical_files/blank_770x360.gif" alt="Find the Perfect Dell" height="360" width="770">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&node=7865789011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Find the Perfect Dell">
                     </a>
                 </li>
                 <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img14/computer-pc-hardware/billboard/all-new_hp_sw-bb_1280x360.jpg) no-repeat center top; vertical-align; %&gt;;">
-                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&amp;ie=UTF8&amp;node=7895874011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">
-                        <img src="vertical_files/blank_770x360.gif" alt="All-New" height="360" width="770">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&ie=UTF8&node=7895874011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="All-New">
                     </a>
                 </li>
                 <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/computer/billboard/PC-NewReleases-Billboard-C12014.jpg) no-repeat center top; vertical-align; %&gt;;">
-                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&amp;node=7639398011&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">
-                        <img src="vertical_files/blank_770x360.gif" alt="New Computer Releases" height="360" width="770">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&node=7639398011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="New Computer Releases">
                     </a>
                 </li>
                 <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/computer/scroller/LT-20Off-Billboard-C12014.jpg) no-repeat center top; vertical-align; %&gt;;">
-                    <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&amp;field-pct-off-mp-owner=20-&amp;field-enc-merchantbin=ATVPDKIKX0DER&amp;ie=UTF8&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=merchandised-search-3&amp;pf_rd_r=1V3RE7ME6TN5P88XD24Y&amp;pf_rd_t=101&amp;pf_rd_p=1728932542&amp;pf_rd_i=2956501011">
-                        <img src="vertical_files/blank_770x360.gif" alt="Save 20% or More" height="360" width="770">
+                    <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&field-pct-off-mp-owner=20-&field-enc-merchantbin=ATVPDKIKX0DER&ie=UTF8&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Save 20% or More">
                     </a>
                 </li>
             </ul>
@@ -150,6 +181,85 @@
     </div>
 </div>
 
-
+<div class="cat-slider-wrapper" data-animation-speed="500" data-pause-time="5000" data-height="360">
+    <div class="cat-slider-container">
+        <ul class="cat-slider-menu">
+            <li data-id="1" data-pos="0" class="active" data-role="menu-item">
+                <div class="cat-slider-inner-menu">
+                    <img src="./vertical_files/computers__samsung-tablets_thumb.png" alt="">
+                    <div>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s1?_encoding=UTF8&ie=UTF8&node=7767526011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Galaxy PRO</a>
+                        <span>New tablets from Samsung</span>
+                    </div>
+                </div>
+            </li>
+            <li data-id="2" data-pos="360" class="" data-role="menu-item">
+                <div class="cat-slider-inner-menu">
+                    <img src="./vertical_files/perfect-dell_v1_ss_40.png" alt="">
+                    <div>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&node=7865789011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Find the Perfect Dell</a>
+                        <span>Shop new releases</span>
+                    </div>
+                </div>
+            </li>
+            <li data-id="3" data-pos="720" class="" data-role="menu-item">
+                <div class="cat-slider-inner-menu">
+                    <img src="./vertical_files/all-new_hp_ss_40.png" alt="">
+                    <div>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&ie=UTF8&node=7895874011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">All-New</a>
+                        <span>High Peformance HP Laptops</span>
+                    </div>
+                </div>
+            </li>
+            <li data-id="4" data-pos="1080" class="" data-role="menu-item">
+                <div class="cat-slider-inner-menu">
+                    <img src="./vertical_files/PC-New-Icon-40.jpg" alt="">
+                    <div>
+                        <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&node=7639398011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">New Computer Releases</a>
+                        <span>Shop now</span>
+                    </div>
+                </div>
+            </li>
+            <li data-id="5" data-pos="1440" class="" data-role="menu-item">
+                <div class="cat-slider-inner-menu">
+                    <img src="./vertical_files/PremiumLaptop_Billboard_Icon_40x40.jpg" alt="">
+                    <div>
+                        <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&field-pct-off-mp-owner=20-&field-enc-merchantbin=ATVPDKIKX0DER&ie=UTF8&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">Save 20% or More</a>
+                        <span>on Select Laptops</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="cat-slider-images-wrapper" data-role="actual-slides" style="top: 0px;">
+            <ul class="cat-slider-images-container">
+                <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img13/computers-pc-hardware/slideshow/computers_samsung-tablets_wide-slideshow_2.jpg) no-repeat center top; vertical-align:top;">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s0?_encoding=UTF8&ie=UTF8&node=7767526011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Galaxy PRO">
+                    </a>
+                </li>
+                <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img14/computers-pc-hardware/billboard/perfect-dell_sw-bb_1280x360.jpg) no-repeat center top; vertical-align; %&gt;;">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s2?_encoding=UTF8&node=7865789011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Find the Perfect Dell">
+                    </a>
+                </li>
+                <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/img14/computer-pc-hardware/billboard/all-new_hp_sw-bb_1280x360.jpg) no-repeat center top; vertical-align; %&gt;;">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s3?_encoding=UTF8&ie=UTF8&node=7895874011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="All-New">
+                    </a>
+                </li>
+                <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/computer/billboard/PC-NewReleases-Billboard-C12014.jpg) no-repeat center top; vertical-align; %&gt;;">
+                    <a href="http://www.jetkharid.com/b/ref=s9_acss_bw_hsb_PC-200-Store_s4?_encoding=UTF8&node=7639398011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="New Computer Releases">
+                    </a>
+                </li>
+                <li class="cat-slider-image" style="background: transparent url(http://g-ecx.images-amazon.com/images/G/01/computer/scroller/LT-20Off-Billboard-C12014.jpg) no-repeat center top; vertical-align; %&gt;;">
+                    <a href="http://www.amazon.com/s/ref=s9_acss_bw_hsb_PC-200-Store_s5?rh=i%3Acomputers%2Cn%3A565108&field-pct-off-mp-owner=20-&field-enc-merchantbin=ATVPDKIKX0DER&ie=UTF8&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=1V3RE7ME6TN5P88XD24Y&pf_rd_t=101&pf_rd_p=1728932542&pf_rd_i=2956501011">
+                        <img src="./vertical_files/blank_770x360._V352951858_.gif" width="770" height="360" alt="Save 20% or More">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
