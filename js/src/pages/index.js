@@ -8,7 +8,7 @@ require.config({
         compareButtonHandler: 'js/dist/handlers/compareButton.min',
         commonVents: 'js/dist/vents/commonVents.min',
         jqueryCookie: 'js/dist/libs/jquery.cookie.min',
-        slideShow: 'js/dist/plugins/jQuery.jkHorizontalSlider.min'
+        slideShow: 'js/src/plugins/jQuery.jkHorizontalSlider'
     }
 });
 

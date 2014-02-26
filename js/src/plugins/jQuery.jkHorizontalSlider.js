@@ -3,10 +3,8 @@ define(['jquery'], function () {
 		var jkHorizontalSlider = "jkHorizontalSlider",
 			defaults = {
 				animSpeed: 500,
-				delay: 1000,
 				autoStart: true,
-				slideDuration: 5000,
-				effect: 'vertical'
+				slideDuration: 5000
 			};
 
 		function Plugin( element, options ) {
@@ -51,21 +49,18 @@ define(['jquery'], function () {
 					_this.element.find('[data-role=menu-item]').
 						eq(target - 1).addClass('active');
 					_this.sliding = false;
-					_this.element.find('.jk-h-slider-menu').removeClass('processing');
 				});
 
 				if(effect == 'fade'){
 					this.element.find('[data-role=actual-slides]').
-						fadeOut(this.options.animSpeed, function(){
+						fadeOut(this.options.animSpeed/2, function(){
 							$(this).find('ul').css('right', '-'+pos+'px');
-						}).fadeIn(_this.options.animSpeed);
+						}).fadeIn(_this.options.animSpeed/2);
 				}
 				else {
 					this.element.find('[data-role=actual-slides] ul').animate({
 						right: '-'+pos
-					}, _this.options.animSpeed, function(){
-						_this.element.find('[data-role=navigation]').removeClass('processing');
-					});
+					}, _this.options.animSpeed);
 				}
 
 				this.currSlide = target;
@@ -107,25 +102,25 @@ define(['jquery'], function () {
 					}
 				});
 
-				this.element.delegate('[data-role=menu-item]', 'click', function(){
-					if (_this.element.find('.jk-h-slider-menu').hasClass('processing')) {
-						return;
-					}
-					var slideTo = parseInt($(this).attr('data-id'));
-					if(_this.currSlide != slideTo) {
-						var slidePos = parseInt($(this).attr('data-pos'));
-						_this.element.find('.jk-h-slider-menu').addClass('processing');
-						_this.element.find('[data-role=menu-item]').removeClass('active');
-						_this.slide(slideTo, slidePos, 'fade');
-						_this.stopSlide();
-					}
+				this.element.delegate('[data-role=menu-item]', 'click', function() {
+                    var slideTo = parseInt($(this).attr('data-id'));
+                    if(!_this.sliding && _this.currSlide != slideTo) {
+
+                        var slidePos = parseInt($(this).attr('data-pos'));
+                        _this.element.find('[data-role=menu-item]').removeClass('active');
+                        _this.slide(slideTo, slidePos, 'fade');
+                        _this.stopSlide();
+                        clearTimeout(_this.paginationTimeout);
+                        _this.startSlide();
+
+                    }
+
 				});
 
 				this.element.delegate('[data-role=navigation]', 'click', function(e){
-					if (_this.element.find('[data-role=navigation]').hasClass('processing')) {
+					if (_this.sliding) {
 						return;
 					}
-					_this.element.find('[data-role=navigation]').addClass('processing');
 
 					var direction = $(this).attr('data-nav-dir');
 					_this.element.find('[data-role=menu-item]').removeClass('active');
