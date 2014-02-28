@@ -112,6 +112,7 @@ module.exports = function (grunt) {
             plugins: {
                 files: {
                     'js/dist/plugins/affix.min.js': 'js/src/plugins/affix.js',
+                    'js/dist/plugins/modal.min.js': 'js/libs/bootstrap/js/modal.js',
                     'js/dist/plugins/jQuery.jkNotification.min.js': 'js/src/plugins/jQuery.jkNotification.js',
                     'js/dist/plugins/scrollspy.min.js': 'js/src/plugins/affix.js',
                     'js/dist/plugins/stickySidebar.min.js': 'js/src/plugins/stickySidebar.js',

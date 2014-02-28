@@ -41,6 +41,25 @@
         .social-item {
           float: right;
           padding: 0 5px;
+          .social-icon {
+            .img-retina('../images/social-icons.png'; '../images/social-icons@2x.png'; 40px; 160px);
+            background-repeat: no-repeat;
+            width: 40px;
+            height: 40px;
+            display: block;
+            &.facebook {
+              background-position: 0 0;
+            }
+            &.instagram {
+              background-position: 0 -40px;
+            }
+            &.twitter {
+              background-position: 0 -120px;
+            }
+            &.google-plus {
+              background-position: 0 -80px;
+            }
+          }
         }
       }
 

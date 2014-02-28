@@ -1,12 +1,15 @@
+@import "../bootstrap/variables";
 @import "variables";
+@import "../bootstrap/modals";
 @import "../bootstrap/mixins";
+
 .hp-container{
   position: relative;
 
 
   .content-wrapper {
     @media (min-width: @screen-lg) {
-      //padding-left: 320px;
+
     }
   }
   .carousels-wrapper {
@@ -16,8 +19,7 @@
 
   .home-page-nav {
     position: relative;
-    z-index: 5000;
-    /*height: 512px;*/
+    z-index: 2;
   }
 
   .hp-slider {
@@ -28,9 +30,7 @@
   }
   .hp-left-side {
     width: 300px;
-    //position: absolute;
-    //left: @grid-gutter-width;
-    //top: 0;
+    margin-right: 20px;
     float: left;
     display: none;
     @media (min-width: @screen-lg) {
@@ -82,31 +82,3 @@
     }
   }
 }
-
-/*.shortcut-blocks {
-  .clearfix();
-  margin-right: 250px;
-  overflow: hidden;
-  .shortcut-block {
-    text-align: center;
-    float: right;
-    width: 33%;
-    &.fourth,
-    &.fifth {
-      display: none;
-    }
-    @media (min-width: 1190px) {
-      width: 25%;
-      &.fourth {
-        display: block;
-      }
-    }
-    @media (min-width: 1390px) {
-      width: 20%;
-      &.fourth,
-      &.fifth {
-        display: block;
-      }
-    }
-  }
-}*/
