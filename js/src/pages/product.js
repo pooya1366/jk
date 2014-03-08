@@ -54,33 +54,29 @@ require([
 ], function (scrollSpyPackage) {
     jQuery.noConflict();
 
-    jQuery(document).ready(function () {
-        jQuery('#prodcut-aside-fix').stickySidebar({
-            headerSelector: '#jk-header',
-            contentSelector: 'section.product-details',
-            footerSelector: '.footer-container',
-            navSelector: '.breadcrumb',
-            sidebarTopMargin: 15,
-            footerThreshold: 60
-        });
+    jQuery('#prodcut-aside-fix').stickySidebar({
+        headerSelector: '#jk-header',
+        contentSelector: 'section.product-details',
+        footerSelector: '.footer-container',
+        navSelector: '.breadcrumb',
+        sidebarTopMargin: 15,
+        footerThreshold: 60
     });
 
-    jQuery(document).ready(function () {
-        jQuery('ul.fancy-box a').fancybox( {
-            openEffect: 'elastic',
-            closeEffect: 'none',
-            arrows: true,
-            margin: [40, 40, 60, 40],
-            helpers: {
-                thumbs: {
-                    width: 50,
-                    height: 50
-                }
+    jQuery('ul.fancy-box a').fancybox( {
+        openEffect: 'elastic',
+        closeEffect: 'none',
+        arrows: true,
+        margin: [40, 40, 60, 40],
+        helpers: {
+            thumbs: {
+                width: 50,
+                height: 50
             }
-        });
+        }
     });
 
-        scrollSpyPackage.install();
+    scrollSpyPackage.install();
 
     setInterval(function () {
         jk.compare.syncViewWithCookie();

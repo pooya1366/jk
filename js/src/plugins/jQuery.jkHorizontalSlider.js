@@ -65,9 +65,12 @@ define(['jquery'], function () {
 
 				this.currSlide = target;
 				this.slidePos = pos;
+
+                clearTimeout(this.paginationTimeout);
 			},
 			next: function () {
 				if (!this.sliding) {
+
 					if(this.currSlide < this.numSlides()){
 						this.currSlide++;
 						this.slidePos += this.distance;
@@ -80,6 +83,7 @@ define(['jquery'], function () {
 			},
 			prev: function () {
 				if (!this.sliding) {
+
 					if(this.currSlide == 1){
 						this.currSlide = this.numSlides();
 						this.slidePos = this.numSlides() * this.distance;

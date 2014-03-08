@@ -19,13 +19,20 @@ require(['jquery',
         'slideShow'
 ], function () {
     jQuery.noConflict();
-
 	(function ($) {
-		$(document).ready(function () {
-			$('.jk-h-slider-wrapper').each(function () {
-				$(this).jkHorizontalSlider();
-			});
-		});
+        $('.jk-h-slider-wrapper').each(function () {
+            $(this).jkHorizontalSlider();
+        });
+
+        $('.jk-h-slider-menu li').tooltip({
+            placement: 'top',
+            container: 'body',
+            animation: true,
+            delay: {
+                show: 150,
+                hide: 50
+            }
+        });
 	})(jQuery);
 
 	setInterval(function () {

@@ -2,9 +2,15 @@
 @screen-lg:         (@container-lg-desktop + (2*@grid-gutter-width));*/
 @font-face {
   font-family: 'jk-Koodak';
-  src: url('../fonts/font-koodak/fonts/Koodak.eot?#') format('eot'), url('../fonts/font-koodak/fonts/Koodak.woff') format('woff'), url('../fonts/font-koodak/fonts/Koodak.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('../fonts/font-koodak/fonts/BKoodakBold.eot');
+  
+  /* here you go, IE */
+}
+@font-face {
+  font-family: 'jk-Koodak';
+  src: url('../fonts/font-koodak/fonts/BKoodakBold.ttf') format('truetype');
+  
+  /* everyone else take this */
 }
 .page-title {
   display: none;

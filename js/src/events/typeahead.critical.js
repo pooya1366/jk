@@ -1,10 +1,12 @@
 (function ($) {
-    $(document).ready(function () {
-        $('input#search-text').typeahead([
+    $('#search_mini_form').ready(function(){
+        var inputText = $('input#search-text');
+        inputText.typeahead([
             {
                 minLength: 2,
                 name: 'terms',
                 valueKey: 'title',
+                hint: false,
                 remote: '/jkcatalogsearch/ajax/suggestedTerms/?q=%QUERY',
                 header: '<h2 class="header">پیشنهادات</h2>',
                 template: '<p><strong class="title">{{title}}</strong><span class="num">({{num_of_results}})</span></p>',
@@ -14,6 +16,7 @@
                 minLength: 2,
                 name: 'products',
                 valueKey: 'title',
+                hint: false,
                 remote: {
                     url: '/jkcatalogsearch/ajax/suggestedProducts/?q=%QUERY'
                 },
@@ -29,8 +32,7 @@
                 engine: Hogan
             }
         ]);
-
-        $('input#search-text').on('typeahead:selected', function (object, datum) {
+        inputText.on('typeahead:selected', function (object, datum) {
             switch (datum.type)
             {
                 case 'term':
@@ -41,5 +43,6 @@
                     break;
             }
         });
+
     });
 })(jQuery);

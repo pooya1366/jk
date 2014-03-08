@@ -55,6 +55,8 @@ module.exports = function (grunt) {
                     'js/libs/jquery/jquery.js',
                     'js/libs/typeahead.js/dist/typeahead.js',
                     'js/libs/typeahead.js/test/vendor/hogan-2.0.0.js',
+                    'js/libs/bootstrap/js/tooltip.js',
+                    'js/libs/bootstrap/js/popover.js',
                     'js/src/extras/noConflict.js',
                     'js/src/plugins/*.critical.js',
                     'js/src/handlers/*.critical.js',
@@ -113,6 +115,9 @@ module.exports = function (grunt) {
                 files: {
                     'js/dist/plugins/affix.min.js': 'js/src/plugins/affix.js',
                     'js/dist/plugins/modal.min.js': 'js/libs/bootstrap/js/modal.js',
+                    'js/dist/plugins/tooltip.min.js': 'js/libs/bootstrap/js/tooltip.js',
+                    'js/dist/plugins/popover.min.js': 'js/libs/bootstrap/js/popover.js',
+                    'js/dist/plugins/transition.min.js': 'js/libs/bootstrap/js/transition.js',
                     'js/dist/plugins/jQuery.jkNotification.min.js': 'js/src/plugins/jQuery.jkNotification.js',
                     'js/dist/plugins/scrollspy.min.js': 'js/src/plugins/affix.js',
                     'js/dist/plugins/stickySidebar.min.js': 'js/src/plugins/stickySidebar.js',
@@ -124,6 +129,7 @@ module.exports = function (grunt) {
                 files: {
                     'js/dist/libs/bootstrap.min.js': 'js/dist/libs/bootstrap.js',
                     'js/dist/libs/html5shiv.min.js': 'js/libs/html5shiv/dist/html5shiv.js',
+                    'js/dist/libs/respond.min.js': 'js/libs/respond/src/respond.js',
                     'js/dist/libs/jquery.cookie.min.js': 'js/libs/jqueryCookie/jquery.cookie.js',
                     'js/dist/libs/modernizr.min.js': 'js/libs/modernizr/modernizr.js',
                     'js/dist/libs/requirejs.min.js': 'js/libs/requirejs/require.js',

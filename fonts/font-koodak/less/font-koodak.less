@@ -1,9 +1,12 @@
-@font-face{
-  font-family: 'jk-Koodak';
-  src:    url('@{koodak-font-path}/Koodak.eot?#') format('eot'),
-  url('@{koodak-font-path}/Koodak.woff') format('woff'),
-  url('@{koodak-font-path}/Koodak.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@font-face
+{
+  font-family:'jk-Koodak';
+  src: url('@{koodak-font-path}/BKoodakBold.eot'); /* here you go, IE */
+}
+
+@font-face
+{
+  font-family:'jk-Koodak';
+  src: url('@{koodak-font-path}/BKoodakBold.ttf') format('truetype'); /* everyone else take this */
 }
 @font-family-koodak  : "jk-Koodak", "Helvetica Neue",Helvetica,Arial,sans-serif;
